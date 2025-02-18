@@ -1,1 +1,20 @@
 @import "tailwindcss";
+@theme {
+    --font-display: "Satoshi", "sans-serif";
+    /* --breakpoint-3xl: 1920px; */
+    --color-primary: #ffae00;
+    --color-secondary: "#F8F8F8";
+    --color-dark: "#1d1d1d";
+    --color-accent: "#D72638";
+    --color-muted: "#B0B0B0";
+    /* ... */
+}
+
+.container {
+    width: 1280px;
+    max-width: 96%;
+    margin: 0 auto;
+}
+.button_primary {
+    @apply cursor-pointer font-medium text-black bg-primary px-4 py-1 rounded
+}
