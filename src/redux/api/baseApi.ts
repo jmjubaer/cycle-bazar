@@ -1,6 +1,5 @@
 import {
     BaseQueryApi,
-
     BaseQueryFn,
     createApi,
     DefinitionType,
@@ -45,7 +44,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     }
     if (result?.error && result?.error?.status === 401) {
         const response = await fetch(
-            "http://localhost:5000/api/v1/auth/refresh-token",
+            "http://localhost:5000/api/auth/refresh-token",
             {
                 method: "POST",
                 credentials: "include", // Ensure cookies are sent
@@ -66,7 +65,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 
 export const baseApi = createApi({
     reducerPath: "usersApi",
-    baseQuery: baseQuery,
+    baseQuery: baseQueryWithRefreshToken,
     endpoints: () => ({}),
     tagTypes: [],
 });

@@ -1,14 +1,52 @@
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import bg from "../assets/bicycle-bg.avif";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { TResponse } from "../types/global.types";
+import { useSignupMutation } from "../redux/features/auth/authApi";
+
+type TSingUp = {
+    name: string;
+    email: string;
+    password: string;
+};
+type TUser = {
+    name: string;
+    email: string;
+    password: string;
+    role: string;
+    status: string;
+    isDeleted: boolean;
+};
 const SignUp = () => {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FieldValues>();
-    const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
+    } = useForm<TSingUp>();
+    const [registration] = useSignupMutation();
+    const navigate = useNavigate();
+    // const dispatch = useAppDispatch();
 
+    const handleSignUp: SubmitHandler<TSingUp> = async (data) => {
+        const tostId = toast.loading("User is creating...");
+        try {
+            const response = (await registration(
+                data
+            ).unwrap()) as TResponse<TUser>;
+            console.log(response);
+            if (response.success) {
+                toast.success("Signup is successfully", {
+                    id: tostId,
+                });
+                navigate("/login");
+            }
+        } catch (error: any) {
+            toast.success(error.message, {
+                id: tostId,
+            });
+        }
+    };
     return (
         <div className='relative h-[calc(100vh-69px)]'>
             <img src={bg} className='object-cover w-full opacity-90 h-full' />
@@ -16,7 +54,7 @@ const SignUp = () => {
                 <h2 className='text-center mb-5 text-3xl font-semibold'>
                     Sign Up
                 </h2>
-                <form onSubmit={handleSubmit(onSubmit)} className=' '>
+                <form onSubmit={handleSubmit(handleSignUp)} className=' '>
                     <input
                         className='w-full placeholder:text-dark outline-none border-b-2 border-primary  p-3 px-0'
                         placeholder='Enter Name ...'
