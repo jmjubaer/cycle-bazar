@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @theme {
-    --font-display: "Satoshi", "sans-serif";
+    /* --font-display: "Satoshi", "sans-serif"; */
     /* --breakpoint-3xl: 1920px; */
     --color-primary: #ffae00;
     --color-secondary: "#F8F8F8";
@@ -9,12 +9,20 @@
     --color-muted: "#B0B0B0";
     /* ... */
 }
-
+body {
+    font-family: "Poppins", serif;
+}
+.secondary_font {
+    font-family: "Oxanium", serif;
+}
 .container {
     width: 1280px;
     max-width: 96%;
     margin: 0 auto;
 }
 .button_primary {
-    @apply cursor-pointer font-medium text-black bg-primary px-4 py-1 rounded
+    @apply cursor-pointer font-medium text-black bg-primary px-4 py-1 rounded;
+}
+.button_primary_large {
+    @apply cursor-pointer font-medium text-white text-xl bg-primary px-16 py-3 rounded;
 }

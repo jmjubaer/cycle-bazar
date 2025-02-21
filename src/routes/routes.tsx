@@ -4,12 +4,14 @@ import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 import CustomerDashboard from "../pages/dashboard/CustomerDashboard";
 import AdminDashboard from "../pages/dashboard/AdminDashboard";
+import Home from "../pages/home/Home";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
         children: [
+            { path: "/", element: <Home /> },
             { path: "/login", element: <Login /> },
             { path: "/signup", element: <SignUp /> },
             { path: "/dashboard/customer", element: <CustomerDashboard /> },
