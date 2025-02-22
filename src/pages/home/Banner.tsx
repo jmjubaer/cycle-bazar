@@ -9,8 +9,6 @@ import image_1 from "../../assets/banner_image_1.jfif";
 import image_2 from "../../assets/banner_image_2.jfif";
 import image_3 from "../../assets/banner_image_3.jfif";
 import image_4 from "../../assets/banner_image_4.jfif";
-import image_5 from "../../assets/banner_image_5.jfif";
-import image_6 from "../../assets/banner_image_6.jfif";
 // import required modules
 import { EffectFade, Pagination, Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
@@ -31,10 +29,11 @@ const Banner = () => {
                     clickable: true,
                 }}
                 // autoplay={{
-                //     delay: 2500,
+                    
+                //     delay: 5000,
                 //     disableOnInteraction: false,
                 // }}
-                modules={[EffectFade, Pagination]}
+                modules={[EffectFade, Pagination,Autoplay]}
                 className='mySwiper h-[90vh] max-h-[480px]'>
                 <SwiperSlide>
                     <div className='relative w-full h-full'>
