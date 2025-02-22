@@ -20,6 +20,9 @@ body {
     max-width: 96%;
     margin: 0 auto;
 }
+.news_letter_bg {
+    background: url("../src/assets/newsletter-bg.webp");
+}
 .button_primary {
     @apply cursor-pointer font-medium text-black bg-primary px-4 py-1 rounded;
 }
