@@ -32,7 +32,7 @@ const Navbar = () => {
         // onClick: handleChangeStatus,
     };
     return (
-        <header className='overflow-auto text-white z-10 sticky top-0 left-0 bg-black/80 py-2'>
+        <header className='overflow-auto text-white z-30 sticky top-0 left-0 bg-black/80 py-2'>
             <div className='container flex items-center justify-between'>
                 <Link to={"/"}>
                     <img
