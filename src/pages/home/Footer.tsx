@@ -40,8 +40,10 @@ const Footer = () => {
                     </h3>
                     <ul className='flex flex-col gap-5'>
                         <Link to={"/"}>Home</Link>
-                        <Link to={"/"}>Bicycle</Link>
+                        <Link to={"/bicycles"}>Bicycles</Link>
                         <Link to={"/"}>About Us</Link>
+                        <Link to={"/login"}>Login</Link>
+                        <Link to={"/signup"}>Sign Up</Link>
                     </ul>
                 </div>
                 <div className=''>
@@ -58,7 +60,9 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <p className="py-8 text-sm text-center border-y mt-6 border-gray-700 text-gray-500">© Copyright 2021 CycleBazar</p>
+            <p className='py-8 text-sm text-center border-y mt-6 border-gray-700 text-gray-500'>
+                © Copyright 2021 CycleBazar
+            </p>
         </footer>
     );
 };

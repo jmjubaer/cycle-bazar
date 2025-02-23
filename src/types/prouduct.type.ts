@@ -1,14 +1,14 @@
 export type TProduct = {
+    _id: string;
     name: string;
     brand: string;
     model: string;
     image: string;
     price: number;
     tag?: string;
-    type: 'Mountain' | 'Road' | 'Hybrid' | 'BMX' | 'Electric' | "Kids";
+    type: "Mountain" | "Road" | "Hybrid" | "BMX" | "Electric" | "Kids";
     description: string;
     quantity: number;
     inStock: boolean;
     colors: string[];
-  };
-  
+};

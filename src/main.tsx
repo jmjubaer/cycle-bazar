@@ -14,7 +14,7 @@ createRoot(document.getElementById("root")!).render(
             theme={{
                 token: {
                     // Seed Token
-                    colorPrimary: "#ffae00",
+                    // colorPrimary: "#ffae00",
                     fontWeightStrong: 800,
                     // borderRadius: 2,
 
