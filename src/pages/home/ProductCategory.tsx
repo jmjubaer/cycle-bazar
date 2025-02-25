@@ -39,8 +39,17 @@ const ProductCategory = () => {
                             alt={category?.name}
                         />
                         <div className='absolute bottom-0 left-1/2 -translate-x-1/2 bg-black/40 z-10 w-full h-full text-center flex items-center flex-col justify-end gap-5'>
-                            <h2 className='text-white text-5xl secondary_font font-semibold'>{category?.name}</h2>
-                            <Link to={"/"} className="button_primary_md mb-5">Shop Now</Link>
+                            <h2 className='text-white text-5xl secondary_font font-semibold'>
+                                {category?.name}
+                            </h2>
+                            <Link
+                                to={`/bicycles?category=${category?.name.replace(
+                                    " Cycle",
+                                    ""
+                                )}`}
+                                className='button_primary_md mb-5'>
+                                Shop Now
+                            </Link>
                         </div>
                     </div>
                 ))}

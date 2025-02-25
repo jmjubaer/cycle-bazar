@@ -4,12 +4,15 @@ import { TProduct } from "../../types/prouduct.type";
 import { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { FaTag } from "react-icons/fa";
+import { useSearchParams } from "react-router-dom";
+import ProductCard from "../shere/ProductCard";
 
-type TOption = {
-    name: string;
-    value: string;
-};
+// type TOption = {
+//     name: string;
+//     value: string;
+// };
 const Products = () => {
+    const [param] = useSearchParams();
     const [page, setPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
     const [category, setCategory] = useState("");
@@ -25,6 +28,7 @@ const Products = () => {
         { name: "inStock", value: false },
         { name: "inStock", value: true },
     ]);
+
     const { data: bicycleData, isFetching } = useGetAllBicyclesQuery([
         { name: "page", value: page },
         { name: "limit", value: 6 },
@@ -32,10 +36,10 @@ const Products = () => {
         { name: "searchTerm", value: searchTerm },
         { name: "minPrice", value: minPrice },
         { name: "maxPrice", value: maxPrice },
+        ...(category ? [{ name: "type", value: category }] : []),
         // ...brand,
         ...availability,
     ]);
-    console.log(minPrice, maxPrice);
     useEffect(() => {
         if (inStock.value && outOfStock.value) {
             setAvailability([
@@ -53,6 +57,12 @@ const Products = () => {
             ]);
         }
     }, [inStock, outOfStock]);
+    useEffect(() => {
+        if (param.get("category")) {
+            setCategory(param.get("category")!);
+        }
+    }, [param]);
+    console.log(category);
     // const handleBrand = (event: React.ChangeEvent<HTMLSelectElement>) => {
     //     if (event) {
     //         setBrand([{ name: "brand", value: event.target.value }]);
@@ -60,15 +70,15 @@ const Products = () => {
     //         setBrand([]);
     //     }
     // };
-    const brandOptions: TOption[] = Array.from(
-        new Set(
-            bicycleData?.data?.map((bicycle: TProduct) => ({
-                name: bicycle?.brand,
-                value: bicycle?.brand,
-            }))
-        )
-    );
-    console.log(brandOptions);
+    // const brandOptions: TOption[] = Array.from(
+    //     new Set(
+    //         bicycleData?.data?.map((bicycle: TProduct) => ({
+    //             name: bicycle?.brand,
+    //             value: bicycle?.brand,
+    //         }))
+    //     )
+    // );
+    // console.log(brandOptions);
     return (
         <div className='container py-5 grid gap-3 grid-cols-4'>
             <div
@@ -260,58 +270,17 @@ const Products = () => {
                 className='col-span-3 h-[calc(100vh-115px)] overflow-auto '>
                 <Spin spinning={isFetching} tip='Loading...' size='large'>
                     <div className='grid grid-cols-3 mb-5 gap-5 gap-y-8'>
-                        {bicycleData?.data &&
+                        {bicycleData?.data.length > 0 ? (
                             bicycleData?.data.map((bicycle: TProduct) => (
-                                <div
-                                    key={bicycle?._id}
-                                    className='relative flex flex-col justify-between'>
-                                    {bicycle?.tag && (
-                                        <span className='absolute top-3 right-3 rounded font-semibold p-1 px-3 text-xs text-white bg-primary'>
-                                            {bicycle?.tag}
-                                        </span>
-                                    )}
-                                    <img
-                                        className='w-full border border-muted h-52 object-cover rounded-2xl'
-                                        src={bicycle?.image}
-                                        alt={bicycle?.name}
-                                    />
-
-                                    <h3 className='my-2 font-semibold uppercase text-2xl'>
-                                        {bicycle?.name}
-                                    </h3>
-                                    <div className='flex items-center justify-between'>
-                                        <h4 className='text-xl'>
-                                            Model:{" "}
-                                            <span className='font-medium'>
-                                                {bicycle?.model}
-                                            </span>
-                                        </h4>
-                                        <h4 className='text-xl'>
-                                            Category:{" "}
-                                            <span className='font-medium'>
-                                                {bicycle?.type}
-                                            </span>
-                                        </h4>
-                                    </div>
-                                    <div className='flex items-center justify-between mt-5'>
-                                        <h4 className='text-xl'>
-                                            Price:{" "}
-                                            <span className='font-bold'>
-                                                ${bicycle?.price}
-                                            </span>
-                                        </h4>
-                                        <h4 className='text-xl'>
-                                            Brand:{" "}
-                                            <span className='font-medium'>
-                                                {bicycle?.brand}
-                                            </span>
-                                        </h4>
-                                    </div>
-                                    <button className='button_primary w-full mt-5'>
-                                        Buy Now
-                                    </button>
-                                </div>
-                            ))}
+                                <ProductCard
+                                    key={bicycle._id}
+                                    bicycle={bicycle}></ProductCard>
+                            ))
+                        ) : (
+                            <div className='text-gray-400 text-2xl text-center col-span-3 my-10'>
+                                There has no available bicycle
+                            </div>
+                        )}
                     </div>
                 </Spin>
                 <Pagination
