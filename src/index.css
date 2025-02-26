@@ -24,11 +24,31 @@ body {
     background: url("../src/assets/newsletter-bg.webp");
 }
 .button_primary {
-    @apply cursor-pointer font-medium text-black bg-primary px-4 py-1 rounded;
+    @apply cursor-pointer font-medium hover:text-black text-black bg-primary px-4 py-1 rounded;
 }
 .button_primary_md {
-    @apply cursor-pointer font-medium  text-lg bg-primary px-8 py-2 rounded;
+    @apply cursor-pointer font-medium hover:text-white  text-lg bg-primary px-8 py-2 rounded;
 }
 .button_primary_large {
-    @apply cursor-pointer font-medium text-white text-xl bg-primary px-16 py-3 rounded;
+    @apply cursor-pointer font-medium hover:text-white text-white text-xl bg-primary px-16 py-3 rounded;
+}
+
+
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn {
+    font-size: 25px !important;
+    font-weight: 700 !important;
+}
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible), :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-remove:focus:not(:focus-visible), :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn:active, :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-remove:active {
+    color: #ffae00 !important;
+    font-family: "Oxanium", serif;
+}
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-ink-bar {
+    background: #ffae00 !important;
+}
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #ffae00 !important;
+    text-shadow: 0 0 0.25px currentcolor;
+}
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab:hover {
+    color: #ffae00 !important;
 }

@@ -26,5 +26,15 @@ export type TResponseRedux<T> = TResponse<T> & BaseQueryApi;
 export type TQueryParam = {
     name: string;
     value: boolean | React.Key;
-}
-
+};
+export type TUser = {
+    _id: string;
+    name: string;
+    email: string;
+    role: string;
+    status: "in-progress" | "blocked";
+    isDeleted: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+    passwordChangedAt: Date;
+};

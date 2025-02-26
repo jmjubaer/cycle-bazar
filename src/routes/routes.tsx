@@ -6,6 +6,7 @@ import CustomerDashboard from "../pages/dashboard/CustomerDashboard";
 import AdminDashboard from "../pages/dashboard/AdminDashboard";
 import Home from "../pages/home/Home";
 import Products from "../pages/products/Products";
+import ProductDetails from "../pages/products/ProductDetails";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
         children: [
             { path: "/", element: <Home /> },
             { path: "/bicycles", element: <Products /> },
+            { path: "/bicycle/:id", element: <ProductDetails /> },
             { path: "/login", element: <Login /> },
             { path: "/signup", element: <SignUp /> },
             { path: "/dashboard/customer", element: <CustomerDashboard /> },

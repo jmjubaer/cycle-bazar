@@ -1,5 +1,5 @@
 import { Pagination, Spin } from "antd";
-import { useGetAllBicyclesQuery } from "../../redux/features/auth/product/productApi";
+import { useGetAllBicyclesQuery } from "../../redux/features/product/productApi";
 import { TProduct } from "../../types/prouduct.type";
 import { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";

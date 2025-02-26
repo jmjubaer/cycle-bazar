@@ -1,5 +1,5 @@
-import { TQueryParam } from "../../../../types/global.types";
-import { baseApi } from "../../../api/baseApi";
+import { TQueryParam } from "../../../types/global.types";
+import { baseApi } from "../../api/baseApi";
 
 const productApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -19,6 +19,22 @@ const productApi = baseApi.injectEndpoints({
                 };
             },
         }),
+        getBicycleById: builder.query({
+            query: (id) => ({
+                url: `/products/${id}`,
+                method: "GET",
+            }),
+        }),
+        getRelatedBicycles: builder.query({
+            query: (id) => ({
+                url: `/products/related-product/${id}`,
+                method: "GET",
+            }),
+        }),
     }),
 });
-export const { useGetAllBicyclesQuery } = productApi;
+export const {
+    useGetAllBicyclesQuery,
+    useGetBicycleByIdQuery,
+    useGetRelatedBicyclesQuery,
+} = productApi;

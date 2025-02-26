@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useGetAllBicyclesQuery } from "../../redux/features/auth/product/productApi";
+import { useGetAllBicyclesQuery } from "../../redux/features/product/productApi";
 import { TProduct } from "../../types/prouduct.type";
 import ProductCard from "../shere/ProductCard";
 
@@ -22,7 +22,9 @@ const FeaturedProducts = () => {
             <div className='grid grid-cols-3 gap-8 mt-10'>
                 {bicycleData?.data &&
                     bicycleData?.data.map((bicycle: TProduct) => (
-                        <ProductCard key={bicycle._id} bicycle={bicycle}></ProductCard>
+                        <ProductCard
+                            key={bicycle._id}
+                            bicycle={bicycle}></ProductCard>
                     ))}
             </div>
 

@@ -1,3 +1,12 @@
+import { TUser } from "./global.types";
+
+export type TReview = {
+    reviewer: TUser;
+    product: TProduct;
+    rating: number;
+    comment: string;
+    createdAt: Date;
+};
 export type TProduct = {
     _id: string;
     name: string;
@@ -8,6 +17,7 @@ export type TProduct = {
     tag?: string;
     type: "Mountain" | "Road" | "Hybrid" | "BMX" | "Electric" | "Kids";
     description: string;
+    reviews: TReview[];
     quantity: number;
     inStock: boolean;
     colors: string[];
