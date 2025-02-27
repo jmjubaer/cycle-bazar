@@ -59,10 +59,9 @@ const ProductDetails = () => {
         {
             key: "2",
             label: `Reviews ${reviews?.length}`,
-            children: <ReviewTab reviews={reviews} />,
+            children: <ReviewTab data={bicycle?.data} />,
         },
     ];
-    console.log(relatedBicycle);
     return (
         <div className='container py-10'>
             <Spin spinning={isFetching} tip='Loading...' size='large'>
@@ -118,7 +117,7 @@ const ProductDetails = () => {
                             Color:{" "}
                             <span className=' ml-3 font-semibold secondary_font '>
                                 {colors.map((color) => (
-                                    <span> {color},</span>
+                                    <span key={color}> {color},</span>
                                 ))}
                             </span>
                         </p>

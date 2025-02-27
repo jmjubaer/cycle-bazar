@@ -18,6 +18,7 @@ const productApi = baseApi.injectEndpoints({
                     params,
                 };
             },
+            providesTags: ["bicycle"],
         }),
         getBicycleById: builder.query({
             query: (id) => ({
@@ -31,10 +32,19 @@ const productApi = baseApi.injectEndpoints({
                 method: "GET",
             }),
         }),
+        createReview: builder.mutation({
+            query: (data) => ({
+                url: "/create-review",
+                method: "POST",
+                body: data,
+            }),
+            invalidatesTags: ["bicycle"],
+        }),
     }),
 });
 export const {
     useGetAllBicyclesQuery,
     useGetBicycleByIdQuery,
     useGetRelatedBicyclesQuery,
+    useCreateReviewMutation,
 } = productApi;

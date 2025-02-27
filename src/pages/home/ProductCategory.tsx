@@ -32,7 +32,9 @@ const ProductCategory = () => {
             </div>
             <div className='grid grid-cols-3 gap-8 mt-10'>
                 {categories.map((category: TCategory) => (
-                    <div className='relative rounded-lg overflow-hidden'>
+                    <div
+                        key={category.name}
+                        className='relative rounded-lg overflow-hidden'>
                         <img
                             className='w-full border border-muted h-80 object-bottom object-cover '
                             src={category?.image}
