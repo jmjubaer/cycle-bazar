@@ -1,7 +1,7 @@
 import { TQueryParam } from "../../../types/global.types";
 import { baseApi } from "../../api/baseApi";
 
-const productApi = baseApi.injectEndpoints({
+const orderApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         getAllBicycles: builder.query({
             query: (args) => {
@@ -18,34 +18,16 @@ const productApi = baseApi.injectEndpoints({
                     params,
                 };
             },
-            providesTags: ["bicycle"],
+            providesTags: ["order"],
         }),
-        getBicycleById: builder.query({
-            query: (id) => ({
-                url: `/products/${id}`,
-                method: "GET",
-            }),
-            providesTags: ["bicycle"],
-        }),
-        getRelatedBicycles: builder.query({
-            query: (id) => ({
-                url: `/products/related-product/${id}`,
-                method: "GET",
-            }),
-        }),
-        createReview: builder.mutation({
+        createOrder: builder.mutation({
             query: (data) => ({
-                url: "/create-review",
+                url: "/orders",
                 method: "POST",
                 body: data,
             }),
-            invalidatesTags: ["bicycle"],
+            invalidatesTags: ["order"],
         }),
     }),
 });
-export const {
-    useGetAllBicyclesQuery,
-    useGetBicycleByIdQuery,
-    useGetRelatedBicyclesQuery,
-    useCreateReviewMutation,
-} = productApi;
+export const { useCreateOrderMutation } = orderApi;

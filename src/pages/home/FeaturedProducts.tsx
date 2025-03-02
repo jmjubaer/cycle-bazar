@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { useGetAllBicyclesQuery } from "../../redux/features/product/productApi";
 import { TProduct } from "../../types/prouduct.type";
 import ProductCard from "../shere/ProductCard";
+import { Spin } from "antd";
 
 const FeaturedProducts = () => {
-    const { data: bicycleData } = useGetAllBicyclesQuery([
+    const { data: bicycleData,isFetching } = useGetAllBicyclesQuery([
         { name: "limit", value: 6 },
     ]);
 
@@ -19,14 +20,16 @@ const FeaturedProducts = () => {
                     Bicycles for Every Ride and Adventure
                 </h2>
             </div>
-            <div className='grid grid-cols-3 gap-8 mt-10'>
-                {bicycleData?.data &&
-                    bicycleData?.data.map((bicycle: TProduct) => (
-                        <ProductCard
-                            key={bicycle._id}
-                            bicycle={bicycle}></ProductCard>
-                    ))}
-            </div>
+            <Spin className="min-h-[100px] block" spinning={isFetching} tip='Loading...' size='large'>
+                <div className='grid grid-cols-3 gap-8 mt-10'>
+                    {bicycleData?.data &&
+                        bicycleData?.data.map((bicycle: TProduct) => (
+                            <ProductCard
+                                key={bicycle._id}
+                                bicycle={bicycle}></ProductCard>
+                        ))}
+                </div>
+            </Spin>
 
             <Link
                 to={"/bicycles"}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FaCircleUser } from "react-icons/fa6";
 import { TProduct } from "../../types/prouduct.type";
 import { Rating } from "@smastrom/react-rating";
@@ -22,6 +23,7 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
     const [rating, setRating] = useState(0);
     const [createReview] = useCreateReviewMutation();
     const {
+        reset,
         register,
         handleSubmit,
         formState: { errors },
@@ -40,11 +42,13 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
                     comment: data.comment,
                 };
                 const result = await createReview(review);
-                console.log(result);
+                if (result?.data?.success) {
+                    reset();
+                }
             } else {
                 toast.error("Please select a rating");
             }
-        } catch (error:any) {
+        } catch (error: any) {
             toast.error(error.message);
         }
     };

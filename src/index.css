@@ -32,20 +32,32 @@ body {
 .button_primary_large {
     @apply cursor-pointer font-medium hover:text-white text-white text-xl bg-primary px-16 py-3 rounded;
 }
-
-
+.input_primary {
+    @apply w-full block px-4 py-2 text-base bg-black/10 outline-0 rounded-md;
+}
+.label_primary {
+    @apply inline-block font-medium;
+}
 :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn {
     font-size: 25px !important;
     font-weight: 700 !important;
 }
-:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible), :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-remove:focus:not(:focus-visible), :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn:active, :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-remove:active {
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs
+    .ant-tabs-tab-btn:focus:not(:focus-visible),
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs
+    .ant-tabs-tab-remove:focus:not(:focus-visible),
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn:active,
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs
+    .ant-tabs-tab-remove:active {
     color: #ffae00 !important;
     font-family: "Oxanium", serif;
 }
 :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-ink-bar {
     background: #ffae00 !important;
 }
-:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs
+    .ant-tabs-tab.ant-tabs-tab-active
+    .ant-tabs-tab-btn {
     color: #ffae00 !important;
     text-shadow: 0 0 0.25px currentcolor;
 }

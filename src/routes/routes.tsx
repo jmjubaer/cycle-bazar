@@ -7,6 +7,8 @@ import AdminDashboard from "../pages/dashboard/AdminDashboard";
 import Home from "../pages/home/Home";
 import Products from "../pages/products/Products";
 import ProductDetails from "../pages/products/ProductDetails";
+import ProtectedRoute from "../components/layout/ProtectedRoute";
+import Checkout from "../pages/checkout/Checkout";
 
 const router = createBrowserRouter([
     {
@@ -18,8 +20,30 @@ const router = createBrowserRouter([
             { path: "/bicycle/:id", element: <ProductDetails /> },
             { path: "/login", element: <Login /> },
             { path: "/signup", element: <SignUp /> },
-            { path: "/dashboard/customer", element: <CustomerDashboard /> },
-            { path: "/dashboard/admin", element: <AdminDashboard /> },
+            {
+                path: "/dashboard/customer",
+                element: (
+                    <ProtectedRoute role='customer'>
+                        <CustomerDashboard />{" "}
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/dashboard/admin",
+                element: (
+                    <ProtectedRoute role='admin'>
+                        <AdminDashboard />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/:productId/checkout",
+                element: (
+                    <ProtectedRoute>
+                        <Checkout />
+                    </ProtectedRoute>
+                ),
+            },
         ],
     },
     // {
