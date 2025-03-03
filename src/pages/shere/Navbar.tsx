@@ -11,10 +11,10 @@ import { Dropdown, MenuProps } from "antd";
 const Navbar = () => {
     const user = useAppSelector(selectCurrentUser) as TUser;
     const dispatch = useAppDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const handleLogOut = async () => {
         dispatch(logout());
-        navigate('/login')
+        navigate("/login");
     };
     const items: MenuProps["items"] = [
         {
@@ -82,6 +82,19 @@ const Navbar = () => {
                                 About us
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink
+                                className={({ isActive }) =>
+                                    `transition ${
+                                        isActive
+                                            ? "text-primary font-bold"
+                                            : "hover:text-primary"
+                                    }`
+                                }
+                                to={"/orders"}>
+                                Orders
+                            </NavLink>
+                        </li>
                         {user && (
                             <li>
                                 <NavLink
@@ -92,7 +105,7 @@ const Navbar = () => {
                                                 : "hover:text-primary"
                                         }`
                                     }
-                                    to={`/dashboard/${user?.role}`}>
+                                    to={`/dashboard`}>
                                     Dashboard
                                 </NavLink>
                             </li>

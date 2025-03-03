@@ -2,13 +2,18 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../components/layout/MainLayout";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
-import CustomerDashboard from "../pages/dashboard/CustomerDashboard";
-import AdminDashboard from "../pages/dashboard/AdminDashboard";
 import Home from "../pages/home/Home";
 import Products from "../pages/products/Products";
 import ProductDetails from "../pages/products/ProductDetails";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
 import Checkout from "../pages/checkout/Checkout";
+import Order from "../pages/dashboard/customer/Order";
+import DashboardLayout from "../components/layout/DashboradLayout";
+import ManageProfiles from "../pages/dashboard/customer/ManageProfiles";
+import Dashboard from "../pages/dashboard/Dashboard";
+import ManageUsers from "../pages/dashboard/admin/ManageUsers";
+import ManageProducts from "../pages/dashboard/admin/ManageProducts";
+import ManageOrders from "../pages/dashboard/admin/ManageOrders";
 
 const router = createBrowserRouter([
     {
@@ -21,22 +26,6 @@ const router = createBrowserRouter([
             { path: "/login", element: <Login /> },
             { path: "/signup", element: <SignUp /> },
             {
-                path: "/dashboard/customer",
-                element: (
-                    <ProtectedRoute role='customer'>
-                        <CustomerDashboard />{" "}
-                    </ProtectedRoute>
-                ),
-            },
-            {
-                path: "/dashboard/admin",
-                element: (
-                    <ProtectedRoute role='admin'>
-                        <AdminDashboard />
-                    </ProtectedRoute>
-                ),
-            },
-            {
                 path: "/:productId/checkout",
                 element: (
                     <ProtectedRoute>
@@ -44,16 +33,66 @@ const router = createBrowserRouter([
                     </ProtectedRoute>
                 ),
             },
+            {
+                path: "/dashboard",
+                element: (
+                    <ProtectedRoute>
+                        <DashboardLayout />
+                    </ProtectedRoute>
+                ),
+                children: [
+                    {
+                        path: "/dashboard",
+                        element: (
+                            <ProtectedRoute>
+                                <Dashboard />
+                            </ProtectedRoute>
+                        ),
+                    },
+                    {
+                        path: "/dashboard/orders",
+                        element: (
+                            <ProtectedRoute role='customer'>
+                                <Order />
+                            </ProtectedRoute>
+                        ),
+                    },
+                    {
+                        path: "/dashboard/manage-profile",
+                        element: (
+                            <ProtectedRoute role='customer'>
+                                <ManageProfiles />
+                            </ProtectedRoute>
+                        ),
+                    },
+                    {
+                        path: "/dashboard/manage-users",
+                        element: (
+                            <ProtectedRoute role='admin'>
+                                <ManageUsers />
+                            </ProtectedRoute>
+                        ),
+                    },
+                    {
+                        path: "/dashboard/manage-products",
+                        element: (
+                            <ProtectedRoute role='admin'>
+                                <ManageProducts />
+                            </ProtectedRoute>
+                        ),
+                    },
+                    {
+                        path: "/dashboard/manage-orders",
+                        element: (
+                            <ProtectedRoute role='admin'>
+                                <ManageOrders />
+                            </ProtectedRoute>
+                        ),
+                    },
+                ],
+            },
         ],
     },
-    // {
-    //     path: "/login",
-    //     element: <Login />,
-    // },
-    // {
-    //     path: "/signup",
-    //     element: <SignUp />,
-    // },
 ]);
 
 export default router;

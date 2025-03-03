@@ -26,7 +26,9 @@ const Login = () => {
     const handleLogin: SubmitHandler<TLogin> = async (data) => {
         const tostId = toast.loading("User is logging");
         try {
-            const response = (await login(data).unwrap()) as TResponse<TLoginResponse>;
+            const response = (await login(
+                data
+            ).unwrap()) as TResponse<TLoginResponse>;
             console.log(response);
             if (response.success) {
                 dispatch(
