@@ -21,11 +21,11 @@ const authSlice = createSlice({
         setUser: (state, action) => {
             const { user, token } = action.payload;
             state.user = {
-                role: user.role,
-                exp: user.exp,
+                role: user?.role,
+                exp: user?.exp,
 
-                iat: user.iat,
-                email: user.email,
+                iat: user?.iat,
+                email: user?.email,
             };
             state.token = token;
         },

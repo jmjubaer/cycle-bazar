@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import surjopay from "../../assets/shurjoPay.png";
 import cod from "../../assets/cod.png";
 import { useCreateOrderMutation } from "../../redux/features/order/orderApi";
-import { useGetMeQuery } from "../../redux/features/auth/authApi";
+import { useGetMeQuery } from "../../redux/features/user/userApi";
 const Checkout = () => {
     const [quantity, setQuantity] = useState(1);
     const [paymentMethod, setPaymentMethod] = useState("");

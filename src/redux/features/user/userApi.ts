@@ -1,7 +1,7 @@
 import { TQueryParam } from "../../../types/global.types";
 import { baseApi } from "../../api/baseApi";
 
-const orderApi = baseApi.injectEndpoints({
+const userApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         getAllOrders: builder.query({
             query: (args) => {
@@ -27,14 +27,21 @@ const orderApi = baseApi.injectEndpoints({
             }),
             providesTags: ["order"],
         }),
-        createOrder: builder.mutation({
+        getMe: builder.query({
+            query: () => ({
+                url: "/user/me",
+                method: "GET",
+            }),
+            providesTags: ["user"]
+        }),
+        updateMyName: builder.mutation({
             query: (data) => ({
-                url: "/orders",
-                method: "POST",
+                url: "/user/update-name",
+                method: "PATCH",
                 body: data,
             }),
-            invalidatesTags: ["order"],
+            invalidatesTags: ["user"],
         }),
     }),
 });
-export const { useCreateOrderMutation,useGetMyOrdersQuery } = orderApi;
+export const { useUpdateMyNameMutation, useGetMeQuery } = userApi;

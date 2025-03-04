@@ -38,6 +38,12 @@ body {
 .label_primary {
     @apply inline-block font-medium;
 }
+
+button:disabled {
+     /* Gray when disabled */
+    cursor: not-allowed;
+}
+
 :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn {
     font-size: 25px !important;
     font-weight: 700 !important;

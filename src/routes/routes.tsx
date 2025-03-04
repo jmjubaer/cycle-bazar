@@ -9,7 +9,7 @@ import ProtectedRoute from "../components/layout/ProtectedRoute";
 import Checkout from "../pages/checkout/Checkout";
 import Order from "../pages/dashboard/customer/Order";
 import DashboardLayout from "../components/layout/DashboradLayout";
-import ManageProfiles from "../pages/dashboard/customer/ManageProfiles";
+import ManageProfiles from "../pages/dashboard/manageProfile/ManageProfiles";
 import Dashboard from "../pages/dashboard/Dashboard";
 import ManageUsers from "../pages/dashboard/admin/ManageUsers";
 import ManageProducts from "../pages/dashboard/admin/ManageProducts";

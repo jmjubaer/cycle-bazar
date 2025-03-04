@@ -140,7 +140,7 @@ const ProductDetails = () => {
                                 <button
                                     onClick={() => navigate(`/${id}/checkout`)}
                                     disabled={!inStock}
-                                    className='button_primary_large disabled:opacity-60 cursor-move w-[70%] text-center inline-block mt-5'>
+                                    className='button_primary_large disabled:opacity-60 w-[70%] text-center inline-block mt-5'>
                                     {inStock ? "Buy Now" : "Out of Stock"}
                                 </button>
                             </div>

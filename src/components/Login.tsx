@@ -34,7 +34,7 @@ const Login = () => {
                 dispatch(
                     setUser({
                         user: verifyToken(response?.data!.accessToken),
-                        token: response.data?.accessToken,
+                        token: response?.data?.accessToken,
                     })
                 );
                 toast.success("User logged in successfully", {

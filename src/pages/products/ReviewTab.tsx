@@ -9,8 +9,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useAppSelector } from "../../redux/hook";
 import { selectCurrentUser, TUser } from "../../redux/features/auth/authSlice";
-import { useGetMeQuery } from "../../redux/features/auth/authApi";
 import { useCreateReviewMutation } from "../../redux/features/product/productApi";
+import { useGetMeQuery } from "../../redux/features/user/userApi";
 type Inputs = {
     comment: string;
 };

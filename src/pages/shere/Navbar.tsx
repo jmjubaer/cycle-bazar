@@ -18,11 +18,11 @@ const Navbar = () => {
     };
     const items: MenuProps["items"] = [
         {
-            label: <Link to={`/dashboard/${user?.role}`}>Dashboard</Link>,
-            key: "dashboard",
+            label: <Link className="" to={`/dashboard/manage-profile`}>Mange Profile</Link>,
+            key: "profile",
         },
         {
-            label: <button onClick={() => handleLogOut()}>Log out</button>,
+            label: <div className="" onClick={() => handleLogOut()}>Log out</div>,
             key: "logout",
         },
     ];
@@ -82,19 +82,13 @@ const Navbar = () => {
                                 About us
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink
-                                className={({ isActive }) =>
-                                    `transition ${
-                                        isActive
-                                            ? "text-primary font-bold"
-                                            : "hover:text-primary"
-                                    }`
-                                }
-                                to={"/orders"}>
-                                Orders
-                            </NavLink>
-                        </li>
+                        {user?.role === "customer" && (
+                            <li>
+                                <NavLink to={"/dashboard/orders"}>
+                                    Orders
+                                </NavLink>
+                            </li>
+                        )}
                         {user && (
                             <li>
                                 <NavLink
