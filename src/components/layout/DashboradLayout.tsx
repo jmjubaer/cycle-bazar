@@ -10,11 +10,11 @@ const DashboardLayout = () => {
         case "customer":
             sidebarItems = [
                 {
-                    key: "Dashboard",
+                    key: "/dashboard",
                     label: <NavLink to={`/dashboard`}>Dashboard</NavLink>,
                 },
                 {
-                    key: "/",
+                    key: "/dashboard/manage-profile",
                     label: (
                         <NavLink to={`/dashboard/manage-profile`}>
                             My Profile
@@ -33,11 +33,11 @@ const DashboardLayout = () => {
         case "admin":
             sidebarItems = [
                 {
-                    key: "Dashboard",
+                    key: "/dashboard",
                     label: <NavLink to={`/dashboard`}>Dashboard</NavLink>,
                 },
                 {
-                    key: "/",
+                    key: "/dashboard/manage-profile",
                     label: (
                         <NavLink to={`/dashboard/manage-profile`}>
                             My Profile
@@ -48,7 +48,15 @@ const DashboardLayout = () => {
                     key: "/dashboard/manage-users",
                     label: (
                         <NavLink to={`/dashboard/manage-users`}>
-                            Manage Products
+                            Manage Users
+                        </NavLink>
+                    ),
+                },
+                {
+                    key: "/dashboard/manage-orders",
+                    label: (
+                        <NavLink to={`/dashboard/manage-orders`}>
+                            Manage Orders
                         </NavLink>
                     ),
                 },
@@ -57,14 +65,6 @@ const DashboardLayout = () => {
                     label: (
                         <NavLink to={`/dashboard/manage-products`}>
                             Manage Products
-                        </NavLink>
-                    ),
-                },
-                {
-                    key: "/",
-                    label: (
-                        <NavLink to={`/dashboard/manage-orders`}>
-                            Manage Orders
                         </NavLink>
                     ),
                 },

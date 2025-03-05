@@ -28,7 +28,7 @@ const UpdateName = ({ name, status }: TProps) => {
                 setOpen(false);
             }
         } catch (error: any) {
-            toast.loading(error.message, { id: toastId });
+            toast.error(error.message, { id: toastId });
         }
     };
     return (

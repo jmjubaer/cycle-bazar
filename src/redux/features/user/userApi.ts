@@ -3,7 +3,7 @@ import { baseApi } from "../../api/baseApi";
 
 const userApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getAllOrders: builder.query({
+        getAllUser: builder.query({
             query: (args) => {
                 const params = new URLSearchParams();
                 if (args) {
@@ -13,13 +13,14 @@ const userApi = baseApi.injectEndpoints({
                 }
 
                 return {
-                    url: "/products",
+                    url: "/users",
                     method: "GET",
                     params,
                 };
             },
-            providesTags: ["order"],
+            providesTags: ["users"],
         }),
+
         getMyOrders: builder.query({
             query: () => ({
                 url: "/my-orders",
@@ -27,12 +28,13 @@ const userApi = baseApi.injectEndpoints({
             }),
             providesTags: ["order"],
         }),
+
         getMe: builder.query({
             query: () => ({
                 url: "/user/me",
                 method: "GET",
             }),
-            providesTags: ["user"]
+            providesTags: ["user"],
         }),
         updateMyName: builder.mutation({
             query: (data) => ({
@@ -42,6 +44,28 @@ const userApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ["user"],
         }),
+        changeRole: builder.mutation({
+            query: ({ role, email }) => ({
+                url: `users/change-role/${email}`,
+                method: "POST",
+                body: { role },
+            }),
+            invalidatesTags: ["users"],
+        }),
+        changeStatus: builder.mutation({
+            query: ({ status, email }) => ({
+                url: `users/change-status/${email}`,
+                method: "POST",
+                body: { status },
+            }),
+            invalidatesTags: ["users"],
+        }),
     }),
 });
-export const { useUpdateMyNameMutation, useGetMeQuery } = userApi;
+export const {
+    useUpdateMyNameMutation,
+    useGetMeQuery,
+    useGetAllUserQuery,
+    useChangeRoleMutation,
+    useChangeStatusMutation
+} = userApi;

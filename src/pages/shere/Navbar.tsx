@@ -18,11 +18,19 @@ const Navbar = () => {
     };
     const items: MenuProps["items"] = [
         {
-            label: <Link className="" to={`/dashboard/manage-profile`}>Mange Profile</Link>,
+            label: (
+                <Link className='' to={`/dashboard/manage-profile`}>
+                    My Profile
+                </Link>
+            ),
             key: "profile",
         },
         {
-            label: <div className="" onClick={() => handleLogOut()}>Log out</div>,
+            label: (
+                <div className='' onClick={() => handleLogOut()}>
+                    Log out
+                </div>
+            ),
             key: "logout",
         },
     ];

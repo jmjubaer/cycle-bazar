@@ -60,7 +60,7 @@ const router = createBrowserRouter([
                     {
                         path: "/dashboard/manage-profile",
                         element: (
-                            <ProtectedRoute role='customer'>
+                            <ProtectedRoute>
                                 <ManageProfiles />
                             </ProtectedRoute>
                         ),
