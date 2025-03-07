@@ -53,18 +53,18 @@ const DashboardLayout = () => {
                     ),
                 },
                 {
-                    key: "/dashboard/manage-orders",
-                    label: (
-                        <NavLink to={`/dashboard/manage-orders`}>
-                            Manage Orders
-                        </NavLink>
-                    ),
-                },
-                {
                     key: "/dashboard/manage-products",
                     label: (
                         <NavLink to={`/dashboard/manage-products`}>
                             Manage Products
+                        </NavLink>
+                    ),
+                },
+                {
+                    key: "/dashboard/manage-orders",
+                    label: (
+                        <NavLink to={`/dashboard/manage-orders`}>
+                            Manage Orders
                         </NavLink>
                     ),
                 },

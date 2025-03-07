@@ -13,7 +13,7 @@ const orderApi = baseApi.injectEndpoints({
                 }
 
                 return {
-                    url: "/products",
+                    url: "/orders",
                     method: "GET",
                     params,
                 };
@@ -35,6 +35,18 @@ const orderApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ["order"],
         }),
+        verifyPayment: builder.query({
+            query: (order_id) => ({
+                url: "/orders/verify-payment",
+                params: { order_id },
+                method: "GET",
+            }),
+        }),
     }),
 });
-export const { useCreateOrderMutation,useGetMyOrdersQuery } = orderApi;
+export const {
+    useGetAllOrdersQuery,
+    useCreateOrderMutation,
+    useGetMyOrdersQuery,
+    useVerifyPaymentQuery,
+} = orderApi;

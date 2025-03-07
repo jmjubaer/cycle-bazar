@@ -14,6 +14,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import ManageUsers from "../pages/dashboard/admin/ManageUsers";
 import ManageProducts from "../pages/dashboard/admin/ManageProducts";
 import ManageOrders from "../pages/dashboard/admin/ManageOrders";
+import VerifyPayment from "../pages/checkout/VerifyPayment";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <Checkout />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/order/verify-payment",
+                element: (
+                    <ProtectedRoute>
+                        <VerifyPayment />
                     </ProtectedRoute>
                 ),
             },

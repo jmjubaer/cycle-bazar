@@ -12,7 +12,7 @@ type TNameForm = {
     name: string;
 };
 const UpdateName = ({ name, status }: TProps) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);    
     const [updateName] = useUpdateMyNameMutation();
     const {
         register,

@@ -7,13 +7,16 @@ import {
     useGetAllUserQuery,
 } from "../../../redux/features/user/userApi";
 import { toast } from "sonner";
+import { IoSearchSharp } from "react-icons/io5";
 type TTableDataType = Pick<TUser, "name" | "email" | "role">;
 const ManageUsers = () => {
     const [page, setPage] = useState(1);
+    const [searchTerm, setSearchTerm] = useState("");
     const { data: usersData, isFetching } = useGetAllUserQuery([
         { name: "page", value: page },
         { name: "limit", value: 10 },
         { name: "sort", value: "_id" },
+        { name: "searchTerm", value: searchTerm },
     ]);
     const [changeUserRole] = useChangeRoleMutation();
     const [changeUserStatus] = useChangeStatusMutation();
@@ -131,11 +134,21 @@ const ManageUsers = () => {
     };
     return (
         <div>
+            <div className='relative w-80 h-fit my-5'>
+                <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
+                <input
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    type='text'
+                    className='outline-0 bg-gray-200 w-full px-5 p-2 rounded-md'
+                    placeholder='Search by name or email...'
+                />
+            </div>
             <Table<TTableDataType>
                 loading={isFetching}
                 columns={columns}
                 dataSource={tableData}
                 pagination={false}
+                className='border border-gray-300 rounded-lg mb-3'
             />
             <Pagination
                 onChange={(value) => setPage(value)}

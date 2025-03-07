@@ -40,7 +40,7 @@ body {
 }
 
 button:disabled {
-     /* Gray when disabled */
+    /* Gray when disabled */
     cursor: not-allowed;
 }
 
@@ -69,4 +69,8 @@ button:disabled {
 }
 :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab:hover {
     color: #ffae00 !important;
+}
+.order-modal {
+    width: 80% !important;
+    
 }

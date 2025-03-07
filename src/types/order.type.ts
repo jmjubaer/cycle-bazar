@@ -1,6 +1,7 @@
+import { TUser } from "./global.types";
 import { TProduct } from "./prouduct.type";
 
-export type TDeliveryAddress = {
+export type TDeliveryInfo = {
     name: string;
     phoneNumber: string;
     localAddress: string;
@@ -12,11 +13,11 @@ export type TDeliveryAddress = {
 
 export type TOrder = {
     _id: string;
-    user: string;
+    user: TUser;
     product: TProduct;
     quantity: number;
     totalPrice: number;
-    deliveryAddress: TDeliveryAddress;
+    deliveryInfo: TDeliveryInfo;
     transaction?: {
         id: string;
         transactionStatus: string;
