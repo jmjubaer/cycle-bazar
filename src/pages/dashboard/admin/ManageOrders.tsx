@@ -1,11 +1,10 @@
 import { Pagination, Table, TableColumnsType } from "antd";
 import { useState } from "react";
 import { TUser } from "../../../types/global.types";
-import { useChangeStatusMutation } from "../../../redux/features/user/userApi";
-import { toast } from "sonner";
 import { useGetAllOrdersQuery } from "../../../redux/features/order/orderApi";
 import { TOrder } from "../../../types/order.type";
-import ViewOrderDetails from "./ViewOrderDetails";
+import ViewOrderDetails from "../../shere/ViewOrderDetails";
+import ChangeOrderStatus from "./ChangeOrderStatus";
 type TTableDataType = Pick<TUser, "name" | "email" | "role">;
 const ManageOrders = () => {
     const [page, setPage] = useState(1);
@@ -14,7 +13,6 @@ const ManageOrders = () => {
         { name: "limit", value: 10 },
         { name: "sort", value: "-createdAt" },
     ]);
-    const [changeUserStatus] = useChangeStatusMutation();
     const tableData = orderData?.data?.map(
         ({
             _id,
@@ -70,18 +68,8 @@ const ManageOrders = () => {
             render: (item) => {
                 return (
                     <div className='grid gap-1'>
-                        <ViewOrderDetails item={item} />
-                        <button
-                            onClick={() =>
-                                handleChangeStatus(
-                                    item.role,
-                                    item.status,
-                                    item.email
-                                )
-                            }
-                            className='whitespace-nowrap cursor-pointer bg-primary text-black rounded p-1'>
-                            Change Status
-                        </button>
+                        <ViewOrderDetails item={item} type='' />
+                        <ChangeOrderStatus item={item} />
                     </div>
                 );
             },
@@ -89,36 +77,6 @@ const ManageOrders = () => {
         },
     ];
 
-    const handleChangeStatus = async (
-        role: string,
-        status: string,
-        email: string
-    ) => {
-        const toastId = toast.loading("Status changing ....", {
-            duration: 5000,
-        });
-        try {
-            if (role === "supperAdmin") {
-                toast.error("Super admin status can't able to change", {
-                    duration: 2000,
-                    id: toastId,
-                });
-                return;
-            }
-            const result = await changeUserStatus({
-                status: status === "blocked" ? "in-progress" : "blocked",
-                email,
-            });
-
-            if (result?.data?.success) {
-                toast.success("Status change successful", {
-                    id: toastId,
-                });
-            }
-        } catch (error: any) {
-            toast.error(error.message, { id: toastId });
-        }
-    };
     return (
         <div>
             <Table<TTableDataType>

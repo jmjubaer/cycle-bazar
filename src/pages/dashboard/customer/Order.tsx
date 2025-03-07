@@ -3,6 +3,7 @@ import { useGetMyOrdersQuery } from "../../../redux/features/order/orderApi";
 import { TOrder } from "../../../types/order.type";
 import { useNavigate } from "react-router-dom";
 import { Spin } from "antd";
+import ViewOrderDetails from "../../shere/ViewOrderDetails";
 
 const Order = () => {
     const { data: orderData, isFetching } = useGetMyOrdersQuery(undefined);
@@ -76,23 +77,14 @@ const Order = () => {
                                         </div>
                                     </div>
                                     <div className=' grid grid-cols-2 gap-5 mt-3'>
-                                        <button
-                                            onClick={() =>
-                                                navigate(
-                                                    `/bicycle/${order.product?._id}`
-                                                )
-                                            }
-                                            className='w-full button_primary'>
-                                            View Details
-                                        </button>
-
+                                        <ViewOrderDetails item={order} type="large"/>
                                         <button
                                             onClick={() =>
                                                 navigate(
                                                     `/${order.product?._id}/checkout`
                                                 )
                                             }
-                                            className='w-full bg-primary hover:bg-primary  font-medium cursor-pointer py-2 px-4 rounded-md'>
+                                            className='w-full bg-primary hover:bg-primary  font-medium cursor-pointer py-2 px-4 rounded whitespace-nowrap'>
                                             Buy Again
                                         </button>
                                     </div>

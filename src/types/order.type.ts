@@ -12,6 +12,7 @@ export type TDeliveryInfo = {
 };
 
 export type TOrder = {
+    key: string;
     _id: string;
     user: TUser;
     product: TProduct;
