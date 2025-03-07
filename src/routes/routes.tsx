@@ -12,9 +12,10 @@ import DashboardLayout from "../components/layout/DashboradLayout";
 import ManageProfiles from "../pages/dashboard/manageProfile/ManageProfiles";
 import Dashboard from "../pages/dashboard/Dashboard";
 import ManageUsers from "../pages/dashboard/admin/ManageUsers";
-import ManageProducts from "../pages/dashboard/admin/ManageProducts";
-import ManageOrders from "../pages/dashboard/admin/ManageOrders";
+import ManageProducts from "../pages/dashboard/admin/mangeProducts/ManageProducts";
+import ManageOrders from "../pages/dashboard/admin/manageOrders/ManageOrders";
 import VerifyPayment from "../pages/checkout/VerifyPayment";
+import CreateProduct from "../pages/dashboard/admin/mangeProducts/CreateProduct";
 
 const router = createBrowserRouter([
     {
@@ -87,6 +88,14 @@ const router = createBrowserRouter([
                         element: (
                             <ProtectedRoute role='admin'>
                                 <ManageProducts />
+                            </ProtectedRoute>
+                        ),
+                    },
+                    {
+                        path: "/dashboard/create-product",
+                        element: (
+                            <ProtectedRoute role='admin'>
+                                <CreateProduct />
                             </ProtectedRoute>
                         ),
                     },

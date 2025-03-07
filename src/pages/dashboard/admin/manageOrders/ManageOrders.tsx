@@ -1,9 +1,9 @@
 import { Pagination, Table, TableColumnsType } from "antd";
 import { useState } from "react";
-import { TUser } from "../../../types/global.types";
-import { useGetAllOrdersQuery } from "../../../redux/features/order/orderApi";
-import { TOrder } from "../../../types/order.type";
-import ViewOrderDetails from "../../shere/ViewOrderDetails";
+import { TUser } from "../../../../types/global.types";
+import { useGetAllOrdersQuery } from "../../../../redux/features/order/orderApi";
+import { TOrder } from "../../../../types/order.type";
+import ViewOrderDetails from "../../../shere/ViewOrderDetails";
 import ChangeOrderStatus from "./ChangeOrderStatus";
 type TTableDataType = Pick<TUser, "name" | "email" | "role">;
 const ManageOrders = () => {
@@ -60,6 +60,7 @@ const ManageOrders = () => {
         {
             title: "Payment Status",
             dataIndex: "paymentStatus",
+          
         },
 
         {

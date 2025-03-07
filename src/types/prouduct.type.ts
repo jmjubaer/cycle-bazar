@@ -8,6 +8,7 @@ export type TReview = {
     createdAt: Date;
 };
 export type TProduct = {
+    key: any;
     _id: string;
     name: string;
     brand: string;

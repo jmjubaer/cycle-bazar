@@ -3,8 +3,8 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Modal } from "antd";
-import { TOrder } from "../../../types/order.type";
-import { useChangeOrderStatusMutation } from "../../../redux/features/order/orderApi";
+import { TOrder } from "../../../../types/order.type";
+import { useChangeOrderStatusMutation } from "../../../../redux/features/order/orderApi";
 type TProps = {
     item: TOrder;
 };

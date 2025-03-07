@@ -61,6 +61,14 @@ const DashboardLayout = () => {
                     ),
                 },
                 {
+                    key: "/dashboard/create-product",
+                    label: (
+                        <NavLink to={`/dashboard/create-product`}>
+                            Create Product
+                        </NavLink>
+                    ),
+                },
+                {
                     key: "/dashboard/manage-orders",
                     label: (
                         <NavLink to={`/dashboard/manage-orders`}>
