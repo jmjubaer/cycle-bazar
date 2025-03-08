@@ -1,11 +1,15 @@
 import { Pagination, Table, TableColumnsType } from "antd";
 import { useState } from "react";
-import { useGetAllBicyclesQuery } from "../../../../redux/features/product/productApi";
+import {
+    useDeleteBicycleMutation,
+    useGetAllBicyclesQuery,
+} from "../../../../redux/features/product/productApi";
 import { TProduct } from "../../../../types/prouduct.type";
 import { Link } from "react-router-dom";
 import UpdateProduct from "./UpdateProduct";
 import { IoSearchSharp } from "react-icons/io5";
 import { LuCirclePlus } from "react-icons/lu";
+import Swal from "sweetalert2";
 type TTableDataType = Pick<
     TProduct,
     "image" | "name" | "model" | "type" | "brand" | "quantity"
@@ -13,7 +17,7 @@ type TTableDataType = Pick<
 const ManageProducts = () => {
     const [page, setPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
-
+    const [deleteProduct] = useDeleteBicycleMutation();
     const { data: productsData, isFetching } = useGetAllBicyclesQuery([
         { name: "page", value: page },
         { name: "limit", value: 10 },
@@ -56,7 +60,11 @@ const ManageProducts = () => {
                             alt=''
                         />
                         <div className=''>
-                            <h3 className='text-lg font-medium'>{item.name}</h3>
+                            <Link
+                                to={`/bicycle/${item.key}`}
+                                className='text-lg font-medium'>
+                                {item.name}
+                            </Link>
                             <h3 className='text-lg font-medium'>
                                 Model: {item.model}
                             </h3>
@@ -88,14 +96,11 @@ const ManageProducts = () => {
             render: (item) => {
                 return (
                     <div className='grid gap-1'>
-                        <Link
-                            to={`/bicycle/${item.key}`}
-                            // onClick={() =>
-                            //     handleChangeRole(item.role, item.email)
-                            // }
-                            className='whitespace-nowrap button_primary'>
-                            View Product
-                        </Link>
+                        <button
+                            onClick={() => handleDeleteProduct(item.key)}
+                            className='whitespace-nowrap cursor-pointer bg-red-500 text-white rounded p-1 '>
+                            Delete Product
+                        </button>
                         <UpdateProduct item={item} />
                     </div>
                 );
@@ -103,7 +108,23 @@ const ManageProducts = () => {
             width: "1%",
         },
     ];
-
+    const handleDeleteProduct = async (id: string) => {
+        console.log(id);
+        Swal.fire({
+            title: "Do you want to delete this product?",
+            // text: "Not can ",
+            showCancelButton: true,
+            confirmButtonText: "Confirm",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const result = await deleteProduct(id);
+                console.log(result);
+                if (result?.data?.success) {
+                    Swal.fire("Deleted!", "", "success");
+                }
+            }
+        });
+    };
     return (
         <div>
             <div className='flex justify-between my-5'>
@@ -116,8 +137,10 @@ const ManageProducts = () => {
                         placeholder='Search by name or email...'
                     />
                 </div>
-                <Link to={"/dashboard/create-product"} className='button_primary flex items-center gap-2'>
-                    <LuCirclePlus className="text-lg"/>
+                <Link
+                    to={"/dashboard/create-product"}
+                    className='button_primary flex items-center gap-2'>
+                    <LuCirclePlus className='text-lg' />
                     Add Product
                 </Link>
             </div>

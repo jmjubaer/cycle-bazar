@@ -43,6 +43,13 @@ const productApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ["bicycle"],
         }),
+        deleteBicycle: builder.mutation({
+            query: (id) => ({
+                url: `/products/${id}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["bicycle"],
+        }),
         getRelatedBicycles: builder.query({
             query: (id) => ({
                 url: `/products/related-product/${id}`,
@@ -66,4 +73,5 @@ export const {
     useCreateReviewMutation,
     useUpdateBicycleMutation,
     useCreateBicycleMutation,
+    useDeleteBicycleMutation
 } = productApi;
