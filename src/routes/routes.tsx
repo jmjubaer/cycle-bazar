@@ -16,6 +16,7 @@ import ManageProducts from "../pages/dashboard/admin/mangeProducts/ManageProduct
 import ManageOrders from "../pages/dashboard/admin/manageOrders/ManageOrders";
 import VerifyPayment from "../pages/checkout/VerifyPayment";
 import CreateProduct from "../pages/dashboard/admin/mangeProducts/CreateProduct";
+import AboutUs from "../pages/about-us/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
             { path: "/", element: <Home /> },
             { path: "/bicycles", element: <Products /> },
             { path: "/bicycle/:id", element: <ProductDetails /> },
+            { path: "/about-us", element: <AboutUs /> },
             { path: "/login", element: <Login /> },
             { path: "/signup", element: <SignUp /> },
             {

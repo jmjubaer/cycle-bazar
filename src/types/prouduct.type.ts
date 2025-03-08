@@ -8,7 +8,7 @@ export type TReview = {
     createdAt: Date;
 };
 export type TProduct = {
-    key: any;
+    key: string;
     _id: string;
     name: string;
     brand: string;
@@ -17,7 +17,7 @@ export type TProduct = {
     type: "Mountain" | "Road" | "Hybrid" | "BMX" | "Electric" | "Kids";
     tag?: string;
     quantity: number;
-    
+
     image: string;
     description: string;
     reviews: TReview[];
