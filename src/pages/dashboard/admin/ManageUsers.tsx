@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Pagination, Table, TableColumnsType } from "antd";
 import { useState } from "react";
 import { TUser } from "../../../types/global.types";

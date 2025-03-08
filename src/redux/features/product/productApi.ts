@@ -35,6 +35,14 @@ const productApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ["bicycle"],
         }),
+        createBicycle: builder.mutation({
+            query: (data) => ({
+                url: "/products",
+                method: "POST",
+                body: data,
+            }),
+            invalidatesTags: ["bicycle"],
+        }),
         getRelatedBicycles: builder.query({
             query: (id) => ({
                 url: `/products/related-product/${id}`,
@@ -56,5 +64,6 @@ export const {
     useGetBicycleByIdQuery,
     useGetRelatedBicyclesQuery,
     useCreateReviewMutation,
-    useUpdateBicycleMutation
+    useUpdateBicycleMutation,
+    useCreateBicycleMutation,
 } = productApi;

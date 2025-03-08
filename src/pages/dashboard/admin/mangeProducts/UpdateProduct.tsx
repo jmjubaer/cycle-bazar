@@ -59,11 +59,12 @@ const UpdateProduct = ({ item }: TProps) => {
                     className=' '>
                     <label
                         className='label_primary text-xl mt-3'
-                        htmlFor='quantity'>
+                        htmlFor='price'>
                         Product Price:
                     </label>
                     <input
                         className='w-full text-xl text-black outline-none border-b-2 border-primary capitalize p-2 px-0'
+                        id="price"
                         defaultValue={item?.price}
                         placeholder='Product Price...'
                         {...register("price", {

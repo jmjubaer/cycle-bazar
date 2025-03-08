@@ -4,16 +4,21 @@ import { useGetAllBicyclesQuery } from "../../../../redux/features/product/produ
 import { TProduct } from "../../../../types/prouduct.type";
 import { Link } from "react-router-dom";
 import UpdateProduct from "./UpdateProduct";
+import { IoSearchSharp } from "react-icons/io5";
+import { LuCirclePlus } from "react-icons/lu";
 type TTableDataType = Pick<
     TProduct,
     "image" | "name" | "model" | "type" | "brand" | "quantity"
 >;
 const ManageProducts = () => {
     const [page, setPage] = useState(1);
+    const [searchTerm, setSearchTerm] = useState("");
+
     const { data: productsData, isFetching } = useGetAllBicyclesQuery([
         { name: "page", value: page },
         { name: "limit", value: 10 },
         { name: "sort", value: "-createdAt" },
+        { name: "searchTerm", value: searchTerm },
     ]);
     const tableData = productsData?.data?.map(
         ({
@@ -101,6 +106,21 @@ const ManageProducts = () => {
 
     return (
         <div>
+            <div className='flex justify-between my-5'>
+                <div className='relative w-80 h-fit '>
+                    <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
+                    <input
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        type='text'
+                        className='outline-0 bg-gray-200 w-full px-5 p-2 rounded-md'
+                        placeholder='Search by name or email...'
+                    />
+                </div>
+                <Link to={"/dashboard/create-product"} className='button_primary flex items-center gap-2'>
+                    <LuCirclePlus className="text-lg"/>
+                    Add Product
+                </Link>
+            </div>
             <Table<TTableDataType>
                 loading={isFetching}
                 columns={columns}
