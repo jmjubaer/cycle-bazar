@@ -56,6 +56,22 @@ const productApi = baseApi.injectEndpoints({
                 method: "GET",
             }),
         }),
+        getAllReview: builder.query({
+            query: (args) => {
+                const params = new URLSearchParams();
+                if (args) {
+                    args.forEach((item: TQueryParam) => {
+                        params.append(item.name, item.value as string);
+                    });
+                }
+
+                return {
+                    url: "/reviews",
+                    method: "GET",
+                    params,
+                };
+            },
+        }),
         createReview: builder.mutation({
             query: (data) => ({
                 url: "/create-review",
@@ -73,5 +89,6 @@ export const {
     useCreateReviewMutation,
     useUpdateBicycleMutation,
     useCreateBicycleMutation,
-    useDeleteBicycleMutation
+    useDeleteBicycleMutation,
+    useGetAllReviewQuery
 } = productApi;

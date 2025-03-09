@@ -29,14 +29,14 @@ const Banner = () => {
                     clickable: true,
                 }}
                 // autoplay={{
-                    
+
                 //     delay: 5000,
                 //     disableOnInteraction: false,
                 // }}
-                modules={[EffectFade, Pagination,Autoplay]}
+                modules={[EffectFade, Pagination, Autoplay]}
                 className='mySwiper h-[90vh] max-h-[480px]'>
                 <SwiperSlide>
-                    <div className='relative w-full h-full'>
+                    <div className='relative w-full h-full z-10'>
                         <div className='absolute top-0 left-0 h-full w-full bg-black/30 z-10'></div>
                         <div className='absolute text-white z-20 flex justify-center items-center w-full h-full'>
                             <div className='w-1/2 text-center'>
@@ -46,10 +46,11 @@ const Banner = () => {
                                     Sporty Ride Or Speedy Commuter
                                 </h2>
                                 <Link
-                                    data-aos='fade-left'
-                                    to={"/"}
-                                    className='button_primary_large mt-7 inline-block w-fit '>
-                                    Buy Now
+                                    // data-aos='fade-left'
+
+                                    to='/bicycle/67b94c70ca5b5458cb5e49d4'
+                                    className='button_primary_large mt-7 inline-block w-fit btn_1'>
+                                    Discover Now
                                 </Link>
                             </div>
                         </div>
@@ -70,10 +71,10 @@ const Banner = () => {
                                     Climbing By High Durable Cycle
                                 </h2>
                                 <Link
-                                    data-aos='fade-left'
-                                    to={"/"}
-                                    className='button_primary_large mt-7 inline-block w-fit '>
-                                    Buy Now
+                                    // data-aos='fade-left'
+                                    to={"/bicycle/67cbbe30ff036aa389867908"}
+                                    className='button_primary_large mt-7 inline-block w-fit btn_2'>
+                                    Ride Now
                                 </Link>
                             </div>
                         </div>
@@ -94,10 +95,10 @@ const Banner = () => {
                                     The Next Generation of Bikes
                                 </h2>
                                 <Link
-                                    data-aos='fade-left'
-                                    to={"/"}
-                                    className='button_primary_large mt-7 inline-block w-fit '>
-                                    Buy Now
+                                    // data-aos='fade-left'
+                                    to={"/bicycle/67b94c70ca5b5458cb5e49d1"}
+                                    className='button_primary_large mt-7 inline-block w-fit btn_3'>
+                                    Explore Now
                                 </Link>
                             </div>
                         </div>
@@ -118,10 +119,10 @@ const Banner = () => {
                                     Full Suspension Mountain Bikes
                                 </h2>
                                 <Link
-                                    data-aos='fade-left'
-                                    to={"/"}
-                                    className='button_primary_large mt-7 inline-block w-fit '>
-                                    Buy Now
+                                    // data-aos='fade-left'
+                                    to={"/bicycle/67b94c70ca5b5458cb5e49d2"}
+                                    className='button_primary_large mt-7 inline-block w-fit btn_4'>
+                                    Shop Now
                                 </Link>
                             </div>
                         </div>

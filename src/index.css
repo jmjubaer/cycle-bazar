@@ -38,7 +38,14 @@ body {
 .label_primary {
     @apply inline-block font-medium;
 }
-
+.review-swiper .slide {
+    background-position: center;
+    background-size: cover;
+    width: 500px !important;
+    height: 300px !important;
+    overflow: hidden;
+    border-radius: 12px;
+  }
 button:disabled {
     /* Gray when disabled */
     cursor: not-allowed;

@@ -1,6 +1,7 @@
 import { TUser } from "./global.types";
 
 export type TReview = {
+    _id: string;
     reviewer: TUser;
     product: TProduct;
     rating: number;
