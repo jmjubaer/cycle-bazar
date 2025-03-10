@@ -4,7 +4,11 @@ import founder from "../../assets/founder.jpg";
 import ceo from "../../assets/ceo.jpg";
 import cto from "../../assets/cto.jpg";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useEffect } from "react";
 const AboutUs = () => {
+      useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
     return (
         <div className='container'>
             <div className='grid grid-cols-2 items-center'>

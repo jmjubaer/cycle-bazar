@@ -2,6 +2,7 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { TProduct } from "../../types/prouduct.type";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 type ProductCardProps = {
     bicycle: TProduct;
 };
@@ -11,6 +12,9 @@ const ProductCard = ({ bicycle }: ProductCardProps) => {
         0
     );
     const avgRatting = totalRating / bicycle?.reviews?.length;
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [bicycle]);
     return (
         <div className='relative flex flex-col justify-between'>
             {bicycle?.tag && (

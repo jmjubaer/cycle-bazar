@@ -1,19 +1,23 @@
 import { Modal } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TOrder } from "../../types/order.type";
 import moment from "moment";
 type TProps = {
     item: TOrder;
     type: string;
 };
-const ViewOrderDetails = ({ item,type }: TProps) => {
+const ViewOrderDetails = ({ item, type }: TProps) => {
     const [open, setOpen] = useState(false);
-    console.log(item);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [item]);
     return (
         <div className=''>
             <button
                 onClick={() => setOpen(true)}
-                className={`w-full bg-primary hover:bg-primary  font-medium cursor-pointer  px-4 rounded whitespace-nowrap ${type == "large" ? "py-2" : "py-1"}`}>
+                className={`w-full bg-primary hover:bg-primary  font-medium cursor-pointer  px-4 rounded whitespace-nowrap ${
+                    type == "large" ? "py-2" : "py-1"
+                }`}>
                 View Details
             </button>
             <Modal

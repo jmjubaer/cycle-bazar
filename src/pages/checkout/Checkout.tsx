@@ -11,6 +11,13 @@ import { useCreateOrderMutation } from "../../redux/features/order/orderApi";
 import { useGetMeQuery } from "../../redux/features/user/userApi";
 import { TDeliveryInfo } from "../../types/order.type";
 import { Spin } from "antd";
+import { TResponse } from "../../types/global.types";
+type TOrderResponse = {
+    data: {
+        paymentUrl: string;
+    };
+    success: boolean;
+};
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [quantity, setQuantity] = useState(1);
@@ -51,8 +58,7 @@ const Checkout = () => {
                     postalCode: Number(data.postalCode),
                 },
             };
-            const result = await createOrder(orderData);
-            console.log(result);
+            const result = (await createOrder(orderData)) as TResponse<TOrderResponse>;
             if (result?.data?.success) {
                 toast.success("Order placed successfully!", { id: toastId });
                 reset();
@@ -60,6 +66,11 @@ const Checkout = () => {
                     window.open(result?.data?.data?.paymentUrl, "_self");
                     setLoading(false);
                 }
+            } else if (result?.error) {
+                toast.error(
+                    result?.error?.data?.message || "Failed to place order",
+                    { id: toastId }
+                );
                 setLoading(false);
             }
         } catch (error: any) {
@@ -72,6 +83,9 @@ const Checkout = () => {
             setQuantity(1);
         }
     }, [quantity]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [productId]);
     return (
         <Spin
             spinning={loading}

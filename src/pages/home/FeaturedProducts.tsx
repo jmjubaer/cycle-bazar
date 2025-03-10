@@ -10,7 +10,7 @@ const FeaturedProducts = () => {
     ]);
 
     return (
-        <div className='container py-24'>
+        <div className='container py-20'>
             <div className=''>
                 <h3 className='text-xl font-medium text-muted'>
                     Featured Bicycle

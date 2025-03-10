@@ -50,6 +50,9 @@ const CreateProduct = () => {
     };
     return (
         <div className='p-5'>
+            <h2 className='text-center text-4xl secondary_font font-semibold'>
+                Add Product
+            </h2>
             <form onSubmit={handleSubmit(handleCreateProduct)} className=' '>
                 <div className=''>
                     <label

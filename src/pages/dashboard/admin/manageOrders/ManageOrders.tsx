@@ -1,13 +1,20 @@
 import { Pagination, Table, TableColumnsType } from "antd";
 import { useState } from "react";
 import { TUser } from "../../../../types/global.types";
-import { useGetAllOrdersQuery } from "../../../../redux/features/order/orderApi";
+import {
+    useDeleteOrderMutation,
+    useGetAllOrdersQuery,
+} from "../../../../redux/features/order/orderApi";
 import { TOrder } from "../../../../types/order.type";
 import ViewOrderDetails from "../../../shere/ViewOrderDetails";
 import ChangeOrderStatus from "./ChangeOrderStatus";
+import { Link } from "react-router-dom";
+import { FaTrashCan } from "react-icons/fa6";
+import Swal from "sweetalert2";
 type TTableDataType = Pick<TUser, "name" | "email" | "role">;
 const ManageOrders = () => {
     const [page, setPage] = useState(1);
+    const [deleteOrder] = useDeleteOrderMutation();
     const { data: orderData, isFetching } = useGetAllOrdersQuery([
         { name: "page", value: page },
         { name: "limit", value: 10 },
@@ -39,7 +46,16 @@ const ManageOrders = () => {
     const columns: TableColumnsType<TTableDataType> = [
         {
             title: "Product Name",
-            dataIndex: "productName",
+            render: (item) => {
+                console.log(item);
+                return (
+                    <Link
+                        className='text-black'
+                        to={`/product/${item?.product?._id}`}>
+                        {item?.product?.name}
+                    </Link>
+                );
+            },
         },
         {
             title: "User Name",
@@ -58,11 +74,26 @@ const ManageOrders = () => {
             dataIndex: "status",
         },
         {
-            title: "Payment Status",
+            title: "Payment",
             dataIndex: "paymentStatus",
-          
         },
 
+        {
+            title: "Action",
+            key: "role",
+            render: (item) => {
+                return (
+                    <div className='w-full text-center'>
+                        <button
+                            onClick={() => handleDeleteProduct(item.key)}
+                            className=''>
+                            <FaTrashCan className='text-xl cursor-pointer text-red-500' />
+                        </button>
+                    </div>
+                );
+            },
+            width: "1%",
+        },
         {
             title: "Action",
             key: "role",
@@ -77,9 +108,29 @@ const ManageOrders = () => {
             width: "1%",
         },
     ];
-
+    const handleDeleteProduct = async (id: string) => {
+        console.log(id);
+        Swal.fire({
+            title: "Do you want to delete this product?",
+            // text: "Not can ",
+            showCancelButton: true,
+            confirmButtonText: "Confirm",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const result = await deleteOrder(id);
+                console.log(result);
+                if (result?.data?.success) {
+                    Swal.fire("Deleted!", "", "success");
+                }
+            }
+        });
+    };
     return (
         <div>
+            <h2 className='text-center text-4xl secondary_font my-5 font-semibold'>
+                Manage Orders
+            </h2>
+
             <Table<TTableDataType>
                 loading={isFetching}
                 columns={columns}

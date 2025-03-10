@@ -44,7 +44,7 @@ const Login = () => {
                 navigate("/");
             }
         } catch (error: any) {
-            toast.success(error.message, {
+            toast.error(error.message || "Something is wrong", {
                 id: tostId,
             });
         }

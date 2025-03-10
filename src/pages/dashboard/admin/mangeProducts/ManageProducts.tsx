@@ -127,6 +127,9 @@ const ManageProducts = () => {
     };
     return (
         <div>
+            <h2 className='text-center text-4xl secondary_font my-5 font-semibold'>
+                Manage Products
+            </h2>
             <div className='flex justify-between my-5'>
                 <div className='relative w-80 h-fit '>
                     <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
@@ -134,7 +137,7 @@ const ManageProducts = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                         type='text'
                         className='outline-0 bg-gray-200 w-full px-5 p-2 rounded-md'
-                        placeholder='Search by name or email...'
+                        placeholder='Search bicycle . . . .'
                     />
                 </div>
                 <Link

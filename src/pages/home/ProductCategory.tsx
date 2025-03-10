@@ -19,7 +19,7 @@ const ProductCategory = () => {
         { name: "Kids Cycle", image: kids },
     ];
     return (
-        <div className='container pb-24'>
+        <div className='container pb-20'>
             <div className=''>
                 <h3 className='text-xl font-medium text-muted'>
                     Bicycle Category

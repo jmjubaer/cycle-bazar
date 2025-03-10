@@ -135,6 +135,9 @@ const ManageUsers = () => {
     };
     return (
         <div>
+            <h2 className='text-center text-4xl secondary_font my-5 font-semibold'>
+                Manage users
+            </h2>
             <div className='relative w-80 h-fit my-5'>
                 <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
                 <input

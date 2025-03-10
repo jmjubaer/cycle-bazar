@@ -42,7 +42,7 @@ const SignUp = () => {
                 navigate("/login");
             }
         } catch (error: any) {
-            toast.success(error.message, {
+            toast.error(error.message || "Something went wrong", {
                 id: tostId,
             });
         }

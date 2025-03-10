@@ -4,6 +4,7 @@ import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 const Footer = () => {
+    const baseUrl = "http://localhost:5173";
     return (
         <footer className='bg-black/90 h-fit pt-20 text-white'>
             <div className='container flex gap-20'>
@@ -38,12 +39,13 @@ const Footer = () => {
                     <h3 className='text-primary text-3xl secondary_font font-semibold my-7'>
                         Menu
                     </h3>
+                    {/* http://localhost:5173/bicycles?category=Mountain */}
                     <ul className='flex flex-col gap-5'>
-                        <Link to={"/"}>Home</Link>
-                        <Link to={"/bicycles"}>Bicycles</Link>
-                        <Link to={"/"}>About Us</Link>
-                        <Link to={"/login"}>Login</Link>
-                        <Link to={"/signup"}>Sign Up</Link>
+                        <Link to={`${baseUrl}`}>Home</Link>
+                        <Link to={`${baseUrl}/bicycles`}>Bicycles</Link>
+                        <Link to={`${baseUrl}/about-us`}>About Us</Link>
+                        <Link to={`${baseUrl}/login`}>Login</Link>
+                        <Link to={`${baseUrl}/signup`}>Sign Up</Link>
                     </ul>
                 </div>
                 <div className=''>
@@ -51,12 +53,24 @@ const Footer = () => {
                         Category
                     </h3>
                     <ul className='flex flex-col gap-5'>
-                        <Link to={"/"}>Mountain</Link>
-                        <Link to={"/"}>Road Cycle</Link>
-                        <Link to={"/"}>Hybrid</Link>
-                        <Link to={"/"}>BMX Cycle</Link>
-                        <Link to={"/"}>Electric</Link>
-                        <Link to={"/"}>Kids Cycle</Link>
+                        <Link to={`${baseUrl}/bicycles?category=Mountain`}>
+                            Mountain
+                        </Link>
+                        <Link to={`${baseUrl}/bicycles?category=Road`}>
+                            Road Cycle
+                        </Link>
+                        <Link to={`${baseUrl}/bicycles?category=Hybrid`}>
+                            Hybrid
+                        </Link>
+                        <Link to={`${baseUrl}/bicycles?category=BMX`}>
+                            BMX Cycle
+                        </Link>
+                        <Link to={`${baseUrl}/bicycles?category=Electric`}>
+                            Electric
+                        </Link>
+                        <Link to={`${baseUrl}/bicycles?category=Kids`}>
+                            Kids Cycle
+                        </Link>
                     </ul>
                 </div>
             </div>
