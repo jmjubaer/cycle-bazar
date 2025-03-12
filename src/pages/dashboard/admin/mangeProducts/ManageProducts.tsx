@@ -131,7 +131,7 @@ const ManageProducts = () => {
                 Manage Products
             </h2>
             <div className='flex justify-between my-5'>
-                <div data-aos="fade-right" className='relative w-80 h-fit '>
+                <div className='relative w-80 h-fit '>
                     <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
                     <input
                         onChange={(e) => setSearchTerm(e.target.value)}
@@ -140,7 +140,7 @@ const ManageProducts = () => {
                         placeholder='Search bicycle . . . .'
                     />
                 </div>
-                <Link data-aos="fade-left"
+                <Link 
                     to={"/dashboard/create-product"}
                     className='button_primary flex items-center gap-2'>
                     <LuCirclePlus className='text-lg' />

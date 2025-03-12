@@ -138,7 +138,7 @@ const Checkout = () => {
                     </div>
                     <div
                         data-aos='fade-up'
-                        data-aos-delay='400'
+                        data-aos-delay='300'
                         className='grid grid-cols-2 gap-3'>
                         <div className=''>
                             <label className=' mt-5 label_primary'>
@@ -177,7 +177,7 @@ const Checkout = () => {
                     </div>
                     <div
                         data-aos='fade-up'
-                        data-aos-delay='500'
+                        data-aos-delay='400'
                         className='grid grid-cols-2 gap-3'>
                         <div className=''>
                             <label className=' mt-5 label_primary'>
@@ -214,7 +214,7 @@ const Checkout = () => {
                             )}
                         </div>
                     </div>
-                    <div data-aos='fade-up' data-aos-delay='600' className=''>
+                    <div data-aos='fade-up' data-aos-delay='400' className=''>
                         <label className=' mt-5 label_primary'>
                             Local Address:*
                         </label>
@@ -291,7 +291,7 @@ const Checkout = () => {
                     </div>
                     <div
                         data-aos='fade-up'
-                        data-aos-delay='400'
+                        data-aos-delay='300'
                         className='overflow-hidden rounded-lg border mt-5 border-black/10 '>
                         <table className='w-full border border-black/10'>
                             <tbody>
@@ -347,7 +347,7 @@ const Checkout = () => {
 
                     <div
                         data-aos='fade-up'
-                        data-aos-delay='600'
+                        data-aos-delay='400'
                         className='flex items-center gap-5 mt-3'>
                         <button
                             type='button'

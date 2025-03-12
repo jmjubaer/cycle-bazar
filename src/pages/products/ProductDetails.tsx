@@ -125,7 +125,7 @@ const ProductDetails = () => {
                                 </p>
                                 <p
                                     data-aos='fade-up'
-                                    data-aos-delay='400'
+                                    data-aos-delay='300'
                                     className='font-medium my-2   '>
                                     Color:{" "}
                                     <span className=' ml-3 font-semibold secondary_font '>
@@ -136,7 +136,7 @@ const ProductDetails = () => {
                                 </p>
                                 <p
                                     data-aos='fade-up'
-                                    data-aos-delay='500'
+                                    data-aos-delay='400'
                                     className='font-medium my-2'>
                                     Model:{" "}
                                     <span className='font-normal ml-2'>
@@ -145,7 +145,7 @@ const ProductDetails = () => {
                                 </p>{" "}
                                 <p
                                     data-aos='fade-up'
-                                    data-aos-delay='600'
+                                    data-aos-delay='400'
                                     className='font-medium my-2'>
                                     Category:{" "}
                                     <span className='font-normal ml-2'>
@@ -154,7 +154,7 @@ const ProductDetails = () => {
                                 </p>
                                 <p
                                     data-aos='fade-up'
-                                    data-aos-delay='700'
+                                    data-aos-delay='500'
                                     className='font-medium my-2'>
                                     Brand:
                                     <span className='font-normal ml-2'>
@@ -163,7 +163,7 @@ const ProductDetails = () => {
                                 </p>
                                 <button
                                     data-aos='fade-up'
-                                    data-aos-delay='800'
+                                    data-aos-delay='500'
                                     onClick={() => navigate(`/${id}/checkout`)}
                                     disabled={!inStock}
                                     className='button_primary_large disabled:opacity-60 w-[70%] text-center inline-block mt-5'>
