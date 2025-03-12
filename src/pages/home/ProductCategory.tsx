@@ -21,10 +21,14 @@ const ProductCategory = () => {
     return (
         <div className='container pb-20'>
             <div className=''>
-                <h3 className='text-xl font-medium text-muted'>
+                <h3
+                    data-aos='fade-right'
+                    className='text-xl font-medium text-muted'>
                     Bicycle Category
                 </h3>
-                <h2 className=' text-4xl mt-3  font-semibold secondary_font'>
+                <h2
+                    data-aos='fade-right' data-aos-delay="200"
+                    className=' text-4xl mt-3  font-semibold secondary_font'>
                     Find the Perfect
                     <br />
                     Bicycle for Your Next Adventure
@@ -33,6 +37,7 @@ const ProductCategory = () => {
             <div className='grid grid-cols-3 gap-8 mt-10'>
                 {categories.map((category: TCategory) => (
                     <div
+                        data-aos='zoom-in'
                         key={category.name}
                         className='relative rounded-lg overflow-hidden'>
                         <img

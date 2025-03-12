@@ -16,7 +16,7 @@ const ProductCard = ({ bicycle }: ProductCardProps) => {
         window.scrollTo(0, 0);
     }, [bicycle]);
     return (
-        <div className='relative flex flex-col justify-between'>
+        <div data-aos='zoom-in' className='relative flex flex-col justify-between'>
             {bicycle?.tag && (
                 <span className='absolute top-3 right-3 rounded font-semibold p-1 px-3 text-xs text-white bg-primary'>
                     {bicycle?.tag}

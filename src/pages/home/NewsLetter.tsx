@@ -22,15 +22,16 @@ const NewsLetter = () => {
     return (
         <div className='news_letter_bg h-[88vh] flex items-center justify-center'>
             <div className='z-10 text-white w-1/2'>
-                <p className='font-medium'>Email Newsletter</p>
-                <h3 className='text-6xl secondary_font font-medium mt-4'>
+                <p data-aos="fade-right" className='font-medium'>Email Newsletter</p>
+                <h3 data-aos="fade-left" className='text-6xl secondary_font font-medium mt-4'>
                     Stay in the loop
                 </h3>
-                <p className='mt-7 text-lg text-gray-400'>
+                <p data-aos="zoom-in" className='mt-7 text-lg text-gray-400'>
                     Sign up to be notified of the latest bike releases, news and
                     exclusive promotions delivered right to your inbox.
                 </p>
                 <form
+                data-aos="fade-up"
                     onSubmit={handleSubmit(handleLogin)}
                     className='mt-8 flex'>
                     <input

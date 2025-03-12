@@ -247,23 +247,6 @@ const Products = () => {
                     </div>
                 </div>
                 <hr className='text-gray-300 my-5' />
-                {/* <div className=''>
-                    <h3 className='block mb-5 font-bold text-2xl secondary_font text-primary'>
-                        Filter By Brand
-                    </h3>
-                    <div className='flex justify-between items-center gap-3  pl-3'>
-                        <select
-                            onChange={(e) => handleBrand(e)}
-                            className='outline-0 p-1 px-2 w-full border rounded'>
-                            <option value=''>All Category</option>
-                            {brandOptions.map((option) => (
-                                <option value={option?.value}>
-                                    {option?.name}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                </div> */}
             </div>
             <div
                 style={{ scrollbarWidth: "none" }}

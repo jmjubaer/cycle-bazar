@@ -17,7 +17,7 @@ const VerifyPayment = () => {
     console.log(data);
     if (!isLoading) {
         setTimeout(() => {
-            navigate("/dashboard/orders");
+            navigate("/bicycles");
         }, 1000);
     }
     return (

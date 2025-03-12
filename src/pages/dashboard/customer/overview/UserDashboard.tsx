@@ -15,7 +15,9 @@ const UserDashboard = () => {
     return (
         <div className='p-5'>
             <div className='grid grid-cols-2 gap-5'>
-                <div className='border-2 bg-teal-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
+                <div
+                    data-aos='fade-right'
+                    className='border-2 bg-teal-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <MdAddShoppingCart className='text-2xl ' />
                     </div>
@@ -30,7 +32,9 @@ const UserDashboard = () => {
                     </h3>
                     <p className='font-medium'>Total Orders</p>
                 </div>
-                <div className='border-2 bg-sky-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
+                <div
+                    data-aos='fade-left'
+                    className='border-2 bg-sky-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <FaCommentDots className='text-2xl ' />
                     </div>
@@ -47,10 +51,8 @@ const UserDashboard = () => {
                 </div>
             </div>
 
-            <div className='mt-5'>
-                <OrderCart
-                    totalOrders={myReview?.data || []}
-                />
+            <div data-aos='flip-up' className='mt-5'>
+                <OrderCart totalOrders={myReview?.data || []} />
             </div>
         </div>
     );

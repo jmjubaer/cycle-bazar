@@ -7,7 +7,13 @@ import { RouterProvider } from "react-router-dom";
 import router from "./routes/routes.tsx";
 import { Toaster } from "sonner";
 import { ConfigProvider } from "antd";
-
+import Aos from "aos";
+Aos.init({
+    offset: 0,
+    duration: 600,
+    easing: 'linear',
+    delay: 100,
+  });
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <ConfigProvider

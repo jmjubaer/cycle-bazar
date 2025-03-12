@@ -64,7 +64,9 @@ const ProductDetails = () => {
                 {bicycle ? (
                     <>
                         <div className='grid grid-cols-2 items-center justify-between gap-8 h-fit'>
-                            <div className='flex overflow-hidden items-center justify-center relative'>
+                            <div
+                                data-aos='fade-right'
+                                className='flex overflow-hidden items-center justify-center relative'>
                                 {tag && (
                                     <span className='absolute top-3 right-3 rounded font-semibold p-1 px-3 text-xs bg-primary'>
                                         {tag}
@@ -76,12 +78,16 @@ const ProductDetails = () => {
                                     className='w-full object-cover rounded-2xl'
                                 />
                             </div>
-                            <div className='flex flex-col justify-between '>
+                            <div
+                                // data-aos='fade-left'
+                                className='flex flex-col justify-between '>
                                 <h2 className='text-5xl font-semibold text-primary secondary_font mb-3'>
                                     {name}
                                 </h2>
                                 {avgRatting > 0 && (
-                                    <div className='flex items-center gap-3'>
+                                    <div
+                                        data-aos='fade-up'
+                                        className='flex items-center gap-3'>
                                         <div className='flex'>
                                             <Rating
                                                 style={{ maxWidth: 120 }}
@@ -95,7 +101,10 @@ const ProductDetails = () => {
                                         </span>
                                     </div>
                                 )}
-                                <div className='flex items-center gap-2 p-2 rounded-md px-3 mt-2 bg-gray-200 w-fit'>
+                                <div
+                                    data-aos='fade-up'
+                                    data-aos-delay='200'
+                                    className='flex items-center gap-2 p-2 rounded-md px-3 mt-2 bg-gray-200 w-fit'>
                                     {quantity > 0 ? (
                                         <CiFaceSmile className='text-xl' />
                                     ) : (
@@ -105,13 +114,19 @@ const ProductDetails = () => {
                                         {quantity} IN STOCK
                                     </p>
                                 </div>
-                                <p className='font-medium my-2   '>
+                                <p
+                                    data-aos='fade-up'
+                                    data-aos-delay='300'
+                                    className='font-medium my-2   '>
                                     Price:{" "}
                                     <span className='text-2xl ml-3 font-bold secondary_font '>
                                         ${price}
                                     </span>
                                 </p>
-                                <p className='font-medium my-2   '>
+                                <p
+                                    data-aos='fade-up'
+                                    data-aos-delay='400'
+                                    className='font-medium my-2   '>
                                     Color:{" "}
                                     <span className=' ml-3 font-semibold secondary_font '>
                                         {colors.map((color: string) => (
@@ -119,25 +134,36 @@ const ProductDetails = () => {
                                         ))}
                                     </span>
                                 </p>
-                                <p className='font-medium my-2'>
+                                <p
+                                    data-aos='fade-up'
+                                    data-aos-delay='500'
+                                    className='font-medium my-2'>
                                     Model:{" "}
                                     <span className='font-normal ml-2'>
                                         {model}
                                     </span>
                                 </p>{" "}
-                                <p className='font-medium my-2'>
+                                <p
+                                    data-aos='fade-up'
+                                    data-aos-delay='600'
+                                    className='font-medium my-2'>
                                     Category:{" "}
                                     <span className='font-normal ml-2'>
                                         {type}
                                     </span>
                                 </p>
-                                <p className='font-medium my-2'>
+                                <p
+                                    data-aos='fade-up'
+                                    data-aos-delay='700'
+                                    className='font-medium my-2'>
                                     Brand:
                                     <span className='font-normal ml-2'>
                                         {brand}
                                     </span>
                                 </p>
                                 <button
+                                    data-aos='fade-up'
+                                    data-aos-delay='800'
                                     onClick={() => navigate(`/${id}/checkout`)}
                                     disabled={!inStock}
                                     className='button_primary_large disabled:opacity-60 w-[70%] text-center inline-block mt-5'>
@@ -145,7 +171,7 @@ const ProductDetails = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className='mt-8'>
+                        <div data-aos='fade-up' className='mt-8'>
                             <Tabs
                                 defaultActiveKey='1'
                                 items={items}

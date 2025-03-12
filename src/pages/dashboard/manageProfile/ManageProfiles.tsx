@@ -12,7 +12,7 @@ const ManageProfiles = () => {
 
     return (
         <div className='flex items-center justify-center h-full'>
-            <div className='border border-gray-300 p-5 w-1/2 max-w-[500px] rounded-2xl shadow-2xl relative '>
+            <div data-aos="zoom-in" className='border border-gray-300 p-5 w-1/2 max-w-[500px] rounded-2xl shadow-2xl relative '>
                 <Spin
                     spinning={isFetching}
                     tip='Loading...'

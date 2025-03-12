@@ -56,7 +56,7 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
     return (
         <div>
             {bicycle.reviews.map((review, idx) => (
-                <div key={idx} className='flex gap-3 my-8'>
+                <div data-aos="fade-up" key={idx} className='flex gap-3 my-8'>
                     <div className=''>
                         <FaCircleUser className='text-5xl text-gray-300' />
                     </div>
@@ -85,10 +85,10 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
             ))}
 
             <div className=''>
-                <h2 className=' text-xl mt-8 font-semibold secondary_font'>
+                <h2 data-aos="fade-up" className=' text-xl mt-8 font-semibold secondary_font'>
                     Add Review
                 </h2>
-                <div className='mt-5'>
+                <div data-aos="fade-up" className='mt-5'>
                     <div className=''>
                         <h3 className='secondary_font font-medium text-base'>
                             Your Ratting:*
@@ -101,7 +101,7 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
                             orientation='horizontal'
                             value={rating}
                         />
-                        <form
+                        <form data-aos="fade-up"
                             className='mt-5'
                             onSubmit={handleSubmit(onSubmit)}>
                             <label className='secondary_font font-medium text-base'>

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useGetBicycleByIdQuery } from "../../redux/features/product/productApi";
 import { FaCheckCircle, FaMinus, FaPlus } from "react-icons/fa";
 import { useEffect, useState } from "react";
@@ -26,7 +26,7 @@ const Checkout = () => {
     const { data: product } = useGetBicycleByIdQuery(productId);
     const [createOrder] = useCreateOrderMutation();
     const { data: currentUser } = useGetMeQuery(undefined);
-
+    const navigate = useNavigate()
     const {
         reset,
         register,
@@ -58,13 +58,18 @@ const Checkout = () => {
                     postalCode: Number(data.postalCode),
                 },
             };
-            const result = (await createOrder(orderData)) as TResponse<TOrderResponse>;
+            const result = (await createOrder(
+                orderData
+            )) as TResponse<TOrderResponse>;
             if (result?.data?.success) {
                 toast.success("Order placed successfully!", { id: toastId });
                 reset();
                 if (result?.data?.data?.paymentUrl) {
                     window.open(result?.data?.data?.paymentUrl, "_self");
                     setLoading(false);
+                }else{
+                setLoading(false);
+                navigate("/bicycles");
                 }
             } else if (result?.error) {
                 toast.error(
@@ -94,12 +99,14 @@ const Checkout = () => {
             className='w-full'>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className='container grid grid-cols-2 gap-5 py-5 items-center'>
-                <div className=' border border-gray-300 rounded-xl p-5'>
+                className='container overflow-hidden grid grid-cols-2 gap-5 py-5 items-center'>
+                <div
+                    data-aos='fade-right'
+                    className=' border border-gray-300 rounded-xl p-5'>
                     <h2 className='secondary_font font-medium text-2xl text-center'>
                         Delivery Address
                     </h2>
-                    <div className=''>
+                    <div data-aos='fade-up' data-aos-delay='200' className=''>
                         <label className='label_primary my-3 '>Name:*</label>
                         <input
                             placeholder='Enter Your Name'
@@ -114,7 +121,7 @@ const Checkout = () => {
                             </p>
                         )}{" "}
                     </div>
-                    <div className=''>
+                    <div data-aos='fade-up' data-aos-delay='300' className=''>
                         <label className=' mt-5 label_primary'>Phone:*</label>
                         <input
                             placeholder='Enter Your phone           '
@@ -129,7 +136,10 @@ const Checkout = () => {
                             </p>
                         )}
                     </div>
-                    <div className='grid grid-cols-2 gap-3'>
+                    <div
+                        data-aos='fade-up'
+                        data-aos-delay='400'
+                        className='grid grid-cols-2 gap-3'>
                         <div className=''>
                             <label className=' mt-5 label_primary'>
                                 City:*
@@ -165,7 +175,10 @@ const Checkout = () => {
                             )}
                         </div>
                     </div>
-                    <div className='grid grid-cols-2 gap-3'>
+                    <div
+                        data-aos='fade-up'
+                        data-aos-delay='500'
+                        className='grid grid-cols-2 gap-3'>
                         <div className=''>
                             <label className=' mt-5 label_primary'>
                                 Thana/Upazila:*
@@ -201,7 +214,7 @@ const Checkout = () => {
                             )}
                         </div>
                     </div>
-                    <div className=''>
+                    <div data-aos='fade-up' data-aos-delay='600' className=''>
                         <label className=' mt-5 label_primary'>
                             Local Address:*
                         </label>
@@ -220,11 +233,14 @@ const Checkout = () => {
                     </div>
                 </div>
 
-                <div className='w-4/5 mx-auto'>
+                <div data-aos='fade-left' className='w-4/5 mx-auto'>
                     <h2 className='secondary_font font-medium text-2xl text-center'>
                         Product Details
                     </h2>
-                    <div className='mt-4 flex items-center gap-5'>
+                    <div
+                        data-aos='fade-up'
+                        data-aos-delay='200'
+                        className='mt-4 flex items-center gap-5'>
                         <img
                             src={product?.data?.image}
                             alt=''
@@ -273,7 +289,10 @@ const Checkout = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='overflow-hidden rounded-lg border mt-5 border-black/10 '>
+                    <div
+                        data-aos='fade-up'
+                        data-aos-delay='400'
+                        className='overflow-hidden rounded-lg border mt-5 border-black/10 '>
                         <table className='w-full border border-black/10'>
                             <tbody>
                                 <tr className='border border-black/10 bg-black/10'>
@@ -319,11 +338,17 @@ const Checkout = () => {
                         </table>
                     </div>
 
-                    <h2 className='secondary_font font-medium text-2xl mt-4'>
+                    <h2
+                        data-aos='fade-up'
+                        data-aos-delay='400'
+                        className='secondary_font font-medium text-2xl mt-4'>
                         Payment Method
                     </h2>
 
-                    <div className='flex items-center gap-5 mt-3'>
+                    <div
+                        data-aos='fade-up'
+                        data-aos-delay='600'
+                        className='flex items-center gap-5 mt-3'>
                         <button
                             type='button'
                             onClick={() => setPaymentMethod("surjopay")}
@@ -353,6 +378,7 @@ const Checkout = () => {
                     </div>
 
                     <button
+                        data-aos='fade-up'
                         type='submit'
                         className='button_primary_md w-full mt-5'>
                         Order Now

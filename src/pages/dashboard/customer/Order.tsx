@@ -14,11 +14,13 @@ const Order = () => {
                 My Orders
             </h2>
             <Spin spinning={isFetching} tip='Loading...' size='large'>
-                <div className=''>
+                <div  className=''>
                     {orderData?.data?.length > 0 ? (
                         <div className='grid grid-cols-2 gap-5 items-center justify-between mt-7'>
                             {orderData?.data?.map((order: TOrder) => (
-                                <div className='border-2 rounded-xl p-4 border-gray-200'>
+                                <div
+                                    key={order?._id}
+                                    className='border-2 rounded-xl p-4 border-gray-200'>
                                     <div
                                         key={order?._id}
                                         className='flex gap-3'>
@@ -77,7 +79,10 @@ const Order = () => {
                                         </div>
                                     </div>
                                     <div className=' grid grid-cols-2 gap-5 mt-3'>
-                                        <ViewOrderDetails item={order} type="large"/>
+                                        <ViewOrderDetails
+                                            item={order}
+                                            type='large'
+                                        />
                                         <button
                                             onClick={() =>
                                                 navigate(

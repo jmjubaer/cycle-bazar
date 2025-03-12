@@ -24,8 +24,9 @@ const Review = () => {
     return (
         <div className='container pb-20'>
             <div className='text-center'>
-                <h3 className='text-xl font-medium text-muted'>Testimonial</h3>
-                <h2 className=' text-4xl mt-3  font-semibold secondary_font'>
+                <h3 data-aos="fade-up" className='text-xl font-medium text-muted'>Testimonial</h3>
+                <h2 data-aos="fade-up"
+                        data-aos-delay='200' className=' text-4xl mt-3  font-semibold secondary_font'>
                     Customer Stories, <br />
                     The Cycle Bazar Experience
                 </h2>
