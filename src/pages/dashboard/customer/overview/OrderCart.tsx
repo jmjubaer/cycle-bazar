@@ -44,22 +44,12 @@ const groupByDate = (data: { createdAt: string }[], last7Days: string[]) => {
     return last7Days.map((day) => groupedData[day] || 0);
 };
 
-const OrderCart = ({ totalUsers, totalProducts, totalOrders }: any) => {
+const OrderCart = ({ totalOrders }: any) => {
     const last7Days = useMemo(() => getLast7Days(), []);
 
     const chartData = {
         labels: last7Days,
         datasets: [
-            {
-                label: "Products Added",
-                data: groupByDate(totalProducts, last7Days),
-                backgroundColor: "#34d399", // Green
-            },
-            {
-                label: "Users Signed Up",
-                data: groupByDate(totalUsers, last7Days),
-                backgroundColor: "#60a5fa", // Blue
-            },
             {
                 label: "Orders",
                 data: groupByDate(totalOrders, last7Days),

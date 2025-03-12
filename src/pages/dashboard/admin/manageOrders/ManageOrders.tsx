@@ -51,7 +51,7 @@ const ManageOrders = () => {
                 return (
                     <Link
                         className='text-black'
-                        to={`/product/${item?.product?._id}`}>
+                        to={`/bicycle/${item?.product?._id}`}>
                         {item?.product?.name}
                     </Link>
                 );
