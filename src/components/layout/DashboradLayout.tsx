@@ -11,7 +11,7 @@ const DashboardLayout = () => {
             sidebarItems = [
                 {
                     key: "/dashboard",
-                    label: <NavLink to={`/dashboard`}>Dashboard</NavLink>,
+                    label: <NavLink to={`/dashboard/customer`}>Dashboard</NavLink>,
                 },
                 {
                     key: "/dashboard/manage-profile",
@@ -34,7 +34,7 @@ const DashboardLayout = () => {
             sidebarItems = [
                 {
                     key: "/dashboard",
-                    label: <NavLink to={`/dashboard`}>Dashboard</NavLink>,
+                    label: <NavLink to={`/dashboard/admin`}>Dashboard</NavLink>,
                 },
                 {
                     key: "/dashboard/manage-profile",

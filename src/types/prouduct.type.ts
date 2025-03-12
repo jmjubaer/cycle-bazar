@@ -24,4 +24,5 @@ export type TProduct = {
     reviews: TReview[];
     inStock: boolean;
     colors: string[];
+    createdAt: Date;
 };

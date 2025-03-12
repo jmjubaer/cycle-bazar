@@ -1,4 +1,6 @@
 import { BaseQueryApi } from "@reduxjs/toolkit/query";
+import { TOrder } from "./order.type";
+import { TProduct } from "./prouduct.type";
 
 export type TErrorResponse = {
     data: {
@@ -39,3 +41,9 @@ export type TUser = {
     updatedAt: Date;
     passwordChangedAt: Date;
 };
+
+export type TActivity = {
+    totalOrders: TOrder;
+    totalProducts: TProduct;
+    totalUsers: TUser;
+}

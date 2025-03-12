@@ -107,7 +107,7 @@ const Navbar = () => {
                                                 : "hover:text-primary"
                                         }`
                                     }
-                                    to={`/dashboard`}>
+                                    to={`/dashboard/${user?.role}`}>
                                     Dashboard
                                 </NavLink>
                             </li>

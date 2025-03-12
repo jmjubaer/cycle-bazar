@@ -60,6 +60,13 @@ const userApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ["users"],
         }),
+        getActivitySummery: builder.query({
+            query: () => ({
+                url: "/activity-summary",
+                method: "GET",
+            }),
+        }),
+       
     }),
 });
 export const {
@@ -67,5 +74,6 @@ export const {
     useGetMeQuery,
     useGetAllUserQuery,
     useChangeRoleMutation,
-    useChangeStatusMutation
+    useChangeStatusMutation,
+    useGetActivitySummeryQuery,
 } = userApi;

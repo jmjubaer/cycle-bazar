@@ -10,13 +10,14 @@ import Checkout from "../pages/checkout/Checkout";
 import Order from "../pages/dashboard/customer/Order";
 import DashboardLayout from "../components/layout/DashboradLayout";
 import ManageProfiles from "../pages/dashboard/manageProfile/ManageProfiles";
-import Dashboard from "../pages/dashboard/Dashboard";
+import Dashboard from "../pages/dashboard/admin/overview/Dashboard";
 import ManageUsers from "../pages/dashboard/admin/ManageUsers";
 import ManageProducts from "../pages/dashboard/admin/mangeProducts/ManageProducts";
 import ManageOrders from "../pages/dashboard/admin/manageOrders/ManageOrders";
 import VerifyPayment from "../pages/checkout/VerifyPayment";
 import CreateProduct from "../pages/dashboard/admin/mangeProducts/CreateProduct";
 import AboutUs from "../pages/about-us/AboutUs";
+import UserDashboard from "../pages/dashboard/customer/overview/UserDashboard";
 
 const router = createBrowserRouter([
     {
@@ -54,10 +55,18 @@ const router = createBrowserRouter([
                 ),
                 children: [
                     {
-                        path: "/dashboard",
+                        path: "/dashboard/admin",
                         element: (
-                            <ProtectedRoute>
+                            <ProtectedRoute role="admin">
                                 <Dashboard />
+                            </ProtectedRoute>
+                        ),
+                    },
+                    {
+                        path: "/dashboard/customer",
+                        element: (
+                            <ProtectedRoute role="customer">
+                                <UserDashboard />
                             </ProtectedRoute>
                         ),
                     },
