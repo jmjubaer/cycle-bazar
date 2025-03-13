@@ -54,7 +54,7 @@ const Review = () => {
                     className='review-swiper mt-14'>
                     {ReviewsData?.data?.map((review: TReview) => (
                         <SwiperSlide key={review?._id} className='slide'>
-                            <div className='shadow-md cursor-move rounded-xl h-full flex flex-col justify-between mb-5 p-4 border border-gray-300 '>
+                            <div data-aos='zoom-in' className='shadow-md cursor-move rounded-xl h-full flex flex-col justify-between mb-5 p-4 border border-gray-300 '>
                                 <div className=''>
                                     <Rating
                                         style={{ maxWidth: 150 }}

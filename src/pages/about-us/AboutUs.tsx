@@ -55,13 +55,13 @@ const AboutUs = () => {
                 </div>
             </div>
             <div className='text-center py-24'>
-                <h3 data-aos="fade-down" className='text-xl font-medium text-muted'>
+                <h3 data-aos="fade-up" className='text-xl font-medium text-muted'>
                     Professional Team
                 </h3>
-                <h2 data-aos="zoom-in" className=' text-4xl my-3 font-semibold secondary_font'>
+                <h2 data-aos='fade-up' data-aos-delay="200" className=' text-4xl my-3 font-semibold secondary_font'>
                     Meet Our Team
                 </h2>
-                <p data-aos="fade-up" className='w-1/2 mx-auto mt-5 font-medium text-gray-500'>
+                <p data-aos="fade-up" data-aos-delay="300" className='w-1/2 mx-auto mt-5 font-medium text-gray-500'>
                     Meet the passionate cycling experts at Cycle Bazar,
                     dedicated to helping you find the perfect ride for every
                     adventure.
