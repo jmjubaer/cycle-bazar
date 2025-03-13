@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     const baseUrl = "http://localhost:5173";
     return (
-        <footer className='bg-black/90 h-fit pt-20 text-white'>
-            <div className='container flex gap-20'>
-                <div className='w-3/5'>
+        <footer className='bg-black/90 h-fit pt-8 xs:pt-14 md:pt-20 text-white'>
+            <div className='container sm:flex gap-8 md:gap-20'>
+                <div className='sm:w-3/5'>
                     <img data-aos='fade-up' src={logo} className='w-[200px]' />
                     <p data-aos='fade-up' className='my-5 font-medium'>
                         Join Our Cycling Community – Sign up for exclusive
@@ -37,65 +37,67 @@ const Footer = () => {
                         </li>
                     </ul>
                 </div>
-                <div className=''>
-                    <h3 className='text-primary text-3xl secondary_font font-semibold my-7'>
-                        Menu
-                    </h3>
-                    {/* http://localhost:5173/bicycles?category=Mountain */}
-                    <ul className='flex flex-col gap-5'>
-                        <Link data-aos='fade-up' to={`${baseUrl}`}>
-                            Home
-                        </Link>
-                        <Link data-aos='fade-up' to={`${baseUrl}/bicycles`}>
-                            Bicycles
-                        </Link>
-                        <Link data-aos='fade-up' to={`${baseUrl}/about-us`}>
-                            About Us
-                        </Link>
-                        <Link data-aos='fade-up' to={`${baseUrl}/login`}>
-                            Login
-                        </Link>
-                        <Link data-aos='fade-up' to={`${baseUrl}/signup`}>
-                            Sign Up
-                        </Link>
-                    </ul>
-                </div>
-                <div className=''>
-                    <h3 className='text-primary text-3xl secondary_font font-semibold my-7'>
-                        Category
-                    </h3>
-                    <ul className='flex flex-col gap-5'>
-                        <Link
-                            data-aos='fade-up'
-                            to={`${baseUrl}/bicycles?category=Mountain`}>
-                            Mountain
-                        </Link>
-                        <Link
-                            data-aos='fade-up'
-                            to={`${baseUrl}/bicycles?category=Road`}>
-                            Road Cycle
-                        </Link>
-                        <Link
-                            data-aos='fade-up'
-                            to={`${baseUrl}/bicycles?category=Hybrid`}>
-                            Hybrid
-                        </Link>
-                        <Link
-                            data-aos='fade-up'
-                            to={`${baseUrl}/bicycles?category=BMX`}>
-                            BMX Cycle
-                        </Link>
-                        <Link
-                            data-aos='fade-up'
-                            to={`${baseUrl}/bicycles?category=Electric`}>
-                            Electric
-                        </Link>
-                        <Link
-                            data-aos='fade-up'
-                            to={`${baseUrl}/bicycles?category=Kids`}>
-                            Kids Cycle
-                        </Link>
-                    </ul>
+                <div className='flex sm:gap-8 md:gap-20 gap-20'>
+                    <div className=''>
+                        <h3 className='text-primary text-3xl secondary_font font-semibold my-7'>
+                            Menu
+                        </h3>
+                        {/* http://localhost:5173/bicycles?category=Mountain */}
+                        <ul className='flex flex-col gap-5'>
+                            <Link data-aos='fade-up' to={`${baseUrl}`}>
+                                Home
+                            </Link>
+                            <Link data-aos='fade-up' to={`${baseUrl}/bicycles`}>
+                                Bicycles
+                            </Link>
+                            <Link data-aos='fade-up' to={`${baseUrl}/about-us`}>
+                                About Us
+                            </Link>
+                            <Link data-aos='fade-up' to={`${baseUrl}/login`}>
+                                Login
+                            </Link>
+                            <Link data-aos='fade-up' to={`${baseUrl}/signup`}>
+                                Sign Up
+                            </Link>
+                        </ul>
+                    </div>
+                    <div className=''>
+                        <h3 className='text-primary text-3xl secondary_font font-semibold my-7'>
+                            Category
+                        </h3>
+                        <ul className='flex flex-col gap-5'>
+                            <Link
+                                data-aos='fade-up'
+                                to={`${baseUrl}/bicycles?category=Mountain`}>
+                                Mountain
+                            </Link>
+                            <Link
+                                data-aos='fade-up'
+                                to={`${baseUrl}/bicycles?category=Road`}>
+                                Road Cycle
+                            </Link>
+                            <Link
+                                data-aos='fade-up'
+                                to={`${baseUrl}/bicycles?category=Hybrid`}>
+                                Hybrid
+                            </Link>
+                            <Link
+                                data-aos='fade-up'
+                                to={`${baseUrl}/bicycles?category=BMX`}>
+                                BMX Cycle
+                            </Link>
+                            <Link
+                                data-aos='fade-up'
+                                to={`${baseUrl}/bicycles?category=Electric`}>
+                                Electric
+                            </Link>
+                            <Link
+                                data-aos='fade-up'
+                                to={`${baseUrl}/bicycles?category=Kids`}>
+                                Kids Cycle
+                            </Link>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <p className='py-8 text-sm text-center border-y mt-6 border-gray-700 text-gray-500'>

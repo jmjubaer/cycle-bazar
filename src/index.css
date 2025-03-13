@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @theme {
     /* --font-display: "Satoshi", "sans-serif"; */
-    /* --breakpoint-3xl: 1920px; */
+    --breakpoint-xs: 540px;
     --color-primary: #ffae00;
     --color-secondary: "#F8F8F8";
     --color-dark: "#1d1d1d";
@@ -26,17 +26,25 @@ body {
 .jm_nav {
     @apply flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between justify-end lg:col-span-3 gap-5 absolute lg:static lg:w-auto top-0 left-0 overflow-hidden h-screen lg:h-auto duration-500 bg-[#000] lg:bg-[transparent] lg:p-0 z-50;
 }
+.banner_title {
+    @apply lg:text-6xl text-3xl sm:text-4xl lg:leading-24 font-bold capitalize;
+}
 .news_letter_bg {
     background: url("../src/assets/newsletter-bg.webp");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
 }
 .button_primary {
-    @apply cursor-pointer font-medium hover:text-black text-black bg-primary px-4 py-1 rounded;
+    @apply cursor-pointer text-sm sm:text-base font-medium hover:text-black text-black bg-primary px-4 py-1 rounded;
 }
 .button_primary_md {
-    @apply cursor-pointer font-medium hover:text-white  text-lg bg-primary px-8 py-2 rounded;
+    @apply cursor-pointer font-medium hover:text-white text-sm sm:text-lg bg-primary sm:px-8 sm:py-2 px-3 py-1 rounded;
 }
 .button_primary_large {
-    @apply cursor-pointer font-medium hover:text-white text-white text-xl bg-primary px-16 py-3 rounded;
+    @apply cursor-pointer font-medium hover:text-white text-white sm:text-xl bg-primary md:px-16 px-5 md:py-3 py-2 rounded;
 }
 .input_primary {
     @apply w-full block px-4 py-2 text-base bg-black/10 outline-0 rounded-md;
@@ -51,6 +59,18 @@ body {
     height: 300px !important;
     overflow: hidden;
     border-radius: 12px;
+}
+@media screen and (max-width: 640px) {
+    .review-swiper .slide {
+        width: 400px !important;
+        height: 340px !important;
+    }
+}
+@media screen and (max-width: 440px) {
+    .review-swiper .slide {
+        width: 95% !important;
+        height: 380px !important;
+    }
 }
 button:disabled {
     /* Gray when disabled */

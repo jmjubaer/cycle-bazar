@@ -17,20 +17,18 @@ import moment from "moment";
 import { FaCircleUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { Spin } from "antd";
+import SectionTitle from "../shere/SectionTitle";
 const Review = () => {
     const { data: ReviewsData, isFetching } = useGetAllReviewQuery([
         { name: "limit", value: 6 },
     ]);
     return (
-        <div className='container pb-20'>
-            <div className='text-center'>
-                <h3 data-aos="fade-up" className='text-xl font-medium text-muted'>Testimonial</h3>
-                <h2 data-aos="fade-up"
-                        data-aos-delay='200' className=' text-4xl mt-3  font-semibold secondary_font'>
-                    Customer Stories, <br />
-                    The Cycle Bazar Experience
-                </h2>
-            </div>
+        <div className='container pb-8 xs:pb-14 lg:pb-20'>
+            <SectionTitle
+                textCenter
+                title={"Testimonial"}
+                description={"Customer Stories , The Cycle Bazar Experience"}
+            />
             <Spin
                 className='min-h-[100px] block'
                 spinning={isFetching}
@@ -51,30 +49,39 @@ const Review = () => {
                     }}
                     // pagination={true}
                     modules={[EffectCoverflow, Pagination]}
-                    className='review-swiper mt-14'>
+                    className='review-swiper mt-5 xs:mt-9 md:mt-14'>
                     {ReviewsData?.data?.map((review: TReview) => (
                         <SwiperSlide key={review?._id} className='slide'>
-                            <div data-aos='zoom-in' className='shadow-md cursor-move rounded-xl h-full flex flex-col justify-between mb-5 p-4 border border-gray-300 '>
+                            <div
+                                data-aos='zoom-in'
+                                className='shadow-md cursor-move rounded-xl h-full flex flex-col justify-between mb-5 p-2 sm:p-4 border border-gray-300 '>
                                 <div className=''>
                                     <Rating
-                                        style={{ maxWidth: 150 }}
+                                        // style={{ maxWidth: 150 }}
+                                        className='xs:max-w-[150px] max-w-[120px]'
                                         readOnly
                                         orientation='horizontal'
                                         value={review?.rating}
                                     />
                                     {review?.comment?.length > 250 ? (
-                                        <p className='my-5'>
-                                            {review?.comment?.slice(0, 300)} . .
-                                            . . . . . .
-                                        </p>
+                                        <>
+                                            <p className='sm:my-5 my-2 xs:block hidden'>
+                                                {review?.comment?.slice(0, 300)}{" "}
+                                                . . . . . . .
+                                            </p>{" "}
+                                            <p className='sm:my-5 my-2 xs:hidden block'>
+                                                {review?.comment?.slice(0, 250)}{" "}
+                                                . . . . . . .
+                                            </p>
+                                        </>
                                     ) : (
-                                        <p className='my-5'>
+                                        <p className='sm:my-5 my-2 textj'>
                                             {review?.comment}
                                         </p>
                                     )}
                                 </div>
 
-                                <div className='grid grid-cols-2 gap-3'>
+                                <div className='grid xs:grid-cols-2 gap-1 sm:gap-3'>
                                     <div className='flex items-center gap-3'>
                                         <div className=''>
                                             <FaCircleUser className='text-5xl text-gray-300' />

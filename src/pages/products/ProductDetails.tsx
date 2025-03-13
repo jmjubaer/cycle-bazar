@@ -79,7 +79,6 @@ const ProductDetails = () => {
                                 />
                             </div>
                             <div
-                                // data-aos='fade-left'
                                 className='flex flex-col justify-between '>
                                 <h2 className='text-5xl font-semibold text-primary secondary_font mb-3'>
                                     {name}

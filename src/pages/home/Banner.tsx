@@ -37,16 +37,15 @@ const Banner = () => {
                 className='mySwiper h-[90vh] max-h-[480px]'>
                 <SwiperSlide>
                     <div className='relative w-full h-full z-10'>
-                        <div className='absolute top-0 left-0 h-full w-full bg-black/30 z-10'></div>
+                        <div className='absolute top-0 left-0 h-full w-full bg-black/40 z-10'></div>
                         <div className='absolute text-white z-20 flex justify-center items-center w-full h-full'>
-                            <div className='w-1/2 text-center'>
+                            <div className='md:w-1/2  w-[95%] text-center'>
                                 <h2
                                     data-aos='fade-up'
-                                    className='text-6xl font-bold leading-24 secondary_font'>
+                                    className='banner_title secondary_font'>
                                     Sporty Ride Or Speedy Commuter
                                 </h2>
                                 <Link
-                                    // data-aos='fade-left'
 
                                     to='/bicycle/67b94c70ca5b5458cb5e49d4'
                                     className='button_primary_large mt-7 inline-block w-fit btn_1'>
@@ -64,14 +63,13 @@ const Banner = () => {
                     <div className='relative w-full h-full'>
                         <div className='absolute top-0 left-0 h-full w-full bg-black/30 z-10'></div>
                         <div className='absolute text-white z-20 flex justify-center items-center w-full h-full'>
-                            <div className='w-1/2 text-center'>
+                            <div className='md:w-1/2  w-[95%] text-center'>
                                 <h2
                                     data-aos='fade-up'
-                                    className='text-6xl font-bold leading-24 secondary_font'>
+                                    className='banner_title secondary_font secondary_font'>
                                     Climbing By High Durable Cycle
                                 </h2>
                                 <Link
-                                    // data-aos='fade-left'
                                     to={"/bicycle/67cbbe30ff036aa389867908"}
                                     className='button_primary_large mt-7 inline-block w-fit btn_2'>
                                     Ride Now
@@ -88,14 +86,13 @@ const Banner = () => {
                     <div className='relative w-full h-full'>
                         <div className='absolute top-0 left-0 h-full w-full bg-black/40 z-10'></div>
                         <div className='absolute text-white z-20 flex justify-center items-center w-full h-full'>
-                            <div className='w-1/2 text-center'>
+                            <div className='md:w-1/2  w-[95%] text-center'>
                                 <h2
                                     data-aos='fade-up'
-                                    className='text-6xl font-bold leading-24 secondary_font capitalize'>
+                                    className='banner_title secondary_font '>
                                     The Next Generation of Bikes
                                 </h2>
                                 <Link
-                                    // data-aos='fade-left'
                                     to={"/bicycle/67b94c70ca5b5458cb5e49d1"}
                                     className='button_primary_large mt-7 inline-block w-fit btn_3'>
                                     Explore Now
@@ -112,14 +109,13 @@ const Banner = () => {
                     <div className='relative w-full h-full'>
                         <div className='absolute top-0 left-0 h-full w-full bg-black/40 z-10'></div>
                         <div className='absolute text-white z-20 flex justify-center items-center w-full h-full'>
-                            <div className='w-1/2 text-center'>
+                            <div className='md:w-1/2  w-[95%] text-center'>
                                 <h2
                                     data-aos='fade-up'
-                                    className='text-6xl font-bold leading-24 secondary_font capitalize'>
+                                    className='banner_title  secondary_font '>
                                     Full Suspension Mountain Bikes
                                 </h2>
                                 <Link
-                                    // data-aos='fade-left'
                                     to={"/bicycle/67b94c70ca5b5458cb5e49d2"}
                                     className='button_primary_large mt-7 inline-block w-fit btn_4'>
                                     Shop Now
