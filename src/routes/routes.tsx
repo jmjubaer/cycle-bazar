@@ -3,7 +3,6 @@ import MainLayout from "../components/layout/MainLayout";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 import Home from "../pages/home/Home";
-import Products from "../pages/products/Products";
 import ProductDetails from "../pages/products/ProductDetails";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
 import Checkout from "../pages/checkout/Checkout";
@@ -18,6 +17,8 @@ import VerifyPayment from "../pages/checkout/VerifyPayment";
 import CreateProduct from "../pages/dashboard/admin/mangeProducts/CreateProduct";
 import AboutUs from "../pages/about-us/AboutUs";
 import UserDashboard from "../pages/dashboard/customer/overview/UserDashboard";
+import Products from "../pages/products/Products";
+
 
 const router = createBrowserRouter([
     {

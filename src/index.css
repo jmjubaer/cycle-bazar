@@ -35,7 +35,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
 }
 .button_primary {
     @apply cursor-pointer text-sm sm:text-base font-medium hover:text-black text-black bg-primary px-4 py-1 rounded;
@@ -105,4 +104,13 @@ button:disabled {
 }
 .order-modal {
     width: 80% !important;
+}
+
+/* Ant Layout code */
+:where(.css-dev-only-do-not-override-1qdf4kr).ant-layout-sider
+    .ant-layout-sider-zero-width-trigger {
+    top: 0;
+    color: #fff;
+    background: #ffae00;
+    border-radius: 8px 8px 8px 8px;
 }

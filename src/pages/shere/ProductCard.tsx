@@ -17,7 +17,6 @@ const ProductCard = ({ bicycle }: ProductCardProps) => {
     }, [bicycle]);
     return (
         <div
-            data-aos='zoom-in'
             className='relative flex flex-col justify-between'>
             {bicycle?.tag && (
                 <span className='absolute top-3 right-3 rounded font-semibold p-1 px-3 text-xs text-white bg-primary'>
