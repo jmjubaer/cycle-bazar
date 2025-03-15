@@ -56,39 +56,54 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
     return (
         <div>
             {bicycle.reviews.map((review, idx) => (
-                <div data-aos="fade-up" key={idx} className='flex gap-3 my-8'>
-                    <div className=''>
-                        <FaCircleUser className='text-5xl text-gray-300' />
+                <div className='md:my-8 my-4'>
+                    <div
+                        //data-aos="fade-up"
+                        key={idx}
+                        className='flex gap-3 '>
+                        <div className='w-12'>
+                            <FaCircleUser className='text-5xl text-gray-300' />
+                        </div>
+                        <div className=''>
+                            <Rating
+                                style={{ maxWidth: 110 }}
+                                readOnly
+                                orientation='horizontal'
+                                value={review.rating}
+                            />
+                            <div className='flex items-center gap-3'>
+                                <p className='capitalize secondary_font font-medium text-xl'>
+                                    {review.reviewer.name}
+                                </p>
+                                <p className='text-gray-400'>
+                                    {moment(review.createdAt).format(
+                                        "MMMM DD, YYYY"
+                                    )}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div className=''>
-                        <Rating
-                            style={{ maxWidth: 110 }}
-                            readOnly
-                            orientation='horizontal'
-                            value={review.rating}
-                        />
-                        <div className='flex items-center gap-3'>
-                            <p className='capitalize secondary_font font-medium text-xl'>
-                                {review.reviewer.name}
-                            </p>
-                            <p className='text-gray-400'>
-                                {moment(review.createdAt).format(
-                                    "MMMM DD, YYYY"
-                                )}
+                    <div
+                        // data-aos="fade-up"
+                        key={idx}
+                        className='flex gap-3 '>
+                        <div className='w-12 md:block hidden'></div>
+                        <div className='w-full'>
+                            <p className='xs:text-lg text-base mt-3 text-gray-500'>
+                                {review.comment}
                             </p>
                         </div>
-                        <p className='text-lg mt-3 text-gray-500'>
-                            {review.comment}
-                        </p>
                     </div>
                 </div>
             ))}
 
             <div className=''>
-                <h2 data-aos="fade-up" className=' text-xl mt-8 font-semibold secondary_font'>
+                <h2
+                    data-aos='fade-up'
+                    className=' text-xl mt-8 font-semibold secondary_font'>
                     Add Review
                 </h2>
-                <div data-aos="fade-up" className='mt-5'>
+                <div data-aos='fade-up' className='mt-5'>
                     <div className=''>
                         <h3 className='secondary_font font-medium text-base'>
                             Your Ratting:*
@@ -101,14 +116,15 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
                             orientation='horizontal'
                             value={rating}
                         />
-                        <form data-aos="fade-up"
+                        <form
+                            data-aos='fade-up'
                             className='mt-5'
                             onSubmit={handleSubmit(onSubmit)}>
                             <label className='secondary_font font-medium text-base'>
                                 Your Review:*
                             </label>
                             <textarea
-                                className='w-4/6 block mt-3 px-4 py-2 text-base bg-black/10 outline-0 resize-y min-h-[150px] rounded-md'
+                                className='md:w-4/6 w-full block mt-3 px-4 py-2 text-base bg-black/10 outline-0 resize-y min-h-[100px] xs:min-h-[150px] rounded-md'
                                 {...register("comment", {
                                     required: true,
                                 })}></textarea>

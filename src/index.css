@@ -59,27 +59,18 @@ body {
     overflow: hidden;
     border-radius: 12px;
 }
-@media screen and (max-width: 640px) {
-    .review-swiper .slide {
-        width: 400px !important;
-        height: 340px !important;
-    }
-}
-@media screen and (max-width: 440px) {
-    .review-swiper .slide {
-        width: 95% !important;
-        height: 380px !important;
-    }
-}
+
 button:disabled {
     /* Gray when disabled */
     cursor: not-allowed;
 }
 
+/* ============ Ant Tab Css =============== */
 :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn {
     font-size: 25px !important;
     font-weight: 700 !important;
 }
+
 :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs
     .ant-tabs-tab-btn:focus:not(:focus-visible),
 :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs
@@ -102,15 +93,35 @@ button:disabled {
 :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab:hover {
     color: #ffae00 !important;
 }
+
+/*=-================== Order Modal======================== */
 .order-modal {
     width: 80% !important;
 }
 
-/* Ant Layout code */
+/* ==================== Ant Layout code ================= */
 :where(.css-dev-only-do-not-override-1qdf4kr).ant-layout-sider
     .ant-layout-sider-zero-width-trigger {
     top: 0;
     color: #fff;
     background: #ffae00;
     border-radius: 8px 8px 8px 8px;
+}
+/* Custom CSS Responsive */
+
+@media screen and (max-width: 640px) {
+    .review-swiper .slide {
+        width: 400px !important;
+        height: 340px !important;
+    }
+}
+@media screen and (max-width: 440px) {
+    .review-swiper .slide {
+        width: 95% !important;
+        height: 380px !important;
+    }
+    :where(.css-dev-only-do-not-override-1qdf4kr).ant-tabs .ant-tabs-tab-btn {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+    }
 }

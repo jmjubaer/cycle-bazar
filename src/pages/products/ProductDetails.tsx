@@ -63,10 +63,10 @@ const ProductDetails = () => {
             <Spin spinning={isFetching} tip='Loading...' size='large'>
                 {bicycle ? (
                     <>
-                        <div className='grid grid-cols-2 items-center justify-between gap-8 h-fit'>
+                        <div className='grid grid-cols-2 items-center justify-between gap-4 lg:gap-8 h-fit w-full'>
                             <div
-                                data-aos='fade-right'
-                                className='flex overflow-hidden items-center justify-center relative'>
+                                // data-aos='fade-right'
+                                className='flex col-span-2 md:col-span-1 overflow-hidden items-center justify-center relative w-full'>
                                 {tag && (
                                     <span className='absolute top-3 right-3 rounded font-semibold p-1 px-3 text-xs bg-primary'>
                                         {tag}
@@ -75,12 +75,12 @@ const ProductDetails = () => {
                                 <img
                                     src={image}
                                     alt=''
-                                    className='w-full object-cover rounded-2xl'
+                                    className='w-full object-cover rounded-2xl lg:max-w-full max-w-[500px] mx-auto'
                                 />
                             </div>
                             <div
-                                className='flex flex-col justify-between '>
-                                <h2 className='text-5xl font-semibold text-primary secondary_font mb-3'>
+                                className='flex col-span-2 md:col-span-1 flex-col justify-between '>
+                                <h2 className='xs:text-5xl text-3xl font-semibold text-primary secondary_font mb-3'>
                                     {name}
                                 </h2>
                                 {avgRatting > 0 && (
@@ -165,7 +165,7 @@ const ProductDetails = () => {
                                     data-aos-delay='500'
                                     onClick={() => navigate(`/${id}/checkout`)}
                                     disabled={!inStock}
-                                    className='button_primary_large disabled:opacity-60 w-[70%] text-center inline-block mt-5'>
+                                    className='button_primary_large disabled:opacity-60 w-full xs:w-[70%] text-center inline-block mt-5'>
                                     {inStock ? "Buy Now" : "Out of Stock"}
                                 </button>
                             </div>
@@ -178,10 +178,10 @@ const ProductDetails = () => {
                             />
                         </div>
                         <div className=''>
-                            <h2 className=' text-4xl mt-8 font-semibold secondary_font'>
+                            <h2 className='text-2xl xs:text-4xl mt-8 font-semibold secondary_font'>
                                 Related Category Product
                             </h2>
-                            <div className='grid grid-cols-3 gap-8 mt-10'>
+                            <div className='grid xs:grid-cols-2 lg:grid-cols-3 gap-8 mt-10'>
                                 {relatedBicycle?.data.length > 0 &&
                                     relatedBicycle?.data.map(
                                         (bicycle: TProduct) => (
