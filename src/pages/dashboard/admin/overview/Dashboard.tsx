@@ -17,8 +17,8 @@ const Dashboard = () => {
         summery?.data || ({} as TActivity);
     return (
         <div className='p-5'>
-            <div className='grid grid-cols-4 gap-5'>
-                <div data-aos="fade-right" className='border-2 bg-primary/10 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
+            <div className='grid xs:grid-cols-2 overflow-hidden md:grid-cols-4 gap-5'>
+                <div className='border-2 bg-primary/10 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <FaUserFriends className='text-2xl ' />
                     </div>
@@ -31,7 +31,7 @@ const Dashboard = () => {
                     </h3>
                     <p className='font-medium'>Total Users</p>
                 </div>
-                <div data-aos="flip-left" className='border-2 bg-sky-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
+                <div className='border-2 bg-sky-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <BsShop className='text-2xl ' />
                     </div>
@@ -46,7 +46,7 @@ const Dashboard = () => {
                     </h3>
                     <p className='font-medium'>Total Products</p>
                 </div>
-                <div data-aos="flip-right" className='border-2 bg-teal-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
+                <div  className='border-2 bg-teal-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <MdAddShoppingCart className='text-2xl ' />
                     </div>
@@ -61,7 +61,7 @@ const Dashboard = () => {
                     </h3>
                     <p className='font-medium'>Total Orders</p>
                 </div>
-                <div data-aos="fade-left" className='border-2 bg-fuchsia-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
+                <div className='border-2 bg-fuchsia-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <FaMoneyBillWave className='text-2xl ' />
                     </div>
@@ -76,7 +76,8 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <div data-aos="flip-up" className='mt-5'>
+            <div
+             className='mt-5 overflow-auto'>
                 <DashboardChart
                     totalUsers={totalUsers || []}
                     totalProducts={totalProducts || []}

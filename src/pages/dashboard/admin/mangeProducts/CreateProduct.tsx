@@ -84,19 +84,20 @@ const CreateProduct = () => {
             tip='Loading...'
             size='large'
             className='w-full'>
-            <div className='p-5'>
+            <div className='xs:p-5 p-2'>
                 <h2 className='text-center mb-7 text-4xl secondary_font font-semibold'>
                     Add Product
                 </h2>
                 <form onSubmit={handleSubmit(handleCreateProduct)} className=''>
-                    <div className='grid grid-cols-3 gap-5'>
-                        <div data-aos='fade-right' className=''>
+                    <div className='grid sm:grid-cols-3 sm:gap-5 '>
+                        <div className=''>
                             <label
-                                className={`w-full h-52 flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer hover:border-blue-500 transition ${
-                                    errors.image
-                                        ? "border-red-400"
-                                        : "border-gray-400}"
-                                }`}>
+                                className={`sm:w-full w-64
+                                     h-52 flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer hover:border-blue-500 transition ${
+                                         errors.image
+                                             ? "border-red-400"
+                                             : "border-gray-400}"
+                                     }`}>
                                 <input
                                     className='hidden'
                                     id='image'
@@ -130,12 +131,10 @@ const CreateProduct = () => {
                                 </span>
                             )}
                         </div>
-                        <div
-                            data-aos='fade-left'
-                            className='col-span-2 flex flex-col justify-between'>
+                        <div className='col-span-2 flex flex-col justify-between'>
                             <div className=''>
                                 <label
-                                    className='label_primary text-xl mt-3'
+                                    className='label_primary  md:text-xl text-lg mt-3'
                                     htmlFor='name'>
                                     Product Name:
                                 </label>
@@ -153,10 +152,10 @@ const CreateProduct = () => {
                                     </span>
                                 )}
                             </div>
-                            <div className='grid grid-cols-2 gap-5'>
-                                <div data-aos='fade-left' className=''>
+                            <div className='grid xs:grid-cols-2 gap-5 mt-3'>
+                                <div className=''>
                                     <label
-                                        className='label_primary text-xl '
+                                        className='label_primary  md:text-xl text-lg '
                                         htmlFor='model'>
                                         Model:
                                     </label>
@@ -174,12 +173,9 @@ const CreateProduct = () => {
                                         </span>
                                     )}
                                 </div>
-                                <div
-                                    data-aos='fade-left'
-                                    data-aos-delay='500'
-                                    className=''>
+                                <div data-aos-delay='500' className=''>
                                     <label
-                                        className='label_primary text-xl '
+                                        className='label_primary  md:text-xl text-lg '
                                         htmlFor='brand'>
                                         Brand:
                                     </label>
@@ -201,15 +197,15 @@ const CreateProduct = () => {
                         </div>
                     </div>
                     <div
-                        data-aos='fade-up'
+                        //data-aos='fade-up'
                         data-aos-delay='200'
-                        className='grid grid-cols-3 gap-5'>
-                        <div className=''>
+                        className='grid xs:grid-cols-2 sm:grid-cols-3 gap-x-5 sm:gap-5'>
+                        <div className='xs:col-span-2 sm:col-span-1'>
                             <label
-                                className='label_primary text-xl mt-5'
+                                className='label_primary  md:text-xl text-lg mt-5'
                                 htmlFor='colors'>
                                 Colors{" "}
-                                <span className='text-sm'>
+                                <span className='md:text-sm text-xs'>
                                     (Separate by comma)
                                 </span>
                                 :
@@ -230,7 +226,7 @@ const CreateProduct = () => {
                         </div>
                         <div className=''>
                             <label
-                                className='label_primary text-xl mt-5'
+                                className='label_primary  md:text-xl text-lg mt-5'
                                 htmlFor='price'>
                                 Price:
                             </label>
@@ -250,7 +246,7 @@ const CreateProduct = () => {
                         </div>
                         <div className=''>
                             <label
-                                className='label_primary text-xl mt-5'
+                                className='label_primary  md:text-xl text-lg mt-5'
                                 htmlFor='quantity'>
                                 Quantity:
                             </label>
@@ -269,11 +265,13 @@ const CreateProduct = () => {
                             )}
                         </div>
                     </div>
-                    <div   data-aos='fade-up'
-                        data-aos-delay='200' className='grid grid-cols-2 gap-5'>
+                    <div
+                        //data-aos='fade-up'
+                        data-aos-delay='200'
+                        className='grid xs:grid-cols-2 gap-5'>
                         <div className=''>
                             <label
-                                className='label_primary text-xl mt-5'
+                                className='label_primary  md:text-xl text-lg mt-5'
                                 htmlFor='type'>
                                 Category:
                             </label>
@@ -298,7 +296,7 @@ const CreateProduct = () => {
                         </div>
                         <div className=''>
                             <label
-                                className='label_primary text-xl mt-5'
+                                className='label_primary  md:text-xl text-lg mt-5'
                                 htmlFor='tag'>
                                 Special Tag{" "}
                                 <span className='text-sm'>(optional)</span>:
@@ -313,7 +311,7 @@ const CreateProduct = () => {
                     </div>
                     <div className=''>
                         <label
-                            className='label_primary text-xl mt-5'
+                            className='label_primary  md:text-xl text-lg mt-5'
                             htmlFor='description'>
                             Product Description:
                         </label>

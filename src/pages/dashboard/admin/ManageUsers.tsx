@@ -138,7 +138,7 @@ const ManageUsers = () => {
             <h2 className='text-center text-4xl secondary_font my-5 font-semibold'>
                 Manage users
             </h2>
-            <div className='relative w-80 h-fit my-5'>
+            <div className='relative  xs:w-80 h-fit my-5'>
                 <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
                 <input
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -147,13 +147,15 @@ const ManageUsers = () => {
                     placeholder='Search by name or email...'
                 />
             </div>
-            <Table<TTableDataType>
-                loading={isFetching}
-                columns={columns}
-                dataSource={tableData}
-                pagination={false}
-                className='border border-gray-300 rounded-lg mb-3'
-            />
+            <div className='overflow-auto'>
+                <Table<TTableDataType>
+                    loading={isFetching}
+                    columns={columns}
+                    dataSource={tableData}
+                    pagination={false}
+                    className='border border-gray-300 min-w-[700px] rounded-lg mb-3'
+                />
+            </div>
             <Pagination
                 onChange={(value) => setPage(value)}
                 total={usersData?.meta?.total}

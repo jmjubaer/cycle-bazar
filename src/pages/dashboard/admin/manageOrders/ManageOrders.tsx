@@ -130,14 +130,15 @@ const ManageOrders = () => {
             <h2 className='text-center text-4xl secondary_font my-5 font-semibold'>
                 Manage Orders
             </h2>
-
-            <Table<TTableDataType>
-                loading={isFetching}
-                columns={columns}
-                dataSource={tableData}
-                pagination={false}
-                className='border border-gray-300 rounded-lg mb-3'
-            />
+            <div className='overflow-auto'>
+                <Table<TTableDataType>
+                    loading={isFetching}
+                    columns={columns}
+                    dataSource={tableData}
+                    pagination={false}
+                    className='border min-w-[850px] border-gray-300 rounded-lg mb-3'
+                />
+            </div>
             <Pagination
                 onChange={(value) => setPage(value)}
                 total={orderData?.meta?.total}

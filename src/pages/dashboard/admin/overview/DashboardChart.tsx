@@ -73,7 +73,7 @@ const DashboardChart = ({ totalUsers, totalProducts, totalOrders }: any) => {
   };
 
   return (
-    <div className="bg-primary/10 p-6 rounded-xl shadow-md text-white w-full">
+    <div className="bg-primary/10 min-w-[700px] p-6 rounded-xl shadow-md text-white w-full">
       <Bar data={chartData} options={options} />
     </div>
   );
