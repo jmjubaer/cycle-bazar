@@ -32,13 +32,13 @@ const ViewOrderDetails = ({ item, type }: TProps) => {
                     <h2 className='secondary_font font-medium text-2xl mb-3 text-center'>
                         Order Details
                     </h2>
-                    <div className='w-full grid grid-cols-2 gap-5 '>
+                    <div className='w-full grid lg:grid-cols-2 gap-5 '>
                         <div className=''>
-                            <div className='mt-4 flex items-center gap-5'>
+                            <div className='mt-4 flex flex-wrap items-center gap-5'>
                                 <img
                                     src={item?.product?.image}
                                     alt=''
-                                    className='w-32 h-32 border border-gray-300 object-cover rounded-md'
+                                    className='xs:w-32 xs:h-32 border border-gray-300 object-cover rounded-md'
                                 />
                                 <div className=''>
                                     <h3 className='text-xl font-medium secondary_font'>
@@ -118,7 +118,7 @@ const ViewOrderDetails = ({ item, type }: TProps) => {
                                 <h2 className='secondary_font font-medium text-xl text-center'>
                                     Delivery Details
                                 </h2>
-                                <div className='grid grid-cols-2 gap-3 mt-2'>
+                                <div className='grid xs:grid-cols-2 gap-3 mt-2'>
                                     <p>
                                         <span className='font-medium '>
                                             Name:
@@ -132,7 +132,7 @@ const ViewOrderDetails = ({ item, type }: TProps) => {
                                         {item?.deliveryInfo?.phoneNumber}
                                     </p>
                                 </div>
-                                <div className='grid grid-cols-2 gap-3 mt-2'>
+                                <div className='grid xs:grid-cols-2 gap-3 mt-2'>
                                     <p>
                                         <span className='font-medium '>
                                             City:
@@ -146,7 +146,7 @@ const ViewOrderDetails = ({ item, type }: TProps) => {
                                         {item?.deliveryInfo?.district}
                                     </p>
                                 </div>
-                                <div className='grid grid-cols-2 gap-3 mt-2'>
+                                <div className='grid xs:grid-cols-2 gap-3 mt-2'>
                                     <p>
                                         <span className='font-medium '>
                                             Thana/Upozila:

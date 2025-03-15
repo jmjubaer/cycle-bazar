@@ -50,7 +50,7 @@ const SignUp = () => {
     return (
         <div className='relative h-[calc(100vh-69px)]'>
             <img src={bg} className='object-cover w-full opacity-90 h-full' />
-            <div className='absolute top-1/2 left-1/2 -translate-1/2 w-[30%] bg-[#dddd]/60 p-5 rounded-2xl '>
+            <div className='absolute top-1/2 left-1/2 -translate-1/2 w-[94%] xs:w-4/5 sm:w-1/2 lg:w-[30%] bg-[#dddd]/60 p-5 rounded-2xl '>
                 <h2 className='text-center mb-5 text-3xl font-semibold'>
                     Sign Up
                 </h2>

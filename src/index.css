@@ -124,4 +124,10 @@ button:disabled {
         font-size: 18px !important;
         font-weight: 700 !important;
     }
+    .order-modal {
+        width: 94% !important;
+    }
+    :where(.css-dev-only-do-not-override-1qdf4kr).ant-modal .ant-modal-content {
+        padding: 14px !important;
+    }
 }

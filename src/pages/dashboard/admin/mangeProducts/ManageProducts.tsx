@@ -111,7 +111,7 @@ const ManageProducts = () => {
     const handleDeleteProduct = async (id: string) => {
         console.log(id);
         Swal.fire({
-            title: "Do you want to delete this product?",
+            title: "Are you sure delete product?",
             // text: "Not can ",
             showCancelButton: true,
             confirmButtonText: "Confirm",
@@ -131,7 +131,7 @@ const ManageProducts = () => {
                 Manage Products
             </h2>
             <div className='flex flex-wrap-reverse gap-4 justify-between my-5'>
-                <div className='relative xs:w-80 h-fit '>
+                <div className='relative w-full xs:w-80 h-fit '>
                     <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
                     <input
                         onChange={(e) => setSearchTerm(e.target.value)}
