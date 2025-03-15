@@ -65,7 +65,7 @@ const ProductDetails = () => {
                     <>
                         <div className='grid grid-cols-2 items-center justify-between gap-4 lg:gap-8 h-fit w-full'>
                             <div
-                                // data-aos='fade-right'
+                                data-aos='fade-right'
                                 className='flex col-span-2 md:col-span-1 overflow-hidden items-center justify-center relative w-full'>
                                 {tag && (
                                     <span className='absolute top-3 right-3 rounded font-semibold p-1 px-3 text-xs bg-primary'>
@@ -78,8 +78,7 @@ const ProductDetails = () => {
                                     className='w-full object-cover rounded-2xl lg:max-w-full max-w-[500px] mx-auto'
                                 />
                             </div>
-                            <div
-                                className='flex col-span-2 md:col-span-1 flex-col justify-between '>
+                            <div className='flex col-span-2 md:col-span-1 flex-col justify-between '>
                                 <h2 className='xs:text-5xl text-3xl font-semibold text-primary secondary_font mb-3'>
                                     {name}
                                 </h2>

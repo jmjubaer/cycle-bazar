@@ -52,7 +52,7 @@ const AboutUs = () => {
                 </div>
                 <div className=''>
                     <img
-                        // data-aos='zoom-in'
+                         data-aos='zoom-in'
                         src={bicycleBanner}
                         alt=''
                         className='h-screen max-h-[600px] md:max-h-[600px] w-full object-cover'

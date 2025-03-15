@@ -99,10 +99,10 @@ const Checkout = () => {
             className='w-full'>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className='container overflow-hidden grid grid-cols-2 gap-5 py-5 items-center'>
+                className='container overflow-hidden grid md:grid-cols-2 xs:gap-5 gap-3 py-5 items-center'>
                 <div
-                    data-aos='fade-right'
-                    className=' border border-gray-300 rounded-xl p-5'>
+                     data-aos='fade-right'
+                    className=' border border-gray-300 rounded-xl p-3 xs:p-5'>
                     <h2 className='secondary_font font-medium text-2xl text-center'>
                         Delivery Address
                     </h2>
@@ -139,7 +139,7 @@ const Checkout = () => {
                     <div
                         data-aos='fade-up'
                         data-aos-delay='300'
-                        className='grid grid-cols-2 gap-3'>
+                        className='grid xs:grid-cols-2 xs:gap-3'>
                         <div className=''>
                             <label className=' mt-5 label_primary'>
                                 City:*
@@ -178,7 +178,7 @@ const Checkout = () => {
                     <div
                         data-aos='fade-up'
                         data-aos-delay='400'
-                        className='grid grid-cols-2 gap-3'>
+                        className='grid xs:grid-cols-2 xs:gap-3'>
                         <div className=''>
                             <label className=' mt-5 label_primary'>
                                 Thana/Upazila:*
@@ -233,14 +233,16 @@ const Checkout = () => {
                     </div>
                 </div>
 
-                <div data-aos='fade-left' className='w-4/5 mx-auto'>
+                <div
+                //  data-aos='fade-left' 
+                 className='lg:w-4/5 mx-auto'>
                     <h2 className='secondary_font font-medium text-2xl text-center'>
                         Product Details
                     </h2>
                     <div
                         data-aos='fade-up'
                         data-aos-delay='200'
-                        className='mt-4 flex items-center gap-5'>
+                        className='mt-4 flex items-center gap-3 xs:gap-5'>
                         <img
                             src={product?.data?.image}
                             alt=''
@@ -348,7 +350,7 @@ const Checkout = () => {
                     <div
                         data-aos='fade-up'
                         data-aos-delay='400'
-                        className='flex items-center gap-5 mt-3'>
+                        className='flex items-center gap-3 xs:gap-5 mt-3'>
                         <button
                             type='button'
                             onClick={() => setPaymentMethod("surjopay")}

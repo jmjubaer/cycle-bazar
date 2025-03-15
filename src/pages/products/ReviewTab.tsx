@@ -83,10 +83,7 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
                             </div>
                         </div>
                     </div>
-                    <div
-                        // data-aos="fade-up"
-                        key={idx}
-                        className='flex gap-3 '>
+                    <div data-aos='fade-up' key={idx} className='flex gap-3 '>
                         <div className='w-12 md:block hidden'></div>
                         <div className='w-full'>
                             <p className='xs:text-lg text-base mt-3 text-gray-500'>
