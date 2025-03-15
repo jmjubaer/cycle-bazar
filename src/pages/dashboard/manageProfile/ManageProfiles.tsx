@@ -12,7 +12,9 @@ const ManageProfiles = () => {
 
     return (
         <div className='flex items-center justify-center h-full'>
-            <div data-aos="zoom-in" className='border border-gray-300 p-5 w-1/2 max-w-[500px] rounded-2xl shadow-2xl relative '>
+            <div 
+            //data-aos="zoom-in" 
+            className='border border-gray-300 p-5 w-full md:w-1/2 max-w-[500px] rounded-2xl shadow-2xl relative '>
                 <Spin
                     spinning={isFetching}
                     tip='Loading...'
@@ -25,7 +27,7 @@ const ManageProfiles = () => {
                     )}
                     <div className={`${status === "blocked" && "opacity-50"}`}>
                         <div className='bg-gray-300 text-gray-500 p-4 rounded-2xl w-fit'>
-                            <FaUser className='text-9xl' />
+                            <FaUser className='xs:text-9xl text-7xl' />
                         </div>
                         <div className=''>
                             <h2 className='text-3xl font-bold'>
@@ -34,7 +36,7 @@ const ManageProfiles = () => {
                             <h3 className='text-xl'>{name}</h3>
                             <h3 className='text-xl'>{email}</h3>
                             <h3 className='text-xl'>Role: {role}</h3>
-                            <div className=' grid grid-cols-2 gap-5 mt-3'>
+                            <div className=' grid xs:grid-cols-2 gap-5 mt-3'>
                                 <UpdateName
                                     name={name}
                                     status={status}></UpdateName>

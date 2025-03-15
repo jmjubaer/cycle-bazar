@@ -3,7 +3,7 @@ import { FaCommentDots } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
 import CountUp from "react-countup";
 import { useGetMyOrdersQuery } from "../../../../redux/features/order/orderApi";
-import OrderCart from "./OrderCart";
+import OrderCart from "./OrderChart";
 import { useGetMyReviewQuery } from "../../../../redux/features/product/productApi";
 const UserDashboard = () => {
     useEffect(() => {
@@ -51,7 +51,9 @@ const UserDashboard = () => {
                 </div>
             </div>
 
-            <div data-aos='flip-up' className='mt-5'>
+            <div
+                // data-aos='flip-up'
+                className='mt-5  overflow-auto'>
                 <OrderCart totalOrders={myReview?.data || []} />
             </div>
         </div>

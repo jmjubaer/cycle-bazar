@@ -43,8 +43,10 @@ const groupByDate = (data: { createdAt: string }[], last7Days: string[]) => {
     // Ensure all last 7 days exist
     return last7Days.map((day) => groupedData[day] || 0);
 };
-
-const OrderCart = ({ totalOrders }: any) => {
+type TProps = {
+    totalOrders: { createdAt: string }[];
+};
+const OrderCart = ({ totalOrders }: TProps) => {
     const last7Days = useMemo(() => getLast7Days(), []);
 
     const chartData = {
@@ -59,7 +61,7 @@ const OrderCart = ({ totalOrders }: any) => {
     };
 
     const options = {
-        responsive: true,
+        // responsive: true,
         plugins: {
             legend: {
                 position: "top" as const,
@@ -78,7 +80,7 @@ const OrderCart = ({ totalOrders }: any) => {
     };
 
     return (
-        <div className='bg-primary/10 p-6 rounded-xl shadow-md text-white w-full'>
+        <div className='bg-primary/10 p-6 rounded-xl shadow-md text-white w-full min-w-[700px]'>
             <Bar data={chartData} options={options} />
         </div>
     );

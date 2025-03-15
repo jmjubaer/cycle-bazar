@@ -14,23 +14,23 @@ const Order = () => {
                 My Orders
             </h2>
             <Spin spinning={isFetching} tip='Loading...' size='large'>
-                <div  className=''>
+                <div className=''>
                     {orderData?.data?.length > 0 ? (
-                        <div className='grid grid-cols-2 gap-5 items-center justify-between mt-7'>
+                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5 items-center justify-between mt-7'>
                             {orderData?.data?.map((order: TOrder) => (
                                 <div
                                     key={order?._id}
-                                    className='border-2 rounded-xl p-4 border-gray-200'>
+                                    className='border-2 rounded-xl p-2 md:p-4 border-gray-200'>
                                     <div
                                         key={order?._id}
-                                        className='flex gap-3'>
+                                        className='flex flex-col xs:flex-row sm:items-center gap-3'>
                                         <img
                                             src={order.product.image}
                                             alt=''
-                                            className='w-30 h-30 object-cover rounded-xl'
+                                            className='sm:w-30 sm:h-30 object-cover max-w-[300px] rounded-xl'
                                         />
                                         <div className=''>
-                                            <h3 className='text-xl font-semibold text-center secondary_font'>
+                                            <h3 className='text-xl font-semibold sm:text-center secondary_font'>
                                                 {order.product.name}
                                             </h3>
                                             <p className=' font-medium'>
@@ -40,7 +40,7 @@ const Order = () => {
                                                 ${order.product.price}
                                             </p>
                                             <p className='text-lg font-medium'>
-                                                Qty - {order.product.quantity}
+                                                Qty - {order.quantity}
                                             </p>
                                         </div>
                                     </div>
