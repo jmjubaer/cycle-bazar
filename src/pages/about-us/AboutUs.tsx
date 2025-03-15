@@ -19,7 +19,7 @@ const AboutUs = () => {
                         About Us
                     </h3>
                     <h2
-                        // data-aos='fade-up'
+                        data-aos='fade-up'
                         data-aos-delay='200'
                         className='text-3xl lg:text-4xl my-5 font-semibold secondary_font'>
                         Why Riders Choose Cycle Bazar
@@ -72,7 +72,7 @@ const AboutUs = () => {
                     Meet Our Team
                 </h2>
                 <p
-                    // data-aos='fade-up'
+                    data-aos='fade-up'
                     data-aos-delay='300'
                     className='md:w-1/2 xs:text-base text-sm xs:w-4/5 mx-auto xs:mt-5 font-medium text-gray-500'>
                     Meet the passionate cycling experts at Cycle Bazar,
