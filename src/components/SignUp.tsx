@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SubmitHandler, useForm } from "react-hook-form";
 import bg from "../assets/bicycle-bg.avif";
 import { Link, useNavigate } from "react-router-dom";
