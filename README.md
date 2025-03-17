@@ -23,7 +23,6 @@ You can access the live version of Cycle Bazar here:
 - **TypeScript** (Static Typing)
 - **Redux** (State Management)
 - **Tailwind CSS** (Styling)
-- **Apollo Client** (GraphQL API)
 - **Ant Design** (UI Components)
 - **React Icons** (Icons)
 - **Shurjo Pay** (Payment Method)
