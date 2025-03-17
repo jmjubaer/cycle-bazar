@@ -41,7 +41,7 @@ const ProductDetails = () => {
         0
     );
     const avgRatting = totalRating / reviews?.length;
-
+    // Ant Tabs items
     const items: TabsProps["items"] = [
         {
             key: "1",
@@ -63,6 +63,7 @@ const ProductDetails = () => {
             <Spin spinning={isFetching} tip='Loading...' size='large'>
                 {bicycle ? (
                     <>
+                        {/* Product details */}
                         <div className='grid grid-cols-2 items-center justify-between gap-4 lg:gap-8 h-fit w-full'>
                             <div
                                 data-aos='fade-right'
@@ -170,12 +171,14 @@ const ProductDetails = () => {
                             </div>
                         </div>
                         <div data-aos='fade-up' className='mt-8'>
+                            {/* description and review tab */}
                             <Tabs
                                 defaultActiveKey='1'
                                 items={items}
                                 // onChange={onChange}
                             />
                         </div>
+                        {/* Related bicycle section */}
                         <div className=''>
                             <h2 className='text-2xl xs:text-4xl mt-8 font-semibold secondary_font'>
                                 Related Category Product

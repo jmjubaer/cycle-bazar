@@ -15,7 +15,6 @@ const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
     const token = useAppSelector(selectCurrentToken);
     const user = token && verifyToken(token);
     const dispatch = useAppDispatch();
-    // console.log(role);
     if ((user as TUser)?.role !== role && role !== undefined) {
         dispatch(logout());
         return <Navigate to={"/login"} replace={true} />;

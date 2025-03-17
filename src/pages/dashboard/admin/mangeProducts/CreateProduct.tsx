@@ -34,6 +34,8 @@ const CreateProduct = () => {
         formState: { errors },
     } = useForm<TProductForm>();
     const [createProduct] = useCreateBicycleMutation();
+
+    // Create a new product functionality
     const handleCreateProduct: SubmitHandler<TProductForm> = async (data) => {
         setLoading(true);
         const toastId = toast.loading("Bicycle creating....", {
@@ -41,7 +43,6 @@ const CreateProduct = () => {
         });
         try {
             const image = await uploadImageIntoCloudinary(data.image[0]);
-            console.log(image);
             if (image?.error) {
                 toast.error("Failed to upload image", { id: toastId });
                 setLoading(false);
@@ -57,7 +58,6 @@ const CreateProduct = () => {
                 };
 
                 const result = await createProduct(productData);
-                console.log(result);
                 if (result?.data?.success) {
                     toast.success("Bicycle create successful", { id: toastId });
                     setLoading(false);
@@ -69,7 +69,7 @@ const CreateProduct = () => {
             toast.error(error.message, { id: toastId });
         }
     };
-
+    // Preview image functionality
     useEffect(() => {
         const fileList = watch("image"); // Watch file input
 
@@ -79,6 +79,7 @@ const CreateProduct = () => {
             setImagePreview(URL.createObjectURL(file as any));
         }
     }, [watch("image")]);
+
     return (
         <Spin
             spinning={loading}
@@ -89,6 +90,7 @@ const CreateProduct = () => {
                 <h2 className='text-center mb-7 text-4xl secondary_font font-semibold'>
                     Add Product
                 </h2>
+                {/* Add Product From */}
                 <form onSubmit={handleSubmit(handleCreateProduct)} className=''>
                     <div className='grid sm:grid-cols-3 sm:gap-5 '>
                         <div className=''>

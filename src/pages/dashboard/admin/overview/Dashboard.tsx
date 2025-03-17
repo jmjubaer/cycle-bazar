@@ -8,16 +8,20 @@ import { useGetActivitySummeryQuery } from "../../../../redux/features/user/user
 import { TActivity } from "../../../../types/global.types";
 import { useGetTotalRevenueQuery } from "../../../../redux/features/order/orderApi";
 const Dashboard = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
     const { data: summery } = useGetActivitySummeryQuery(undefined);
     const { data: totalRevenue } = useGetTotalRevenueQuery(undefined);
     const { totalOrders, totalProducts, totalUsers } =
         summery?.data || ({} as TActivity);
+    // Scroll to top
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className='p-5'>
+            {/* Activity summery section */}
             <div className='grid xs:grid-cols-2 overflow-hidden md:grid-cols-4 gap-5'>
+                {/* Total user */}
                 <div className='border-2 bg-primary/10 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <FaUserFriends className='text-2xl ' />
@@ -31,6 +35,7 @@ const Dashboard = () => {
                     </h3>
                     <p className='font-medium'>Total Users</p>
                 </div>
+                {/* Total Product */}
                 <div className='border-2 bg-sky-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <BsShop className='text-2xl ' />
@@ -46,7 +51,8 @@ const Dashboard = () => {
                     </h3>
                     <p className='font-medium'>Total Products</p>
                 </div>
-                <div  className='border-2 bg-teal-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
+                {/* Total Orders */}
+                <div className='border-2 bg-teal-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <MdAddShoppingCart className='text-2xl ' />
                     </div>
@@ -61,12 +67,14 @@ const Dashboard = () => {
                     </h3>
                     <p className='font-medium'>Total Orders</p>
                 </div>
+                
                 <div className='border-2 bg-fuchsia-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
                     <div className='w-10 h-10 rounded-full flex items-center justify-center bg-gray-300'>
                         <FaMoneyBillWave className='text-2xl ' />
                     </div>
                     <h3 className='secondary_font font-bold text-4xl text-gray-600'>
-                        $<CountUp
+                        $
+                        <CountUp
                             end={
                                 totalRevenue?.data > 0 ? totalRevenue?.data : 0
                             }
@@ -75,9 +83,8 @@ const Dashboard = () => {
                     <p className='font-medium'>Total Seals</p>
                 </div>
             </div>
-
-            <div
-             className='mt-5 overflow-auto'>
+            {/* Dashboard Chart */}
+            <div className='mt-5 overflow-auto'>
                 <DashboardChart
                     totalUsers={totalUsers || []}
                     totalProducts={totalProducts || []}

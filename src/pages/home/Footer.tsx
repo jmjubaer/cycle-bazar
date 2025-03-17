@@ -42,7 +42,6 @@ const Footer = () => {
                         <h3 className='text-primary text-3xl secondary_font font-semibold my-7'>
                             Menu
                         </h3>
-                        {/* http://localhost:5173/bicycles?category=Mountain */}
                         <ul className='flex flex-col gap-5'>
                             <Link data-aos='fade-up' to={`${baseUrl}`}>
                                 Home

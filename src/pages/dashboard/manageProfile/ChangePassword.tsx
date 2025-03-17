@@ -19,13 +19,13 @@ const ChangePassword = ({ status }: TProps) => {
         handleSubmit,
         formState: { errors },
     } = useForm<TNameForm>();
+    // Change password functionality
     const handleChangePassword: SubmitHandler<TNameForm> = async (data) => {
         const toastId = toast.loading("Password changing....", {
             duration: 5000,
         });
         try {
             const result = await changePassword(data);
-            console.log(result);
             if (result?.data?.success) {
                 toast.success("Password change successful", { id: toastId });
                 setOpen(false);
@@ -42,6 +42,7 @@ const ChangePassword = ({ status }: TProps) => {
                 className='w-full bg-primary hover:bg-primary  font-medium cursor-pointer py-2 px-4 rounded-md'>
                 Change Password
             </button>
+            {/* Change Password modal */}
             <Modal
                 title='Edit Name'
                 footer={null}

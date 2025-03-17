@@ -85,20 +85,10 @@ const DashboardLayout = () => {
             break;
     }
     return (
-        <Layout
-            className='h-[calc(100vh-68px)]'
-            //  style={{ height: "100%" }}
-        >
+        <Layout className='h-[calc(100vh-68px)]'>
+            {/* Dashboard Sidebar  */}
             <Sider
                 className='pt-5 h-[calc(100vh-68px)]'
-                // style={{
-                //     // height: "100vh",
-                //     position: "sticky",
-                //     top: "0",
-                //     left: "0",
-                //     overflow: "auto",
-                //     scrollbarWidth: "none",
-                // }}
                 breakpoint='lg'
                 collapsedWidth='0'>
                 <Menu
@@ -109,6 +99,7 @@ const DashboardLayout = () => {
                 />
             </Sider>
             <Layout>
+                {/* Dashboard Body  */}
                 <Content
                     className='h-[calc(100vh-69px)] overflow-auto p-2'
                     style={{ scrollbarWidth: "none" }}>

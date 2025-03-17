@@ -11,6 +11,7 @@ type TCategory = {
     image: string;
 };
 const ProductCategory = () => {
+    // Bicycle category
     const categories: TCategory[] = [
         { name: "Mountain", image: mountain },
         { name: "Road Cycle", image: road },

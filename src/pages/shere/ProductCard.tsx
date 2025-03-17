@@ -7,11 +7,14 @@ type ProductCardProps = {
     bicycle: TProduct;
 };
 const ProductCard = ({ bicycle }: ProductCardProps) => {
+
+    // calculate average ratting
     const totalRating = bicycle?.reviews?.reduce(
         (sum, review) => sum + review?.rating,
         0
     );
     const avgRatting = totalRating / bicycle?.reviews?.length;
+    // Scroll to top
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [bicycle]);
@@ -32,6 +35,7 @@ const ProductCard = ({ bicycle }: ProductCardProps) => {
             <h3 className='my-2 font-semibold uppercase sm:text-2xl'>
                 {bicycle?.name}
             </h3>
+            {/* Show average ratting  */}
             {avgRatting > 0 && (
                 <div className='flex items-center gap-3'>
                     <div className='flex'>

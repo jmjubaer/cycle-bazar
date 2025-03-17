@@ -26,7 +26,7 @@ const Checkout = () => {
     const { data: product } = useGetBicycleByIdQuery(productId);
     const [createOrder] = useCreateOrderMutation();
     const { data: currentUser } = useGetMeQuery(undefined);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const {
         reset,
         register,
@@ -67,9 +67,9 @@ const Checkout = () => {
                 if (result?.data?.data?.paymentUrl) {
                     window.open(result?.data?.data?.paymentUrl, "_self");
                     setLoading(false);
-                }else{
-                setLoading(false);
-                navigate("/bicycles");
+                } else {
+                    setLoading(false);
+                    navigate("/bicycles");
                 }
             } else if (result?.error) {
                 toast.error(
@@ -100,8 +100,10 @@ const Checkout = () => {
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className='container overflow-hidden grid md:grid-cols-2 xs:gap-5 gap-3 py-5 items-center'>
+                
+            {/* Delivery Info section */}
                 <div
-                     data-aos='fade-right'
+                    data-aos='fade-right'
                     className=' border border-gray-300 rounded-xl p-3 xs:p-5'>
                     <h2 className='secondary_font font-medium text-2xl text-center'>
                         Delivery Address
@@ -232,10 +234,9 @@ const Checkout = () => {
                         )}
                     </div>
                 </div>
+            {/* Product Info section */}
 
-                <div
-                //  data-aos='fade-left' 
-                 className='lg:w-4/5 mx-auto'>
+                <div className='lg:w-4/5 mx-auto'>
                     <h2 className='secondary_font font-medium text-2xl text-center'>
                         Product Details
                     </h2>

@@ -47,6 +47,7 @@ const ManageProducts = () => {
             quantity,
         })
     );
+    // Manage Product table data
     const columns: TableColumnsType<TTableDataType> = [
         {
             title: "Product ",
@@ -108,8 +109,8 @@ const ManageProducts = () => {
             width: "1%",
         },
     ];
+    // delete product functionality
     const handleDeleteProduct = async (id: string) => {
-        console.log(id);
         Swal.fire({
             title: "Are you sure delete product?",
             // text: "Not can ",
@@ -118,7 +119,6 @@ const ManageProducts = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 const result = await deleteProduct(id);
-                console.log(result);
                 if (result?.data?.success) {
                     Swal.fire("Deleted!", "", "success");
                 }
@@ -131,6 +131,7 @@ const ManageProducts = () => {
                 Manage Products
             </h2>
             <div className='flex flex-wrap-reverse gap-4 justify-between my-5'>
+                {/* Search Products field */}
                 <div className='relative w-full xs:w-80 h-fit '>
                     <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
                     <input
@@ -140,22 +141,22 @@ const ManageProducts = () => {
                         placeholder='Search bicycle . . . .'
                     />
                 </div>
-                <Link 
+                <Link
                     to={"/dashboard/create-product"}
                     className='button_primary flex items-center gap-2'>
                     <LuCirclePlus className='text-lg' />
                     Add Product
                 </Link>
             </div>
-            <div className="overflow-auto">
-
-            <Table<TTableDataType>
-                loading={isFetching}
-                columns={columns}
-                dataSource={tableData}
-                pagination={false}
-                className='border border-gray-300 min-w-[800px] rounded-lg mb-3'
-            />
+            {/* Manage product table  */}
+            <div className='overflow-auto'>
+                <Table<TTableDataType>
+                    loading={isFetching}
+                    columns={columns}
+                    dataSource={tableData}
+                    pagination={false}
+                    className='border border-gray-300 min-w-[800px] rounded-lg mb-3'
+                />
             </div>
             <Pagination
                 onChange={(value) => setPage(value)}

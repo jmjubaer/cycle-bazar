@@ -5,6 +5,7 @@ type TLogin = {
 };
 const NewsLetter = () => {
     const { reset, register, handleSubmit } = useForm<TLogin>();
+    // TODO: Save email in DB
     const handleLogin: SubmitHandler<TLogin> = async (data) => {
         if (data?.email) {
             Swal.fire({

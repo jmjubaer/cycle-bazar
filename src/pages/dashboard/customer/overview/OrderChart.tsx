@@ -47,11 +47,13 @@ type TProps = {
     totalOrders: { createdAt: string }[];
 };
 const OrderCart = ({ totalOrders }: TProps) => {
+    //    Get last 7 days for label
     const last7Days = useMemo(() => getLast7Days(), []);
 
     const chartData = {
         labels: last7Days,
         datasets: [
+            // Order chart data
             {
                 label: "Orders",
                 data: groupByDate(totalOrders, last7Days),
@@ -81,6 +83,7 @@ const OrderCart = ({ totalOrders }: TProps) => {
 
     return (
         <div className='bg-primary/10 p-6 rounded-xl shadow-md text-white w-full min-w-[700px]'>
+            {/* Order Char */}
             <Bar data={chartData} options={options} />
         </div>
     );

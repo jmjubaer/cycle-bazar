@@ -6,15 +6,16 @@ import { useGetMyOrdersQuery } from "../../../../redux/features/order/orderApi";
 import OrderCart from "./OrderChart";
 import { useGetMyReviewQuery } from "../../../../redux/features/product/productApi";
 const UserDashboard = () => {
+    const { data: myOrder } = useGetMyOrdersQuery(undefined);
+    const { data: myReview } = useGetMyReviewQuery(undefined);
+    // Scroll to top
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    const { data: myOrder } = useGetMyOrdersQuery(undefined);
-    const { data: myReview } = useGetMyReviewQuery(undefined);
-
     return (
         <div className='p-5'>
             <div className='grid grid-cols-2 gap-5'>
+                {/* Order summery count card */}
                 <div
                     data-aos='fade-right'
                     className='border-2 bg-teal-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
@@ -32,6 +33,7 @@ const UserDashboard = () => {
                     </h3>
                     <p className='font-medium'>Total Orders</p>
                 </div>
+                {/* Review summery count card */}
                 <div
                     data-aos='fade-left'
                     className='border-2 bg-sky-100 border-gray-300 gap-2 rounded-md hover:shadow-xl flex flex-col items-center justify-center p-5'>
@@ -51,9 +53,8 @@ const UserDashboard = () => {
                 </div>
             </div>
 
-            <div
-                // data-aos='flip-up'
-                className='mt-5  overflow-auto'>
+            <div className='mt-5  overflow-auto'>
+                {/* Order Chart */}
                 <OrderCart totalOrders={myReview?.data || []} />
             </div>
         </div>

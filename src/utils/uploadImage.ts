@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// uploadImageIntoCloudinary
 const uploadImageIntoCloudinary = async (file: string | File) => {
     if (!file) return;
 
@@ -16,8 +16,8 @@ const uploadImageIntoCloudinary = async (file: string | File) => {
 
         return { imageUrl: response.data.secure_url };
     } catch (error: any) {
-        console.error("Error uploading image", error);  
-        return { error: error.message};
+        console.error("Error uploading image", error);
+        return { error: error.message };
     }
 };
 

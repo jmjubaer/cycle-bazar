@@ -25,6 +25,7 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
+                // ignore for redux persist
                 ignoredActions: [
                     FLUSH,
                     REHYDRATE,

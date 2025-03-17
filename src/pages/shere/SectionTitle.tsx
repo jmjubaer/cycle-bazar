@@ -4,6 +4,7 @@ type TProps = {
     textCenter?: boolean;
 };
 const SectionTitle = ({ title, description, textCenter }: TProps) => {
+    // split title 
     const [before, after] = description.split(",");
 
     return (

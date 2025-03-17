@@ -24,13 +24,13 @@ const Login = () => {
     const [login] = useLoginMutation();
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    // login function
     const handleLogin: SubmitHandler<TLogin> = async (data) => {
         const tostId = toast.loading("User is logging");
         try {
             const response = (await login(
                 data
             ).unwrap()) as TResponse<TLoginResponse>;
-            console.log(response);
             if (response.success) {
                 dispatch(
                     setUser({

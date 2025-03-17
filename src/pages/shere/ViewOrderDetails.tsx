@@ -8,6 +8,7 @@ type TProps = {
 };
 const ViewOrderDetails = ({ item, type }: TProps) => {
     const [open, setOpen] = useState(false);
+    // Scroll to top
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [item]);
@@ -20,9 +21,9 @@ const ViewOrderDetails = ({ item, type }: TProps) => {
                 }`}>
                 View Details
             </button>
+            {/* order details modal */}
             <Modal
                 className='order-modal '
-                // title='Order Details'
                 footer={null}
                 open={open}
                 onCancel={() => setOpen(false)}>

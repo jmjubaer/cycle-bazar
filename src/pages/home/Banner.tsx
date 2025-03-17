@@ -21,20 +21,18 @@ const Banner = () => {
     return (
         <div className='container'>
             <Swiper
-                // spaceBetween={30}
                 effect={"fade"}
                 loop={true}
-                // navigation={true}
                 pagination={{
                     clickable: true,
                 }}
-                // autoplay={{
-
-                //     delay: 5000,
-                //     disableOnInteraction: false,
-                // }}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
                 modules={[EffectFade, Pagination, Autoplay]}
                 className='mySwiper h-[90vh] max-h-[480px]'>
+                {/* Banner Card */}
                 <SwiperSlide>
                     <div className='relative w-full h-full z-10'>
                         <div className='absolute top-0 left-0 h-full w-full bg-black/40 z-10'></div>
@@ -46,7 +44,6 @@ const Banner = () => {
                                     Sporty Ride Or Speedy Commuter
                                 </h2>
                                 <Link
-
                                     to='/bicycle/67b94c70ca5b5458cb5e49d4'
                                     className='button_primary_large mt-7 inline-block w-fit btn_1'>
                                     Discover Now
@@ -59,6 +56,7 @@ const Banner = () => {
                         />
                     </div>
                 </SwiperSlide>{" "}
+                {/* Banner Card */}
                 <SwiperSlide>
                     <div className='relative w-full h-full'>
                         <div className='absolute top-0 left-0 h-full w-full bg-black/30 z-10'></div>
@@ -82,6 +80,7 @@ const Banner = () => {
                         />
                     </div>
                 </SwiperSlide>
+                {/* Banner Card */}
                 <SwiperSlide>
                     <div className='relative w-full h-full'>
                         <div className='absolute top-0 left-0 h-full w-full bg-black/40 z-10'></div>
@@ -105,6 +104,7 @@ const Banner = () => {
                         />
                     </div>
                 </SwiperSlide>
+                {/* Banner Card */}
                 <SwiperSlide>
                     <div className='relative w-full h-full'>
                         <div className='absolute top-0 left-0 h-full w-full bg-black/40 z-10'></div>

@@ -6,11 +6,13 @@ import cto from "../../assets/cto.jpg";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useEffect } from "react";
 const AboutUs = () => {
+    // Scroll to top
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
     return (
         <div className='container'>
+            {/* Goal info section */}
             <div className='grid md:grid-cols-2 items-center'>
                 <div className='md:pr-10 py-10'>
                     <h3
@@ -52,13 +54,14 @@ const AboutUs = () => {
                 </div>
                 <div className=''>
                     <img
-                         data-aos='zoom-in'
+                        data-aos='zoom-in'
                         src={bicycleBanner}
                         alt=''
                         className='h-screen max-h-[600px] md:max-h-[600px] w-full object-cover'
                     />
                 </div>
             </div>
+            {/* Team Info Section  */}
             <div className='text-center py-8 xs:py-14 lg:py-20'>
                 <h3
                     data-aos='fade-up'
@@ -104,7 +107,9 @@ const AboutUs = () => {
                         </h2>
                         <p className='text-lg font-semibold'>CEO CycleBazar</p>
                     </div>
-                    <div data-aos='fade-up' className='md:col-span-1 xs:col-span-2 mx-auto xs:w-1/2 md:w-full'>
+                    <div
+                        data-aos='fade-up'
+                        className='md:col-span-1 xs:col-span-2 mx-auto xs:w-1/2 md:w-full'>
                         <img
                             src={cto}
                             alt=''

@@ -55,12 +55,10 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
 
     return (
         <div>
+            {/* Show this product review */}
             {bicycle.reviews.map((review, idx) => (
                 <div className='md:my-8 my-4'>
-                    <div
-                        //data-aos="fade-up"
-                        key={idx}
-                        className='flex gap-3 '>
+                    <div data-aos='fade-up' key={idx} className='flex gap-3 '>
                         <div className='w-12'>
                             <FaCircleUser className='text-5xl text-gray-300' />
                         </div>
@@ -93,7 +91,7 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
                     </div>
                 </div>
             ))}
-
+            {/* Add Review Section */}
             <div className=''>
                 <h2
                     data-aos='fade-up'
@@ -113,6 +111,7 @@ const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
                             orientation='horizontal'
                             value={rating}
                         />
+                        {/* Review form */}
                         <form
                             data-aos='fade-up'
                             className='mt-5'

@@ -18,8 +18,10 @@ type TResponse = {
     message?: string;
 };
 const baseQuery = fetchBaseQuery({
+    // TODO: change base url
     baseUrl: "http://localhost:5000/api/",
     credentials: "include",
+    // Add token in header
     prepareHeaders: (headers, { getState }) => {
         const token = (getState() as RootState).auth.token;
         if (token) {
@@ -35,7 +37,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     DefinitionType
 > = async (args, api, extraOptions): Promise<any> => {
     let result = (await baseQuery(args, api, extraOptions)) as TResponse;
-    // console.log(result);
+    // Show common error message by toast
     if (result?.error && result?.error?.status === 400) {
         toast.error(result?.error?.data?.errorSources[0]?.message);
     }
@@ -44,9 +46,9 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     }
 
     if (result?.error && result?.error?.status === 403) {
-        console.log(result?.error?.data?.message);
         toast.error(result?.error?.data?.message);
     }
+    // Create new access token when access token is expired
     if (result?.error && result?.error?.status === 401) {
         const response = await fetch(
             "http://localhost:5000/api/auth/refresh-token",

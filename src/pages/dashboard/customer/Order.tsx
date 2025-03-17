@@ -13,9 +13,11 @@ const Order = () => {
             <h2 className='text-3xl font-semibold text-center secondary_font mb-3'>
                 My Orders
             </h2>
+            {/* Order data */}
             <Spin spinning={isFetching} tip='Loading...' size='large'>
                 <div className=''>
                     {orderData?.data?.length > 0 ? (
+                        // Order Card
                         <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5 items-center justify-between mt-7'>
                             {orderData?.data?.map((order: TOrder) => (
                                 <div

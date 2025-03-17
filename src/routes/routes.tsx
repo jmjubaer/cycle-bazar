@@ -47,6 +47,7 @@ const router = createBrowserRouter([
                     </ProtectedRoute>
                 ),
             },
+            // Sub Layout for dashboard
             {
                 path: "/dashboard",
                 element: (

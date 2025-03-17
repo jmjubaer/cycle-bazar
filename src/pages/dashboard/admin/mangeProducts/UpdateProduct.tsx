@@ -21,7 +21,7 @@ const UpdateProduct = ({ item }: TProps) => {
         handleSubmit,
         formState: { errors },
     } = useForm<TProductForm>();
-
+    // Update product functionality
     const handleUpdateProduct: SubmitHandler<TProductForm> = async (data) => {
         const toastId = toast.loading("Bicycle updating....");
         try {
@@ -33,7 +33,6 @@ const UpdateProduct = ({ item }: TProps) => {
                 data: updateProductData,
                 id: item?.key,
             });
-            console.log(result);
             if (result?.data?.success) {
                 toast.success("Bicycle updated successful", { id: toastId });
                 setOpen(false);
@@ -49,6 +48,7 @@ const UpdateProduct = ({ item }: TProps) => {
                 className={`w-full bg-primary hover:bg-primary  font-medium cursor-pointer  px-4 rounded whitespace-nowrap py-1`}>
                 Update Product
             </button>
+            {/* Update product modal */}
             <Modal
                 title='Update Product'
                 footer={null}

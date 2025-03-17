@@ -27,7 +27,7 @@ const ChangeOrderStatus = ({ item }: TProps) => {
         handleSubmit,
         formState: { errors },
     } = useForm<TNameForm>();
-
+// Status change function
     const handleChangeStatus: SubmitHandler<TNameForm> = async (data) => {
         const toastId = toast.loading("Status updating....");
         try {
@@ -35,7 +35,6 @@ const ChangeOrderStatus = ({ item }: TProps) => {
                 status: data.status,
                 id: item?.key,
             });
-            console.log(result);
             if (result?.data?.success) {
                 toast.success("Status updated successful", { id: toastId });
                 setOpen(false);
@@ -51,6 +50,7 @@ const ChangeOrderStatus = ({ item }: TProps) => {
                 className={`w-full bg-primary hover:bg-primary  font-medium cursor-pointer  px-4 rounded whitespace-nowrap py-1`}>
                 Change Status
             </button>
+            {/* Status change modal */}
             <Modal
                 title='Change Status'
                 footer={null}

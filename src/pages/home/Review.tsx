@@ -34,9 +34,9 @@ const Review = () => {
                 spinning={isFetching}
                 tip='Loading...'
                 size='large'>
+                    {/* Review cover flow swiper */}
                 <Swiper
                     effect={"coverflow"}
-                    // grabCursor={true}
                     centeredSlides={true}
                     slidesPerView={"auto"}
                     initialSlide={1}
@@ -51,6 +51,7 @@ const Review = () => {
                     modules={[EffectCoverflow, Pagination]}
                     className='review-swiper mt-5 xs:mt-9 md:mt-14'>
                     {ReviewsData?.data?.map((review: TReview) => (
+                        // Review Card
                         <SwiperSlide key={review?._id} className='slide'>
                             <div
                                 data-aos='zoom-in'

@@ -30,6 +30,7 @@ const ManageUsers = () => {
             role,
         })
     );
+    // Manage users column data
     const columns: TableColumnsType<TTableDataType> = [
         {
             title: "Name",
@@ -80,6 +81,7 @@ const ManageUsers = () => {
             width: "1%",
         },
     ];
+    // Change user role functionality
     const handleChangeRole = async (role: string, email: string) => {
         const toastId = toast.loading("Role changing ....", { duration: 5000 });
         try {
@@ -103,6 +105,7 @@ const ManageUsers = () => {
             toast.error(error.message, { id: toastId });
         }
     };
+    // Change user status functionality
     const handleChangeStatus = async (
         role: string,
         status: string,
@@ -138,6 +141,7 @@ const ManageUsers = () => {
             <h2 className='text-center text-4xl secondary_font my-5 font-semibold'>
                 Manage users
             </h2>
+            {/* Search User filed */}
             <div className='relative  xs:w-80 h-fit my-5'>
                 <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
                 <input
@@ -147,6 +151,7 @@ const ManageUsers = () => {
                     placeholder='Search by name or email...'
                 />
             </div>
+            {/* Manage user Table */}
             <div className='overflow-auto'>
                 <Table<TTableDataType>
                     loading={isFetching}

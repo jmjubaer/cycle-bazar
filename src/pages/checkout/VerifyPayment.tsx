@@ -7,14 +7,14 @@ import { useVerifyPaymentQuery } from "../../redux/features/order/orderApi";
 const VerifyPayment = () => {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
+    // Verify payment query
     const { isLoading, data } = useVerifyPaymentQuery(
         searchParams.get("order_id"),
         {
             refetchOnMountOrArgChange: true,
         }
     );
-    console.log(isLoading);
-    console.log(data);
+    // Navigate after verify payment
     if (!isLoading) {
         setTimeout(() => {
             navigate("/bicycles");
@@ -22,7 +22,7 @@ const VerifyPayment = () => {
     }
     return (
         <div className='flex items-center justify-center overflow-hidden h-[calc(100vh-70px)]'>
-            <div className='w-1/2'>
+            <div className='md:w-1/2'>
                 {isLoading ? (
                     <Lottie animationData={pending} loop={true} />
                 ) : data.success ? (

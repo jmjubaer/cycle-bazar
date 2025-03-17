@@ -43,11 +43,11 @@ const ManageOrders = () => {
             userName: user?.name,
         })
     );
+    // Order Table Colum data
     const columns: TableColumnsType<TTableDataType> = [
         {
             title: "Product Name",
             render: (item) => {
-                console.log(item);
                 return (
                     <Link
                         className='text-black'
@@ -108,8 +108,8 @@ const ManageOrders = () => {
             width: "1%",
         },
     ];
+    // Delete Product Functionality
     const handleDeleteProduct = async (id: string) => {
-        console.log(id);
         Swal.fire({
             title: "Do you want to delete this product?",
             // text: "Not can ",
@@ -118,7 +118,6 @@ const ManageOrders = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 const result = await deleteOrder(id);
-                console.log(result);
                 if (result?.data?.success) {
                     Swal.fire("Deleted!", "", "success");
                 }
@@ -130,6 +129,7 @@ const ManageOrders = () => {
             <h2 className='text-center text-4xl secondary_font my-5 font-semibold'>
                 Manage Orders
             </h2>
+            {/* Order Table */}
             <div className='overflow-auto'>
                 <Table<TTableDataType>
                     loading={isFetching}

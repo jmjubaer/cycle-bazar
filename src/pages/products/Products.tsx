@@ -69,12 +69,14 @@ const Products = () => {
     return (
         <div className='container '>
             <Layout>
+                {/* Filter and search section */}
                 <Sider
                     width={230}
                     theme='light'
                     className='pt-5 h-[calc(100vh-68px)]'
                     breakpoint='lg'
                     collapsedWidth='0'>
+                    {/* Filter and search section */}
                     <div
                         style={{ scrollbarWidth: "none" }}
                         className=' sticky h-[calc(100vh-115px)] overflow-auto top-0 left-0 border-r border-gray-300 text-base pr-3'>
@@ -259,6 +261,7 @@ const Products = () => {
                         </div>
                     </div>
                 </Sider>
+                {/* Product section */}
                 <Layout>
                     <div
                         ref={contentRef}
@@ -268,6 +271,7 @@ const Products = () => {
                             spinning={isFetching}
                             tip='Loading...'
                             size='large'>
+                            {/* Product section */}
                             <div className='grid xs:grid-cols-2 lg:grid-cols-3 mb-5 gap-5 gap-y-8'>
                                 {bicycleData?.data.length > 0 ? (
                                     bicycleData?.data.map(

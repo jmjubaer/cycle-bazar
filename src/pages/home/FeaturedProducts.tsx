@@ -18,6 +18,7 @@ const FeaturedProducts = () => {
                     "Discover the Ultimate , Bicycles for Every Ride and Adventure"
                 }
             />
+            {/* Show all bicycle data  */}
             <Spin
                 className='min-h-[100px] block'
                 spinning={isFetching}

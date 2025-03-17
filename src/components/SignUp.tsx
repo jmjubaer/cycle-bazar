@@ -27,15 +27,13 @@ const SignUp = () => {
     } = useForm<TSingUp>();
     const [registration] = useSignupMutation();
     const navigate = useNavigate();
-    // const dispatch = useAppDispatch();
-
+    // sign up function
     const handleSignUp: SubmitHandler<TSingUp> = async (data) => {
         const tostId = toast.loading("User is creating...");
         try {
             const response = (await registration(
                 data
             ).unwrap()) as TResponse<TUser>;
-            console.log(response);
             if (response.success) {
                 toast.success("Signup is successfully", {
                     id: tostId,

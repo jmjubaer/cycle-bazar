@@ -43,27 +43,34 @@ const groupByDate = (data: { createdAt: string }[], last7Days: string[]) => {
     // Ensure all last 7 days exist
     return last7Days.map((day) => groupedData[day] || 0);
 };
+
 type TProps = {
     totalUsers: { createdAt: string }[];
     totalProducts: { createdAt: string }[];
     totalOrders: { createdAt: string }[];
 };
 const DashboardChart = ({ totalUsers, totalProducts, totalOrders }: TProps) => {
+    //    Get last 7 days for label
     const last7Days = useMemo(() => getLast7Days(), []);
 
     const chartData = {
         labels: last7Days,
         datasets: [
+            // Product summary BAR
             {
                 label: "Products Added",
                 data: groupByDate(totalProducts, last7Days),
                 backgroundColor: "#34d399", // Green
             },
+            // User summary BAR
+
             {
                 label: "Users Signed Up",
                 data: groupByDate(totalUsers, last7Days),
                 backgroundColor: "#60a5fa", // Blue
             },
+            // Order summary BAR
+
             {
                 label: "Orders",
                 data: groupByDate(totalOrders, last7Days),
@@ -93,6 +100,7 @@ const DashboardChart = ({ totalUsers, totalProducts, totalOrders }: TProps) => {
 
     return (
         <div className='bg-primary/10 min-w-[700px] p-6 rounded-xl shadow-md text-white w-full'>
+            {/* Dashboard chart */}
             <Bar data={chartData} options={options} />
         </div>
     );

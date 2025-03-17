@@ -19,6 +19,7 @@ const UpdateName = ({ name, status }: TProps) => {
         handleSubmit,
         formState: { errors },
     } = useForm<TNameForm>();
+    // Update name functionality
     const handleChangeName: SubmitHandler<TNameForm> = async (data) => {
         const toastId = toast.loading("Name updating....");
         try {
@@ -39,6 +40,7 @@ const UpdateName = ({ name, status }: TProps) => {
                 className='w-full bg-primary hover:bg-primary  font-medium cursor-pointer py-2 px-4 rounded-md'>
                 Edit Name
             </button>
+            {/* Update name modal */}
             <Modal
                 title='Edit Name'
                 footer={null}

@@ -15,10 +15,12 @@ const Navbar = () => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    // Logout function
     const handleLogOut = async () => {
         dispatch(logout());
         navigate("/login");
     };
+    // dropdown items
     const items: MenuProps["items"] = [
         {
             label: (
@@ -40,12 +42,12 @@ const Navbar = () => {
 
     const menuProps = {
         items,
-        // onClick: handleChangeStatus,
     };
     return (
         <header className=' text-white z-30 sticky top-0 left-0 bg-black/80 py-2'>
             <div className='container'>
                 <nav className='flex z-50 lg:grid lg:grid-cols-5 justify-between items-center'>
+                    {/* Logo */}
                     <div className='lg:col-span-2 flex gap-2'>
                         <Link to={"/"}>
                             <img
@@ -60,6 +62,7 @@ const Navbar = () => {
                         className={`jm_nav ${
                             control ? "w-4/5 md:w-1/2 p-5" : "w-0"
                         }`}>
+                        {/* Menu item */}
                         <ul className='flex flex-col lg:flex-row gap-3 lg:gap-x-7'>
                             <li>
                                 <NavLink
@@ -124,6 +127,7 @@ const Navbar = () => {
                             )}
                         </ul>
                         <div className='flex-row-reverse flex lg:flex-row justify-end lg:mt-0 mt-5 items-center gap-5'>
+                            {/* User dropdown when use is login */}
                             {user ? (
                                 <Dropdown trigger={["click"]} menu={menuProps}>
                                     <button className='cursor-pointer'>
@@ -137,6 +141,7 @@ const Navbar = () => {
                             )}
                         </div>
                     </div>
+                    {/* small screen toggle button */}
                     <button
                         onClick={() => setControl(!control)}
                         className='block lg:hidden'>
