@@ -19,7 +19,7 @@ type TResponse = {
 };
 const baseQuery = fetchBaseQuery({
     // TODO: change base url
-    baseUrl: "http://localhost:5000/api/",
+    baseUrl: "https://bi-cycle-store-app.vercel.app/api/",
     credentials: "include",
     // Add token in header
     prepareHeaders: (headers, { getState }) => {
@@ -51,7 +51,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     // Create new access token when access token is expired
     if (result?.error && result?.error?.status === 401) {
         const response = await fetch(
-            "http://localhost:5000/api/auth/refresh-token",
+            "https://bi-cycle-store-app.vercel.app/api/auth/refresh-token",
             {
                 method: "POST",
                 credentials: "include", // Ensure cookies are sent

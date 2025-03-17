@@ -4,7 +4,7 @@ import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 const Footer = () => {
-    const baseUrl = "http://localhost:5173";
+    const baseUrl = "https://bi-cycles-store-app.vercel.app";
     return (
         <footer className='bg-black/90 h-fit pt-8 xs:pt-14 md:pt-20 text-white'>
             <div className='container sm:flex gap-8 md:gap-20'>
