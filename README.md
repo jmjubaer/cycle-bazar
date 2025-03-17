@@ -55,10 +55,3 @@ You can access the live version of Cycle Bazar here:
 - Set a price range to find bicycles within your budget.
 - Use pagination to navigate through products.
 
-## License
-
-This project is licensed under the MIT License.
-
-## Author
-
-Developed by **Md Jubaer** at **Nexstack**.
