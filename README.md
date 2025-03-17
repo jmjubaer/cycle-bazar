@@ -4,6 +4,9 @@
 
 Cycle Bazar is an online bicycle store where users can browse, filter, and purchase different types of bicycles. The platform provides an intuitive UI with powerful filtering options, including search, category selection, availability, and price range filtering.
 
+You can access the live version of Cycle Bazar here:  
+🚀 [Cycle Bazar Live Site](https://bi-cycles-store-app.vercel.app/)
+
 ## Features
 
 - **Bicycle Listings**: Browse a wide variety of bicycles.
@@ -30,19 +33,19 @@ Cycle Bazar is an online bicycle store where users can browse, filter, and purch
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/cycle-bazar.git
+   git clone https://github.com/jmjubaer/cycle-bazar.git
    cd cycle-bazar
    ```
 2. Install dependencies:
    ```bash
-   yarn install
+   npm install
    ```
 3. Create a `.env` file and configure the required environment variables.
 4. Run the development server:
    ```bash
-   yarn dev
+   npm run dev
    ```
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Usage
 
