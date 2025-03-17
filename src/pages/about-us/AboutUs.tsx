@@ -13,7 +13,7 @@ const AboutUs = () => {
     return (
         <div className='container'>
             {/* Goal info section */}
-            <div className='grid md:grid-cols-2 items-center'>
+            <div className='grid md:grid-cols-2 items-center overflow-hidden'>
                 <div className='md:pr-10 py-10'>
                     <h3
                         data-aos='fade-up'
@@ -62,7 +62,7 @@ const AboutUs = () => {
                 </div>
             </div>
             {/* Team Info Section  */}
-            <div className='text-center py-8 xs:py-14 lg:py-20'>
+            <div className='text-center py-8 xs:py-14 lg:py-20 overflow-hidden'>
                 <h3
                     data-aos='fade-up'
                     className='text-xl font-medium text-muted'>

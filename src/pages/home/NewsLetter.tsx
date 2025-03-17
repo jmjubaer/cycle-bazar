@@ -21,7 +21,7 @@ const NewsLetter = () => {
         }
     };
     return (
-        <div className='news_letter_bg h-[88vh] max-h-[500px] flex items-center justify-center'>
+        <div className='news_letter_bg h-[88vh] max-h-[300px] xs:max-h-[500px] flex items-center justify-center'>
             <div className='z-10 text-white p-5 lg:w-1/2 max-w-[600px]'>
                 <p data-aos='fade-right' className='font-medium'>
                     Email Newsletter
