@@ -29,12 +29,12 @@ const Products = () => {
 
     const { data: bicycleData, isFetching } = useGetAllBicyclesQuery([
         { name: "page", value: page },
-        { name: "limit", value: 6 },
+        { name: "limit", value: 12 },
         { name: "sort", value: "_id" },
         { name: "searchTerm", value: searchTerm },
         { name: "minPrice", value: minPrice },
         { name: "maxPrice", value: maxPrice },
-        ...(category ? [{ name: "type", value: category }] : []),
+        ...(category ? [{ name: "category", value: category }] : []),
         // ...brand,
         ...availability,
     ]);
@@ -272,7 +272,7 @@ const Products = () => {
                             tip='Loading...'
                             size='large'>
                             {/* Product section */}
-                            <div className='grid xs:grid-cols-2 lg:grid-cols-3 mb-5 gap-5 gap-y-8'>
+                            <div className='grid xs:grid-cols-2 lg:grid-cols-4 mb-5 gap-3 gap-y-8'>
                                 {bicycleData?.data.length > 0 ? (
                                     bicycleData?.data.map(
                                         (bicycle: TProduct) => (
@@ -292,7 +292,7 @@ const Products = () => {
                             className='flex justify-center'
                             onChange={(value) => setPage(value)}
                             total={bicycleData?.meta?.total}
-                            pageSize={6}
+                            pageSize={12}
                             current={page}
                         />
                     </div>

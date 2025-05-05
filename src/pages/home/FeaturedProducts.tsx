@@ -7,7 +7,7 @@ import SectionTitle from "../shere/SectionTitle";
 
 const FeaturedProducts = () => {
     const { data: bicycleData, isFetching } = useGetAllBicyclesQuery([
-        { name: "limit", value: 6 },
+        { name: "limit", value: 10 },
     ]);
 
     return (
@@ -24,7 +24,7 @@ const FeaturedProducts = () => {
                 spinning={isFetching}
                 tip='Loading...'
                 size='large'>
-                <div className='grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-8 gap-4 sm:mt-10 mt-5'>
+                <div className='grid sm:grid-cols-2 lg:grid-cols-5 sm:gap-8 gap-4 sm:mt-10 mt-5'>
                     {bicycleData?.data &&
                         bicycleData?.data.map((bicycle: TProduct) => (
                             <ProductCard

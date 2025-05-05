@@ -32,10 +32,7 @@ const ProductCategory = () => {
                                     {category?.name}
                                 </h2>
                                 <Link
-                                    to={`/bicycles?category=${category?.name.replace(
-                                        " Cycle",
-                                        ""
-                                    )}`}
+                                    to={`/bicycles?category=${category?.key}`}
                                     className='button_primary_md mb-2 sm:mb-5'>
                                     Shop Now
                                 </Link>
