@@ -1,7 +1,8 @@
-import { Layout, Menu } from "antd";
+"use client"
 import { NavLink, Outlet } from "react-router-dom";
 import { useAppSelector } from "../../redux/hook";
 import { selectCurrentUser, TUser } from "../../redux/features/auth/authSlice";
+import { Layout, Menu } from "antd";
 const { Content, Sider } = Layout;
 const DashboardLayout = () => {
     const user = useAppSelector(selectCurrentUser) as TUser;

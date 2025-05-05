@@ -19,14 +19,14 @@ type TOrderResponse = {
     success: boolean;
 };
 const Checkout = () => {
-    const [loading, setLoading] = useState(false);
     const [quantity, setQuantity] = useState(1);
-    const [paymentMethod, setPaymentMethod] = useState("");
     const { productId } = useParams();
     const { data: product } = useGetBicycleByIdQuery(productId);
     const [createOrder] = useCreateOrderMutation();
     const { data: currentUser } = useGetMeQuery(undefined);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [paymentMethod, setPaymentMethod] = useState("");
     const {
         reset,
         register,

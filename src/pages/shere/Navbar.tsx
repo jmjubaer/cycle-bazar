@@ -21,7 +21,7 @@ const Navbar = () => {
         navigate("/login");
     };
     // dropdown items
-    const items: MenuProps["items"] = [
+    const UserItems: MenuProps["items"] = [
         {
             label: (
                 <Link className='' to={`/dashboard/manage-profile`}>
@@ -39,10 +39,32 @@ const Navbar = () => {
             key: "logout",
         },
     ];
+    // const categories: TCategory[] = [
+    //     { name: "Mountain", image: mountain },
+    //     { name: "Road Cycle", image: road },
+    //     { name: "Hybrid", image: hybrid },
+    //     { name: "BMX Cycle", image: BMX },
+    //     { name: "Electric", image: electric },
+    //     { name: "Kids Cycle", image: kids },
+    // ];
+    // const CategoryItems: MenuProps["items"] = categories.map(
+    //     (category: TCategory) => ({
+    //         label: (
+    //             <Link className='' to={`/dashboard/manage-profile`}>
+    //                 My Profile
+    //             </Link>
+    //         ),
+    //         key: "profile",
+    //     })
+    // );
 
-    const menuProps = {
-        items,
+    const userMenuProps = {
+        items: UserItems,
     };
+    // const categoryMenuProps = {
+    //     items: CategoryItems,
+    // };
+    // TODO: add 6 menu
     return (
         <header className=' text-white z-30 sticky top-0 left-0 bg-black/80 py-2'>
             <div className='container'>
@@ -78,6 +100,9 @@ const Navbar = () => {
                                 </NavLink>
                             </li>
                             <li>
+                                {/* <Dropdown
+                                    trigger={["hover"]}
+                                    menu={categoryMenuProps}> */}
                                 <NavLink
                                     className={({ isActive }) =>
                                         `transition ${
@@ -89,6 +114,7 @@ const Navbar = () => {
                                     to={"/bicycles"}>
                                     All Bicycle
                                 </NavLink>
+                                {/* </Dropdown> */}
                             </li>
                             <li>
                                 <NavLink
@@ -129,7 +155,9 @@ const Navbar = () => {
                         <div className='flex-row-reverse flex lg:flex-row justify-end lg:mt-0 mt-5 items-center gap-5'>
                             {/* User dropdown when use is login */}
                             {user ? (
-                                <Dropdown trigger={["click"]} menu={menuProps}>
+                                <Dropdown
+                                    trigger={["click"]}
+                                    menu={userMenuProps}>
                                     <button className='cursor-pointer'>
                                         <FaRegUserCircle className='text-3xl text-primary' />
                                     </button>

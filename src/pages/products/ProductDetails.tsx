@@ -32,8 +32,7 @@ const ProductDetails = () => {
 
         model,
         brand,
-        type,
-
+        category,
         description,
     } = bicycle?.data || ({} as TProduct);
     const totalRating = reviews?.reduce(
@@ -148,7 +147,7 @@ const ProductDetails = () => {
                                     className='font-medium my-2'>
                                     Category:{" "}
                                     <span className='font-normal ml-2'>
-                                        {type}
+                                        {category}
                                     </span>
                                 </p>
                                 <p

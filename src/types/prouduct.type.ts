@@ -15,14 +15,18 @@ export type TProduct = {
     brand: string;
     model: string;
     price: number;
-    type: "Mountain" | "Road" | "Hybrid" | "BMX" | "Electric" | "Kids";
+    category: string;
     tag?: string;
     quantity: number;
-
     image: string;
     description: string;
     reviews: TReview[];
     inStock: boolean;
     colors: string[];
     createdAt: Date;
+};
+export type TCategory = {
+    name: string;
+    key: string;
+    image: string;
 };

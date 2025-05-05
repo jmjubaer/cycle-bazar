@@ -19,7 +19,7 @@ type TResponse = {
 };
 const baseQuery = fetchBaseQuery({
     // TODO: change base url
-    baseUrl: "https://bi-cycle-store-app.vercel.app/api/",
+    baseUrl: "http://localhost:5000/api/",
     credentials: "include",
     // Add token in header
     prepareHeaders: (headers, { getState }) => {
@@ -74,5 +74,5 @@ export const baseApi = createApi({
     reducerPath: "usersApi",
     baseQuery: baseQueryWithRefreshToken,
     endpoints: () => ({}),
-    tagTypes: ["review", "bicycle", "order", "user", "users"],
+    tagTypes: ["review", "bicycle", "order", "user", "users","category"],
 });

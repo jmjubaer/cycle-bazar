@@ -57,7 +57,7 @@ const ProductCard = ({ bicycle }: ProductCardProps) => {
                 </h4>
                 <h4 className='sm:text-xl'>
                     Category:{" "}
-                    <span className='font-medium'>{bicycle?.type}</span>
+                    <span className='font-medium'>{bicycle?.category}</span>
                 </h4>
             </div>
             <div className='flex items-center justify-between mt-1 sm:mt-5'>
