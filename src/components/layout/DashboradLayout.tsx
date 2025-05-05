@@ -1,10 +1,17 @@
-"use client"
-import { NavLink, Outlet } from "react-router-dom";
-import { useAppSelector } from "../../redux/hook";
-import { selectCurrentUser, TUser } from "../../redux/features/auth/authSlice";
-import { Layout, Menu } from "antd";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../redux/hook";
+import {
+    logout,
+    selectCurrentUser,
+    TUser,
+} from "../../redux/features/auth/authSlice";
+import logo from "./../../assets/logo.png";
+import { Dropdown, Layout, Menu, MenuProps } from "antd";
+import { FaRegUserCircle } from "react-icons/fa";
 const { Content, Sider } = Layout;
 const DashboardLayout = () => {
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const user = useAppSelector(selectCurrentUser) as TUser;
     let sidebarItems;
     switch ((user as TUser)?.role) {
@@ -64,6 +71,14 @@ const DashboardLayout = () => {
                     ),
                 },
                 {
+                    key: "/dashboard/manage-offer",
+                    label: (
+                        <NavLink to={`/dashboard/manage-offer`}>
+                            Manage Offer 
+                        </NavLink>
+                    ),
+                },
+                {
                     key: "/dashboard/create-product",
                     label: (
                         <NavLink to={`/dashboard/create-product`}>
@@ -85,13 +100,47 @@ const DashboardLayout = () => {
         default:
             break;
     }
+    const handleLogOut = async () => {
+        dispatch(logout());
+        navigate("/login");
+    };
+    const UserItems: MenuProps["items"] = [
+        {
+            label: (
+                <Link className='text-xl' to={`/dashboard/manage-profile`}>
+                    My Profile
+                </Link>
+            ),
+            key: "profile",
+        },
+        {
+            label: (
+                <div className='text-xl' onClick={() => handleLogOut()}>
+                    Log out
+                </div>
+            ),
+            key: "logout",
+        },
+    ];
+    const userMenuProps = {
+        items: UserItems,
+    };
     return (
-        <Layout className='h-[calc(100vh-68px)]'>
+        <Layout className='h-[calc(100vh-0px)]'>
             {/* Dashboard Sidebar  */}
             <Sider
-                className='pt-5 h-[calc(100vh-68px)]'
+                className='pt-5 h-[calc(100vh-0px)]'
                 breakpoint='lg'
                 collapsedWidth='0'>
+                <div className='lg:col-span-2 ml-5 border-b border-gray-500 pb-5 flex gap-2'>
+                    <Link to={"/"}>
+                        <img
+                            src={logo}
+                            alt='Logo'
+                            className='object-cover w-40 -mt-1 h-14'
+                        />
+                    </Link>
+                </div>
                 <Menu
                     theme='dark'
                     mode='inline'
@@ -100,7 +149,13 @@ const DashboardLayout = () => {
                 />
             </Sider>
             <Layout>
-                {/* Dashboard Body  */}
+                <div className='w-full sticky bg-[#001529] py-3 flex justify-end pr-5'>
+                    <Dropdown trigger={["click"]} menu={userMenuProps}>
+                        <button className='cursor-pointer'>
+                            <FaRegUserCircle className='text-5xl text-primary' />
+                        </button>
+                    </Dropdown>
+                </div>
                 <Content
                     className='h-[calc(100vh-69px)] overflow-auto p-2'
                     style={{ scrollbarWidth: "none" }}>

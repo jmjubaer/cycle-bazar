@@ -18,7 +18,7 @@ import CreateProduct from "../pages/dashboard/admin/mangeProducts/CreateProduct"
 import AboutUs from "../pages/about-us/AboutUs";
 import UserDashboard from "../pages/dashboard/customer/overview/UserDashboard";
 import Products from "../pages/products/Products";
-
+import ManageOfferProducts from "../pages/dashboard/admin/mangeOffer/ManageOfferProducts";
 
 const router = createBrowserRouter([
     {
@@ -48,79 +48,87 @@ const router = createBrowserRouter([
                 ),
             },
             // Sub Layout for dashboard
+        ],
+    },
+    {
+        path: "/dashboard",
+        element: (
+            <ProtectedRoute>
+                <DashboardLayout />
+            </ProtectedRoute>
+        ),
+        children: [
             {
-                path: "/dashboard",
+                path: "/dashboard/admin",
                 element: (
-                    <ProtectedRoute>
-                        <DashboardLayout />
+                    <ProtectedRoute role='admin'>
+                        <Dashboard />
                     </ProtectedRoute>
                 ),
-                children: [
-                    {
-                        path: "/dashboard/admin",
-                        element: (
-                            <ProtectedRoute role="admin">
-                                <Dashboard />
-                            </ProtectedRoute>
-                        ),
-                    },
-                    {
-                        path: "/dashboard/customer",
-                        element: (
-                            <ProtectedRoute role="customer">
-                                <UserDashboard />
-                            </ProtectedRoute>
-                        ),
-                    },
-                    {
-                        path: "/dashboard/orders",
-                        element: (
-                            <ProtectedRoute role='customer'>
-                                <Order />
-                            </ProtectedRoute>
-                        ),
-                    },
-                    {
-                        path: "/dashboard/manage-profile",
-                        element: (
-                            <ProtectedRoute>
-                                <ManageProfiles />
-                            </ProtectedRoute>
-                        ),
-                    },
-                    {
-                        path: "/dashboard/manage-users",
-                        element: (
-                            <ProtectedRoute role='admin'>
-                                <ManageUsers />
-                            </ProtectedRoute>
-                        ),
-                    },
-                    {
-                        path: "/dashboard/manage-products",
-                        element: (
-                            <ProtectedRoute role='admin'>
-                                <ManageProducts />
-                            </ProtectedRoute>
-                        ),
-                    },
-                    {
-                        path: "/dashboard/create-product",
-                        element: (
-                            <ProtectedRoute role='admin'>
-                                <CreateProduct />
-                            </ProtectedRoute>
-                        ),
-                    },
-                    {
-                        path: "/dashboard/manage-orders",
-                        element: (
-                            <ProtectedRoute role='admin'>
-                                <ManageOrders />
-                            </ProtectedRoute>
-                        ),
-                    },
-                ],
+            },
+            {
+                path: "/dashboard/customer",
+                element: (
+                    <ProtectedRoute role='customer'>
+                        <UserDashboard />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/dashboard/orders",
+                element: (
+                    <ProtectedRoute role='customer'>
+                        <Order />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/dashboard/manage-profile",
+                element: (
+                    <ProtectedRoute>
+                        <ManageProfiles />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/dashboard/manage-users",
+                element: (
+                    <ProtectedRoute role='admin'>
+                        <ManageUsers />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/dashboard/manage-products",
+                element: (
+                    <ProtectedRoute role='admin'>
+                        <ManageProducts />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/dashboard/manage-offer",
+                element: (
+                    <ProtectedRoute role='admin'>
+                        <ManageOfferProducts />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/dashboard/create-product",
+                element: (
+                    <ProtectedRoute role='admin'>
+                        <CreateProduct />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/dashboard/manage-orders",
+                element: (
+                    <ProtectedRoute role='admin'>
+                        <ManageOrders />
+                    </ProtectedRoute>
+                ),
             },
         ],
     },

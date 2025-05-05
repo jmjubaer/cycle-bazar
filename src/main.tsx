@@ -23,12 +23,9 @@ createRoot(document.getElementById("root")!).render(
                     fontWeightStrong: 800,
                 },
             }}>
-            {/* Redux provider */}
             <Provider store={store}>
-                {/* React router provider */}
                 <RouterProvider router={router} />
             </Provider>
-            {/* Sonner toast */}
             <Toaster />
         </ConfigProvider>
     </StrictMode>

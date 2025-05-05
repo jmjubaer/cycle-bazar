@@ -17,6 +17,7 @@ type TLoginResponse = {
 };
 const Login = () => {
     const {
+        reset,
         register,
         handleSubmit,
         formState: { errors },
@@ -54,9 +55,36 @@ const Login = () => {
         <div className='relative h-[calc(100vh-69px)] '>
             <img src={bg} className='object-cover w-full opacity-90 h-full' />
             <div className='absolute top-1/2 left-1/2 -translate-1/2 w-[94%] xs:w-4/5 sm:w-1/2 lg:w-[30%] bg-[#dddd]/60 p-5 rounded-2xl '>
-                <h2 className='text-center mb-5 text-3xl font-semibold'>
+                <h2 className='text-center mb-3 text-3xl font-semibold'>
                     Login
                 </h2>
+                <div className=''>
+                    <h3 className='text-lg text-black font-semibold'>
+                        Demo Credential{" "}
+                    </h3>
+                    <div className='flex justify-between gap-1 mt-1'>
+                        <button
+                            onClick={() =>
+                                reset({
+                                    email: "user@gmail.com",
+                                    password: "1234",
+                                })
+                            }
+                            className='button_primary'>
+                            User Credential
+                        </button>
+                        <button
+                            onClick={() =>
+                                reset({
+                                    email: "superadmin@gmail.com",
+                                    password: "@superadmin1234",
+                                })
+                            }
+                            className='button_primary'>
+                            Admin Credential
+                        </button>
+                    </div>
+                </div>
                 <form onSubmit={handleSubmit(handleLogin)} className=' '>
                     {/* register your input into the hook by invoking the "register" function */}
                     <input

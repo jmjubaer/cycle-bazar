@@ -30,3 +30,9 @@ export type TCategory = {
     key: string;
     image: string;
 };
+export interface TOfferProduct {
+    key: string;
+    _id: string;
+    product: TProduct;
+    discountPercentage: number;
+}
