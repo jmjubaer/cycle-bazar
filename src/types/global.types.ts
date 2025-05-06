@@ -40,10 +40,19 @@ export type TUser = {
     createdAt: Date;
     updatedAt: Date;
     passwordChangedAt: Date;
+
+    phone?: string;
+    password: string;
+
+    city: string;
+    district: string;
+    thana: string;
+    postalCode: number;
+    localAddress: string;
 };
 
 export type TActivity = {
     totalOrders: TOrder;
     totalProducts: TProduct;
     totalUsers: TUser;
-}
+};

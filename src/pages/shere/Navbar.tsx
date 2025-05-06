@@ -67,7 +67,7 @@ const Navbar = () => {
     return (
         <header className=' text-white z-30 sticky top-0 left-0 bg-black/80 py-2'>
             <div className='container'>
-                <nav className='flex z-50 lg:grid lg:grid-cols-5 justify-between gap-5 items-center'>
+                <nav className='flex z-50 lg:grid lg:grid-cols-7 justify-between gap-5 items-center'>
                     {/* Logo */}
                     <div className='lg:col-span-2 flex gap-2'>
                         <Link to={"/"}>
@@ -78,16 +78,6 @@ const Navbar = () => {
                             />
                         </Link>
                     </div>
-
-                    {/* <div className='relative w-ful h-fit '>
-                        <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
-                        <input
-                            // onChange={(e) => setSearchTerm(e.target.value)}
-                            type='text'
-                            className='outline-0 bg-gray-200 w-full px-5 p-2 rounded-3xl'
-                            placeholder='Search Bicycles...'
-                        />
-                    </div> */}
                     <div
                         className={`jm_nav ${
                             control ? "w-4/5 md:w-1/2 p-5" : "w-0"

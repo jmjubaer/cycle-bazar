@@ -20,6 +20,7 @@ type TResponse = {
 const baseQuery = fetchBaseQuery({
     // TODO: change base url
     baseUrl: "http://localhost:5000/api/",
+    // baseUrl: "https://bi-cycle-store-app.vercel.app/api/",
     credentials: "include",
     // Add token in header
     prepareHeaders: (headers, { getState }) => {

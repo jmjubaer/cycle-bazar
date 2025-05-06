@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Modal } from "antd";
+import { TbPasswordFingerprint } from "react-icons/tb";
 import { useChangePasswordMutation } from "../../../redux/features/auth/authApi";
 type TProps = {
     status: string;
@@ -39,8 +40,8 @@ const ChangePassword = ({ status }: TProps) => {
             <button
                 onClick={() => setOpen(true)}
                 disabled={status === "blocked"}
-                className='w-full bg-primary hover:bg-primary  font-medium cursor-pointer py-2 px-4 rounded-md'>
-                Change Password
+                className='w-full border-primary flex items-center gap-2 hover:bg-primary border transition duration-500 font-medium cursor-pointer py-2 px-4 rounded-md'>
+                <TbPasswordFingerprint className="text-lg"/> <span className="hidden sm:block">Change Password</span>
             </button>
             {/* Change Password modal */}
             <Modal

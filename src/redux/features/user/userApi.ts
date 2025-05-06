@@ -36,9 +36,9 @@ const userApi = baseApi.injectEndpoints({
             }),
             providesTags: ["user"],
         }),
-        updateMyName: builder.mutation({
+        updateProfile: builder.mutation({
             query: (data) => ({
-                url: "/user/update-name",
+                url: "/user/update-profile",
                 method: "PATCH",
                 body: data,
             }),
@@ -70,7 +70,7 @@ const userApi = baseApi.injectEndpoints({
     }),
 });
 export const {
-    useUpdateMyNameMutation,
+    useUpdateProfileMutation,
     useGetMeQuery,
     useGetAllUserQuery,
     useChangeRoleMutation,
