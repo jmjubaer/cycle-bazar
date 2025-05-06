@@ -14,6 +14,7 @@
 }
 body {
     font-family: "Poppins", serif;
+    background-color: #F1F1F1;
 }
 .secondary_font {
     font-family: "Oxanium", serif;
@@ -37,7 +38,7 @@ body {
     background-size: cover;
 }
 .button_primary {
-    @apply cursor-pointer text-sm sm:text-base font-medium hover:text-black text-black bg-primary px-4 py-1 rounded;
+    @apply cursor-pointer text-sm sm:text-base font-medium hover:text-black text-black bg-primary px-4 py-2 rounded;
 }
 .button_primary_md {
     @apply cursor-pointer text-black font-medium hover:text-white text-sm sm:text-lg bg-primary sm:px-8 sm:py-2 px-3 py-1 rounded;

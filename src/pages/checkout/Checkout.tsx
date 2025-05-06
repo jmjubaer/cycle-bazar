@@ -46,7 +46,17 @@ const Checkout = () => {
                 user: currentUser?.data?._id,
                 product: productId,
                 quantity,
-                totalPrice: product?.data?.price * quantity + 5,
+                totalPrice:
+                    (product?.data?.discount
+                        ? Math.ceil(
+                              product?.data?.price -
+                                  (product?.data?.price *
+                                      product?.data?.discount) /
+                                      100
+                          )
+                        : product?.data?.price) *
+                        quantity +
+                    5,
                 paymentMethod,
                 deliveryInfo: {
                     name: data.name,
@@ -100,8 +110,7 @@ const Checkout = () => {
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className='container overflow-hidden grid md:grid-cols-2 xs:gap-5 gap-3 py-5 items-center'>
-                
-            {/* Delivery Info section */}
+                {/* Delivery Info section */}
                 <div
                     data-aos='fade-right'
                     className=' border border-gray-300 rounded-xl p-3 xs:p-5'>
@@ -234,7 +243,7 @@ const Checkout = () => {
                         )}
                     </div>
                 </div>
-            {/* Product Info section */}
+                {/* Product Info section */}
 
                 <div className='lg:w-4/5 mx-auto'>
                     <h2 className='secondary_font font-medium text-2xl text-center'>
@@ -253,13 +262,36 @@ const Checkout = () => {
                             <h3 className='text-xl font-medium secondary_font'>
                                 {product?.data?.name}
                             </h3>
-                            <p className='my-1 text-xl font-semibold '>
-                                <span className='font-medium text-lg mr-2'>
-                                    {" "}
-                                    Price:
-                                </span>
-                                ${product?.data?.price}
-                            </p>
+
+                            {product?.data?.discount > 0 ? (
+                                <div className='flex gap-3 my-2'>
+                                    <h4 className='sm:text-xl '>
+                                        <span className='font-bold '>
+                                            $
+                                            {Math.ceil(
+                                                product?.data?.price -
+                                                    (product?.data?.price *
+                                                        product?.data
+                                                            ?.discount) /
+                                                        100
+                                            )}
+                                        </span>
+                                    </h4>
+                                    <h4 className='sm:text-xl line-through text-gray-400'>
+                                        <span className=' text-2xl ml-3 font-bold secondary_font'>
+                                            ${product?.data?.price}
+                                        </span>
+                                    </h4>
+                                </div>
+                            ) : (
+                                <p className='my-1 text-xl font-semibold '>
+                                    <span className='font-medium text-lg mr-2'>
+                                        {" "}
+                                        Price:
+                                    </span>
+                                    ${product?.data?.price}
+                                </p>
+                            )}
                             <div className='flex items-center gap-2'>
                                 <button
                                     onClick={() =>
@@ -310,7 +342,16 @@ const Checkout = () => {
                                         Price
                                     </td>
                                     <td className='border w-1/2 font-bold border-black/10 p-2 px-3'>
-                                        ${product?.data?.price}
+                                        $
+                                        {product?.data?.discount
+                                            ? Math.ceil(
+                                                  product?.data?.price -
+                                                      (product?.data?.price *
+                                                          product?.data
+                                                              ?.discount) /
+                                                          100
+                                              )
+                                            : product?.data?.price}{" "}
                                     </td>
                                 </tr>
                                 <tr className='border border-black/10'>
@@ -334,7 +375,18 @@ const Checkout = () => {
                                         Total
                                     </td>
                                     <td className='border w-1/2 font-bold border-black/10 p-2 px-3'>
-                                        ${product?.data?.price * quantity + 5}
+                                        $
+                                        {(product?.data?.discount
+                                            ? Math.ceil(
+                                                  product?.data?.price -
+                                                      (product?.data?.price *
+                                                          product?.data
+                                                              ?.discount) /
+                                                          100
+                                              )
+                                            : product?.data?.price) *
+                                            quantity +
+                                            5}
                                     </td>
                                 </tr>
                             </tbody>

@@ -19,6 +19,7 @@ const ProductDetails = () => {
     const { data: relatedBicycle } = useGetRelatedBicyclesQuery(id, {
         skip: isFetching,
     });
+
     const {
         image,
         reviews,
@@ -34,6 +35,7 @@ const ProductDetails = () => {
         brand,
         category,
         description,
+        discount,
     } = bicycle?.data || ({} as TProduct);
     const totalRating = reviews?.reduce(
         (sum: number, review: TReview) => sum + review.rating,
@@ -112,15 +114,35 @@ const ProductDetails = () => {
                                         {quantity} IN STOCK
                                     </p>
                                 </div>
-                                <p
-                                    data-aos='fade-up'
-                                    data-aos-delay='300'
-                                    className='font-medium my-2   '>
-                                    Price:{" "}
-                                    <span className='text-2xl ml-3 font-bold secondary_font '>
-                                        ${price}
-                                    </span>
-                                </p>
+                                {discount > 0 ? (
+                                    <div
+                                        data-aos='fade-up'
+                                        data-aos-delay='300'
+                                        className='flex gap-3 my-2'>
+                                        <h4 className='sm:text-xl '>
+                                            <span className='font-bold '>
+                                                $
+                                                {Math.ceil(price -
+                                                    (price * discount) / 100)}
+                                            </span>
+                                        </h4>
+                                        <h4 className='sm:text-xl line-through text-gray-400'>
+                                            <span className=' text-2xl ml-3 font-bold secondary_font'>
+                                                ${price}
+                                            </span>
+                                        </h4>
+                                    </div>
+                                ) : (
+                                    <h4
+                                        data-aos='fade-up'
+                                        data-aos-delay='300'
+                                        className='font-medium my-2   '>
+                                        Price:{" "}
+                                        <span className='font-bold '>
+                                            ${price}
+                                        </span>
+                                    </h4>
+                                )}
                                 <p
                                     data-aos='fade-up'
                                     data-aos-delay='300'

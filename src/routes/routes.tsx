@@ -19,6 +19,8 @@ import AboutUs from "../pages/about-us/AboutUs";
 import UserDashboard from "../pages/dashboard/customer/overview/UserDashboard";
 import Products from "../pages/products/Products";
 import ManageOfferProducts from "../pages/dashboard/admin/mangeOffer/ManageOfferProducts";
+import OfferProducts from "../pages/offer/OfferProducts";
+
 
 const router = createBrowserRouter([
     {
@@ -27,6 +29,7 @@ const router = createBrowserRouter([
         children: [
             { path: "/", element: <Home /> },
             { path: "/bicycles", element: <Products /> },
+            { path: "/offer-bicycles", element: <OfferProducts /> },
             { path: "/bicycle/:id", element: <ProductDetails /> },
             { path: "/about-us", element: <AboutUs /> },
             { path: "/login", element: <Login /> },

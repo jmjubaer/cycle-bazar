@@ -1,6 +1,5 @@
 import { Pagination, Table, TableColumnsType, TableProps } from "antd";
 import { useState } from "react";
-import { TOfferProduct } from "../../../../types/prouduct.type";
 import { Link } from "react-router-dom";
 import { LuCirclePlus } from "react-icons/lu";
 import Swal from "sweetalert2";
@@ -9,9 +8,14 @@ import {
     useDeleteFlashSaleProductMutation,
     useGetAllFlashSaleQuery,
 } from "../../../../redux/features/offerProducts/offerApi";
+import { TProduct } from "../../../../types/prouduct.type";
 type TableRowSelection<T extends object = object> =
     TableProps<T>["rowSelection"];
-type TTableDataType = Pick<TOfferProduct, "product" | "discountPercentage">;
+
+type TTableDataType = Pick<
+    TProduct,
+    "image" | "name" | "model" | "category" | "brand" | "quantity" | "discount"
+>;
 const ManageOfferProducts = () => {
     const [page, setPage] = useState(1);
     const [selectedIds, setSelectedIds] = useState<React.Key[]>([]);
@@ -23,10 +27,28 @@ const ManageOfferProducts = () => {
         { name: "sort", value: sortby },
     ]);
     const tableData = flashSaleData?.data?.map(
-        ({ _id, product, discountPercentage }: TOfferProduct) => ({
+        ({
+            _id,
+            image,
+            name,
+            brand,
+            colors,
+            model,
+            price,
+            quantity,
+            category,
+            discount,
+        }: TProduct) => ({
             key: _id,
-            product,
-            discountPercentage,
+            image,
+            name,
+            category,
+            model,
+            brand,
+            colors,
+            price,
+            quantity,
+            discount,
         })
     );
     // Manage Product table data
@@ -39,17 +61,17 @@ const ManageOfferProducts = () => {
                     <div className='flex items-center gap-3'>
                         <img
                             className='w-20 h-20 rounded-md border border-gray-300'
-                            src={item?.product?.image}
+                            src={item.image}
                             alt=''
                         />
                         <div className=''>
                             <Link
                                 to={`/bicycle/${item.key}`}
                                 className='text-lg font-medium'>
-                                {item.product?.name}
+                                {item.name}
                             </Link>
                             <h3 className='text-lg font-medium'>
-                                Model: {item.product?.model}
+                                Model: {item.model}
                             </h3>
                         </div>
                     </div>
@@ -58,25 +80,22 @@ const ManageOfferProducts = () => {
         },
         {
             title: "Category",
-            render: (item) => <p>{item.product.category}</p>,
+            dataIndex: "category",
         },
         {
             title: "In Stock",
-            render: (item) => <p>{item.product.quantity} Pcs</p>,
+            render: (item) => <p>{item.quantity} Pcs</p>,
         },
         {
             title: "Offer Price",
             render: (item) => (
                 <div className='flex items-center gap-2'>
                     <p className='font-bold'>
-                        $
-                        {item.product?.price -
-                            item.product?.price *
-                                (item.discountPercentage / 100)}
+                        ${item?.price - item?.price * (item.discount / 100)}
                     </p>{" "}
                     /
                     <p className='font-bold text-gray-400 line-through'>
-                        ${item.product?.price}
+                        ${item?.price}
                     </p>
                 </div>
             ),
@@ -85,7 +104,7 @@ const ManageOfferProducts = () => {
         {
             title: "Discount",
             render: (item) => (
-                <p className=' font-bold text-xl'>{item.discountPercentage}%</p>
+                <p className=' font-bold text-xl'>{item.discount}%</p>
             ),
             // width: "1%"
         },
@@ -98,7 +117,7 @@ const ManageOfferProducts = () => {
                         <button
                             onClick={() => handleDeleteProduct(item.key)}
                             className='whitespace-nowrap cursor-pointer bg-red-500 text-white rounded p-1 '>
-                            Delete Product
+                            Delete Offer
                         </button>
                         <UpdateOffer item={item} />
                     </div>

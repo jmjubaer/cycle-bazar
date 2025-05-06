@@ -3,10 +3,10 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Modal } from "antd";
-import { TOfferProduct } from "../../../../types/prouduct.type";
+import { TProduct } from "../../../../types/prouduct.type";
 import { useUpdateFlashSaleMutation } from "../../../../redux/features/offerProducts/offerApi";
 type TProps = {
-    item: TOfferProduct;
+    item: TProduct;
 };
 type TProductForm = {
     discountPercentage: number;
@@ -63,7 +63,7 @@ const UpdateOffer = ({ item }: TProps) => {
                     <input
                         className='w-full text-xl text-black outline-none border-b-2 border-primary capitalize p-2 px-0'
                         id='discountPercentage'
-                        defaultValue={item?.discountPercentage}
+                        defaultValue={item?.discount}
                         placeholder='Discount Percentage...'
                         {...register("discountPercentage", {
                             required: {

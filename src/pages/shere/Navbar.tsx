@@ -107,6 +107,7 @@ const Navbar = () => {
                                     Home
                                 </NavLink>
                             </li>
+
                             <li>
                                 <Dropdown
                                     trigger={["hover"]}
@@ -125,6 +126,19 @@ const Navbar = () => {
                                         <FaAngleDown className='inline-block ml-2 group-hover:rotate-180 text-xl transition-all duration-500' />
                                     </NavLink>
                                 </Dropdown>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        `transition  ${
+                                            isActive
+                                                ? "text-primary group font-bold"
+                                                : "hover:text-primary group"
+                                        }`
+                                    }
+                                    to={"/offer-bicycles"}>
+                                    <span>Offer Bicycle</span>{" "}
+                                </NavLink>
                             </li>
                             <li>
                                 <NavLink

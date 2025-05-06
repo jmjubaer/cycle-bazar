@@ -28,12 +28,12 @@ const productApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ["bicycle"],
         }),
-        getBicycleById: builder.query({
+        getFlashById: builder.query({
             query: (id) => ({
-                url: `/products/${id}`,
+                url: `/flashSale/${id}`,
                 method: "GET",
             }),
-            providesTags: ["bicycle"],
+            providesTags: ["flashSale"],
         }),
         updateFlashSale: builder.mutation({
             query: ({ data, id }) => ({
@@ -55,7 +55,7 @@ const productApi = baseApi.injectEndpoints({
 });
 export const {
     useGetAllFlashSaleQuery,
-    useGetBicycleByIdQuery,
+    useGetFlashByIdQuery,
     useCreateFlashSaleMutation,
     useDeleteFlashSaleProductMutation,
     useUpdateFlashSaleMutation,

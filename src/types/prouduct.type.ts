@@ -23,6 +23,7 @@ export type TProduct = {
     reviews: TReview[];
     inStock: boolean;
     colors: string[];
+    discount: number;
     createdAt: Date;
 };
 export type TCategory = {
@@ -30,9 +31,3 @@ export type TCategory = {
     key: string;
     image: string;
 };
-export interface TOfferProduct {
-    key: string;
-    _id: string;
-    product: TProduct;
-    discountPercentage: number;
-}

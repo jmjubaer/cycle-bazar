@@ -19,7 +19,7 @@ AOS.init({
 });
 const Banner = () => {
     return (
-        <div className='container'>
+        <div className=''>
             <Swiper
                 effect={"fade"}
                 loop={true}
@@ -31,7 +31,7 @@ const Banner = () => {
                     disableOnInteraction: false,
                 }}
                 modules={[EffectFade, Pagination, Autoplay]}
-                className='mySwiper h-[90vh] max-h-[480px]'>
+                className='mySwiper h-[90vh] max-h-[500px]'>
                 {/* Banner Card */}
                 <SwiperSlide>
                     <div className='relative w-full h-full z-10'>
