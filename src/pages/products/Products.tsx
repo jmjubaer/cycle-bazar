@@ -71,15 +71,15 @@ const Products = () => {
             <Layout>
                 {/* Filter and search section */}
                 <Sider
-                    width={230}
+                    width={250}
                     theme='light'
-                    className='pt-5 h-[calc(100vh-68px)]'
+                    className='pt-5'
                     breakpoint='lg'
                     collapsedWidth='0'>
                     {/* Filter and search section */}
                     <div
                         style={{ scrollbarWidth: "none" }}
-                        className=' sticky h-[calc(100vh-115px)] overflow-auto top-0 left-0 border-r border-gray-300 text-base pr-3'>
+                        className=' sticky h-[calc(100vh-95px)] overflow-auto top-0 left-0 border-r border-gray-300 text-base p-3'>
                         <div className='relative w-full h-fit '>
                             <IoSearchSharp className='absolute top-1/2 right-2 text-xl text-gray-500 -translate-y-1/2' />
                             <input
@@ -266,13 +266,13 @@ const Products = () => {
                     <div
                         ref={contentRef}
                         style={{ scrollbarWidth: "none" }}
-                        className=' h-[calc(100vh-115px)] overflow-auto  lg:p-5 pr-0'>
+                        className=' h-[calc(100vh-75px)] overflow-auto  lg:p-3 pr-0'>
                         <Spin
                             spinning={isFetching}
                             tip='Loading...'
                             size='large'>
                             {/* Product section */}
-                            <div className='grid xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-5 gap-3 gap-y-8'>
+                            <div className='grid xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-5 gap-3 '>
                                 {bicycleData?.data.length > 0 ? (
                                     bicycleData?.data.map(
                                         (bicycle: TProduct) => (

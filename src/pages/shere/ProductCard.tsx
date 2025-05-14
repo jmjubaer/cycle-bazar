@@ -30,7 +30,7 @@ const ProductCard = ({ bicycle }: ProductCardProps) => {
                 </span>
             )}
             <img
-                className='sm:w-full w-[300px] h-[200px] mx-auto sm:h-40  '
+                className='sm:w-full w-[300px] h-[200px] mx-auto sm:h-40  object-contain'
                 src={bicycle?.image}
                 alt={bicycle?.name}
             />

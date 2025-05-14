@@ -18,6 +18,7 @@ type ProductCardProps = {
     data: TProduct;
 };
 const ReviewTab = ({ data: bicycle }: ProductCardProps) => {
+    
     const user = useAppSelector(selectCurrentUser) as TUser;
     const { data: currentUser } = useGetMeQuery(undefined);
     const [rating, setRating] = useState(0);

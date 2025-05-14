@@ -129,7 +129,7 @@ const DashboardLayout = () => {
         <Layout className='h-[calc(100vh-0px)]'>
             {/* Dashboard Sidebar  */}
             <Sider
-                className='pt-5 h-[calc(100vh-0px)]'
+                className='pt-5 dashboard h-[calc(100vh-0px)]'
                 breakpoint='lg'
                 collapsedWidth='0'>
                 <div className='lg:col-span-2 ml-5 z-20 border-b border-gray-500 pb-5 flex gap-2'>

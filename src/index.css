@@ -14,7 +14,7 @@
 }
 body {
     font-family: "Poppins", serif;
-    background-color: #F1F1F1;
+    background-color: #f1f1f1;
 }
 .secondary_font {
     font-family: "Oxanium", serif;
@@ -106,6 +106,17 @@ button:disabled {
     top: 0;
     color: #fff;
     background: #ffae00;
+    font-size: 25px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+:where(.css-dev-only-do-not-override-1qdf4kr).dashboard
+    .ant-layout-sider-zero-width-trigger {
+    top: 12px;
+    /* left: 12px; */
+    color: #ffae00;
+    background: transparent;
+    font-size: 40px;
     border-radius: 8px 8px 8px 8px;
 }
 /* Custom CSS Responsive */
