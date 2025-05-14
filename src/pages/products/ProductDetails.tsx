@@ -122,8 +122,10 @@ const ProductDetails = () => {
                                         <h4 className='sm:text-xl '>
                                             <span className='font-bold '>
                                                 $
-                                                {Math.ceil(price -
-                                                    (price * discount) / 100)}
+                                                {Math.ceil(
+                                                    price -
+                                                        (price * discount) / 100
+                                                )}
                                             </span>
                                         </h4>
                                         <h4 className='sm:text-xl line-through text-gray-400'>
@@ -204,7 +206,7 @@ const ProductDetails = () => {
                             <h2 className='text-2xl xs:text-4xl mt-8 font-semibold secondary_font'>
                                 Related Category Product
                             </h2>
-                            <div className='grid xs:grid-cols-2 lg:grid-cols-3 gap-8 mt-10'>
+                            <div className='grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mt-10'>
                                 {relatedBicycle?.data.length > 0 &&
                                     relatedBicycle?.data.map(
                                         (bicycle: TProduct) => (
