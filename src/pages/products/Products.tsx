@@ -273,8 +273,8 @@ const Products = () => {
                             size='large'>
                             {/* Product section */}
                             <div className='grid xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-5 gap-3 '>
-                                {bicycleData?.data.length > 0 ? (
-                                    bicycleData?.data.map(
+                                {bicycleData?.data?.length > 0 ? (
+                                    bicycleData?.data?.map(
                                         (bicycle: TProduct) => (
                                             <ProductCard
                                                 key={bicycle._id}
